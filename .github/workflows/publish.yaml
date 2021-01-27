@@ -54,7 +54,7 @@ jobs:
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           build-args: |
-            FLUENTD_VERSION=${{ steps.tag.outputs.tag }}
+            FLUENTD_VERSION=${{ steps.tag.outputs.tag }}-1.0
 
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v2
