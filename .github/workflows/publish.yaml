@@ -55,10 +55,9 @@ jobs:
           labels: ${{ steps.docker_meta.outputs.labels }}
           build-args: |
             FLUENTD_VERSION=${{ steps.tag.outputs.tag }}-1.0
-
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: stevehipwell/fluentd-aggregator
+      # - name: Update repo description
+      #   uses: peter-evans/dockerhub-description@v2
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #     repository: stevehipwell/fluentd-aggregator
