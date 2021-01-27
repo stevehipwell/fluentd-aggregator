@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-A [Fluentd](https://www.fluentd.org/) _Docker_ image to be used for log aggregation and based on the official _v1.11_ [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image).
+A [Fluentd](https://www.fluentd.org/) _Docker_ image to be used for log aggregation and based on the official [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image).
 
 ## Aggregation Changes
 
@@ -23,7 +23,7 @@ The following plugins have been added to the base image.
 
 This image is available at [Docker Hub](https://hub.docker.com/r/stevehipwellt/fluentd-aggregator) and [GitHub](https://github.com/users/stevehipwell/packages/container/package/fluentd-aggregator). This image uses [Semantic Versioning 2.0.0](https://semver.org/) with the major and minor version matching the _Fluentd_ major and minor versions and the patch reserved for image changes.
 
-This image can be pulled from the following two repositories.
+This image can be pulled from the following two repositories (where release version is `v1.11.0`).
 
 ```shell
 docker pull stevehipwell/fluentd-aggregator:latest
