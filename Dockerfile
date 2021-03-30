@@ -1,4 +1,4 @@
-ARG FLUENTD_VERSION="v1.11"
+ARG FLUENTD_VERSION="v1.12"
 FROM fluent/fluentd:${FLUENTD_VERSION}
 
 # Use root account to use apk
@@ -15,7 +15,8 @@ RUN set -eu; \
   fluent-plugin-prometheus \
   fluent-plugin-s3 \
   fluent-plugin-sqs \
-  fluent-plugin-aws-elasticsearch-service; \
+  fluent-plugin-aws-elasticsearch-service \
+  fluent-plugin-datadog; \
   sudo gem sources --clear-all; \
   apk del .build-deps; \
   rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem;
