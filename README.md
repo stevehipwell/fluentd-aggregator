@@ -13,26 +13,25 @@ To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has bee
 The following plugins have been added to the base image.
 
 - [fluent-plugin-concat](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
+- [fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 - [fluent-plugin-elasticsearch](https://docs.fluentd.org/output/elasticsearch)
 - [fluent-plugin-grafana-loki](https://github.com/grafana/loki/tree/master/cmd/fluentd)
 - [fluent-plugin-prometheus](https://github.com/fluent/fluent-plugin-prometheus)
 - [fluent-plugin-s3](https://docs.fluentd.org/output/s3)
 - [fluent-plugin-sqs](https://github.com/ixixi/fluent-plugin-sqs)
+- [fluent-plugin-aws-elasticsearch-service](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service)
+- [fluent-plugin-datadog](https://github.com/DataDog/fluent-plugin-datadog)
 
 ## Usage
 
-This image is available at [Docker Hub](https://hub.docker.com/r/stevehipwellt/fluentd-aggregator) and [GitHub](https://github.com/users/stevehipwell/packages/container/package/fluentd-aggregator). This image uses [Semantic Versioning 2.0.0](https://semver.org/) with the major and minor version matching the _Fluentd_ major and minor versions and the patch reserved for image changes.
+This image is available at [Docker Hub](https://hub.docker.com/r/stevehipwellt/fluentd-aggregator) and [GitHub](https://github.com/users/stevehipwell/packages/container/package/fluentd-aggregator). The image version matches the _Fluentd_ version.
 
-This image can be pulled from the following two repositories (where release version is `v1.11.0`).
+This image can be pulled from the following two repositories.
 
 ```shell
 docker pull stevehipwell/fluentd-aggregator:latest
-docker pull stevehipwell/fluentd-aggregator:v1.11
-docker pull stevehipwell/fluentd-aggregator:v1.11.0
 
 docker pull ghcr.io/stevehipwell/fluentd-aggregator:latest
-docker pull ghcr.io/stevehipwell/fluentd-aggregator:v1.11
-docker pull stevehipwell/fluentd-aggregator:v1.11.0
 ```
 
 This image can be tested by running the following command and then forwarding logs.
