@@ -8,15 +8,17 @@ USER root
 RUN set -eu; \
   apk add --no-cache --update --virtual .build-deps sudo build-base ruby-dev; \
   sudo gem install \
+  fluent-plugin-aws-elasticsearch-service \
   fluent-plugin-concat \
-  fluent-plugin-record-modifier \
+  fluent-plugin-datadog \
   fluent-plugin-elasticsearch \
   fluent-plugin-grafana-loki \
   fluent-plugin-prometheus \
+  fluent-plugin-record-modifier \
+  fluent-plugin-rewrite-tag-filter \
+  fluent-plugin-route \
   fluent-plugin-s3 \
-  fluent-plugin-sqs \
-  fluent-plugin-aws-elasticsearch-service \
-  fluent-plugin-datadog; \
+  fluent-plugin-sqs; \
   sudo gem sources --clear-all; \
   apk del .build-deps; \
   rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem;
