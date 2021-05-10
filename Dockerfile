@@ -9,6 +9,7 @@ RUN set -eu; \
   apk add --no-cache --update --virtual .build-deps sudo build-base ruby-dev; \
   sudo gem install \
   fluent-plugin-aws-elasticsearch-service \
+  fluent-plugin-azure-storage-append-blob-lts \
   fluent-plugin-azurestorage-gen2 \
   fluent-plugin-concat \
   fluent-plugin-datadog \
