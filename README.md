@@ -13,7 +13,7 @@ To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has bee
 The following plugins have been added to the base image.
 
 - [fluent-plugin-aws-elasticsearch-service](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service)
-- [fluent-plugin-azure-storage-append-blob-lts](https://github.com/elsesiy/fluent-plugin-azure-storage-append-blob-lts)
+- [fluent-plugin-azure-loganalytics](https://github.com/yokawasa/fluent-plugin-azure-loganalytics)
 - [fluent-plugin-azurestorage-gen2](https://github.com/oleewere/fluent-plugin-azurestorage-gen2)
 - [fluent-plugin-concat](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
 - [fluent-plugin-datadog](https://github.com/DataDog/fluent-plugin-datadog)
