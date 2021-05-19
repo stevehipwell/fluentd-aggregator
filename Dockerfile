@@ -4,9 +4,14 @@ FROM fluent/fluentd:${FLUENTD_VERSION}
 # Use root account to use apk
 USER root
 
+# Add system dependencies
+RUN set -eu; \
+  apk add --no-cache \
+  libcurl;
+
 # Add custom plugins
 RUN set -eu; \
-  apk add --no-cache --update --virtual .build-deps sudo build-base ruby-dev; \
+  apk add --no-cache --virtual .build-deps sudo build-base ruby-dev; \
   sudo gem install \
   fluent-plugin-aws-elasticsearch-service \
   fluent-plugin-azure-loganalytics \
