@@ -1,5 +1,4 @@
-ARG FLUENTD_VERSION="v1.12"
-FROM fluent/fluentd:${FLUENTD_VERSION}
+FROM fluent/fluentd:v1.12.3-1.0
 
 # Use root account to use apk
 USER root

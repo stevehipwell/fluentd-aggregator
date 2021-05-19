@@ -15,14 +15,6 @@ jobs:
         id: tag
         uses: dawidd6/action-get-tag@v1
 
-      - name: Set variables
-        id: vars
-        run: |
-          fluentd_version_lookup="$(echo "${{ steps.tag.outputs.tag }}" | grep -ioP 'v\d+\.\d+')"
-          fluentd_version_lookup="FLUENTD_${fluentd_version_lookup/./_}"
-          fluentd_version_lookup="${fluentd_version_lookup/v/V}"
-          echo "::set-output name=fluentd_version_lookup::${fluentd_version_lookup}"
-
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
@@ -61,8 +53,6 @@ jobs:
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          build-args: |
-            FLUENTD_VERSION=${{ secrets[steps.vars.outputs.fluentd_version_lookup] }}
       # - name: Update repo description
       #   uses: peter-evans/dockerhub-description@v2
       #   with:
