@@ -1,4 +1,7 @@
-FROM fluent/fluentd:v1.12.4-1.0
+FROM fluent/fluentd:v1.13.0-1.1
+
+# Default env
+ENV RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR="0.9"
 
 # Use root account to use apk
 USER root
