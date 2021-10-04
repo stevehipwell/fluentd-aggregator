@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.14.0-1.0
+FROM fluent/fluentd:v1.14.1-1.0
 
 # Default env
 ENV RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR="0.9"
