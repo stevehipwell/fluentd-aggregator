@@ -1,5 +1,6 @@
 # Fluentd Aggregator
 
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 A [Fluentd](https://www.fluentd.org/) _Docker_ image to be used for log aggregation and based on the official [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image).
@@ -15,10 +16,11 @@ The following plugins have been added to the base image.
 - [fluent-plugin-aws-elasticsearch-service](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service)
 - [fluent-plugin-azure-loganalytics](https://github.com/yokawasa/fluent-plugin-azure-loganalytics)
 - [fluent-plugin-azurestorage-gen2](https://github.com/oleewere/fluent-plugin-azurestorage-gen2)
+- [fluent-plugin-cloudwatch-logs](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs)
 - [fluent-plugin-concat](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
 - [fluent-plugin-datadog](https://github.com/DataDog/fluent-plugin-datadog)
 - [fluent-plugin-elasticsearch](https://docs.fluentd.org/output/elasticsearch)
-- [fluent-plugin-grafana-loki](https://github.com/grafana/loki/tree/master/cmd/fluentd)
+- [fluent-plugin-grafana-loki](https://github.com/grafana/loki/tree/main/clients/cmd/fluentd)
 - [fluent-plugin-prometheus](https://github.com/fluent/fluent-plugin-prometheus)
 - [fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 - [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)

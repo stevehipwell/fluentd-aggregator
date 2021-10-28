@@ -15,9 +15,13 @@ RUN set -eu; \
 RUN set -eu; \
   apk add --no-cache --virtual .build-deps sudo build-base ruby-dev; \
   sudo gem install \
+  elasticsearch-api:7.13.3 \
+  elasticsearch-transport:7.13.3 \
+  elasticsearch:7.13.3 \
   fluent-plugin-aws-elasticsearch-service \
   fluent-plugin-azure-loganalytics \
   fluent-plugin-azurestorage-gen2 \
+  fluent-plugin-cloudwatch-logs \
   fluent-plugin-concat \
   fluent-plugin-datadog \
   fluent-plugin-elasticsearch \
