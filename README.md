@@ -21,6 +21,7 @@ The following plugins have been added to the base image.
 - [fluent-plugin-datadog](https://github.com/DataDog/fluent-plugin-datadog)
 - [fluent-plugin-elasticsearch](https://docs.fluentd.org/output/elasticsearch)
 - [fluent-plugin-grafana-loki](https://github.com/grafana/loki/tree/main/clients/cmd/fluentd)
+- [fluent-plugin-opensearch](https://github.com/fluent/fluent-plugin-opensearch)
 - [fluent-plugin-prometheus](https://github.com/fluent/fluent-plugin-prometheus)
 - [fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 - [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
