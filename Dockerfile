@@ -26,6 +26,7 @@ RUN set -eu; \
   fluent-plugin-datadog \
   fluent-plugin-elasticsearch \
   fluent-plugin-grafana-loki \
+  fluent-plugin-opensearch \
   fluent-plugin-prometheus \
   fluent-plugin-record-modifier \
   fluent-plugin-rewrite-tag-filter \

@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 ### Removed -->
 
+## [v1.14.6] - 2022-01-13
+
+### Added
+
+- [fluent-plugin-opensearch](https://github.com/fluent/fluent-plugin-opensearch)
+
 ## [v1.14.5] - 2022-01-06
 
 ### Changed
@@ -39,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Pinned _Elasticsearch_ gems to `v7.13.3` to stop it blocking _OpenSearch_.
+- Pinned _Elasticsearch_ gems to `v7.13.3` to make _AWS Elasticsearch Service_ continue to work.
 
 ## [v1.14.1] - 2021-10-04
 
