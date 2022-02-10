@@ -3,7 +3,6 @@ FROM alpine:3.13
 RUN apk update \
   && apk add --no-cache \
   ca-certificates \
-  libcurl \
   ruby ruby-irb ruby-etc ruby-webrick \
   tini \
   && apk add --no-cache --virtual .build-deps \
@@ -16,7 +15,21 @@ RUN apk update \
   && gem install ext_monitor -v 0.1.2 \
   && gem install fluentd -v 1.14.5 \
   && gem install bigdecimal -v 1.4.4 \
-  && gem install \
+  && apk del .build-deps \
+  && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem /usr/lib/ruby/gems/2.*/gems/fluentd-*/test
+
+RUN addgroup -S fluent && adduser -S -G fluent fluent \
+  # for log storage (maybe shared with host)
+  && mkdir -p /fluentd/log \
+  # configuration/plugins path (default: copied from .)
+  && mkdir -p /fluentd/etc /fluentd/plugins \
+  && chown -R fluent /fluentd && chgrp -R fluent /fluentd
+
+RUN set -eu; \
+  apk add --no-cache \
+  libcurl; \
+  apk add --no-cache --virtual .build-deps build-base ruby-dev; \
+  gem install \
   elasticsearch-api:7.13.3 \
   elasticsearch-transport:7.13.3 \
   elasticsearch:7.13.3 \
@@ -34,21 +47,15 @@ RUN apk update \
   fluent-plugin-rewrite-tag-filter \
   fluent-plugin-route \
   fluent-plugin-s3 \
-  fluent-plugin-sqs \
-  && apk del .build-deps \
-  && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem /usr/lib/ruby/gems/2.*/gems/fluentd-*/test
-
-RUN addgroup -S fluent && adduser -S -G fluent fluent \
-  # for log storage (maybe shared with host)
-  && mkdir -p /fluentd/log \
-  # configuration/plugins path (default: copied from .)
-  && mkdir -p /fluentd/etc /fluentd/plugins \
-  && chown -R fluent /fluentd && chgrp -R fluent /fluentd
-
+  fluent-plugin-sqs; \
+  gem sources --clear-all; \
+  apk del .build-deps; \
+  rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem;
 
 COPY fluent.conf /fluentd/etc/
 COPY entrypoint.sh /bin/
 
+RUN chmod +x /bin/entrypoint.sh
 
 ENV FLUENTD_CONF="fluent.conf"
 ENV RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR="0.9"
@@ -68,13 +75,10 @@ CMD ["fluentd"]
 # # Use root account to use apk
 # USER root
 
-# # Add system dependencies
+# # Install
 # RUN set -eu; \
 #   apk add --no-cache \
 #   libcurl;
-
-# # Add custom plugins
-# RUN set -eu; \
 #   apk add --no-cache --virtual .build-deps build-base ruby-dev; \
 #   gem install \
 #   elasticsearch-api:7.13.3 \
@@ -95,7 +99,7 @@ CMD ["fluentd"]
 #   fluent-plugin-route \
 #   fluent-plugin-s3 \
 #   fluent-plugin-sqs; \
-#   sudo gem sources --clear-all; \
+#   gem sources --clear-all; \
 #   apk del .build-deps; \
 #   rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem;
 
