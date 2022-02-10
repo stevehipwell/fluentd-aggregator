@@ -1,13 +1,20 @@
 # Fluentd Aggregator
 
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![linux](https://img.shields.io/badge/os-linux-brightgreen)
+![amd64](https://img.shields.io/badge/arch-amd64-brightgreen)
+![arm64](https://img.shields.io/badge/arch-arm64-brightgreen)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-A [Fluentd](https://www.fluentd.org/) _Docker_ image to be used for log aggregation and based on the official [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image).
+A [Fluentd](https://www.fluentd.org/) [OCI](https://opencontainers.org/) image to be used for log aggregation and based on the official [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image) rebuilt as a multi-arch `linux/amd64` & `linux/arm64` image.
 
 ## Aggregation Changes
 
 To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has been overwritten to allow logs to be forwarded and printed to stdout. Plugins have also been added to support the aggregation role.
+
+### Versioning
+
+The image version isn't strictly SemVer compatible as it tracks the major and minor versions of the _Fluentd_ releases it's based on and uses the patch version for both patches and features.
 
 ### Plugins
 
