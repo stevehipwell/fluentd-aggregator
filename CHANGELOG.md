@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 ### Removed -->
 
+## [v1.14.9] - 2022-04-01
+
+### Changed
+
+- Updated _Fluentd_ image to [v1.14.6](https://github.com/fluent/fluentd/releases/tag/v1.14.6).
+
 ## [v1.14.8] - 2022-02-10
 
 ### Added
