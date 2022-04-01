@@ -13,7 +13,7 @@ RUN apk update \
   && gem install json -v 2.4.1 \
   && gem install async-http -v 0.54.0 \
   && gem install ext_monitor -v 0.1.2 \
-  && gem install fluentd -v 1.14.5 \
+  && gem install fluentd -v 1.14.6 \
   && gem install bigdecimal -v 1.4.4 \
   && apk del .build-deps \
   && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem /usr/lib/ruby/gems/2.*/gems/fluentd-*/test
@@ -67,7 +67,7 @@ USER fluent
 ENTRYPOINT ["tini",  "--", "/bin/entrypoint.sh"]
 CMD ["fluentd"]
 
-# FROM fluent/fluentd:v1.14.5-1.0
+# FROM fluent/fluentd:v1.14.6-1.0
 
 # # Default env
 # ENV RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR="0.9"
