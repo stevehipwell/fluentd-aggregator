@@ -41,6 +41,7 @@ RUN set -eu; \
   fluent-plugin-datadog \
   fluent-plugin-elasticsearch \
   fluent-plugin-grafana-loki \
+  fluent-plugin-kafka \
   fluent-plugin-opensearch \
   fluent-plugin-prometheus \
   fluent-plugin-record-modifier \
@@ -92,6 +93,7 @@ CMD ["fluentd"]
 #   fluent-plugin-datadog \
 #   fluent-plugin-elasticsearch \
 #   fluent-plugin-grafana-loki \
+#   fluent-plugin-kafka \
 #   fluent-plugin-opensearch \
 #   fluent-plugin-prometheus \
 #   fluent-plugin-record-modifier \

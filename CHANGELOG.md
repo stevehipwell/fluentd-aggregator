@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 ### Removed -->
 
+## [v1.14.10] - 2022-05-03
+
+### Added
+
+- Added support for [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka).
+
 ## [v1.14.9] - 2022-04-01
 
 ### Changed
