@@ -49,7 +49,7 @@ RUN set -eu; \
   fluent-plugin-route \
   fluent-plugin-s3 \
   fluent-plugin-sqs \
-  fluent-plugin-azureeventhubs;\
+  fluent-plugin-azureeventhubs; \
   gem sources --clear-all; \
   apk del .build-deps; \
   rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem;
