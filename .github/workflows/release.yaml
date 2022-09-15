@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 
 on:
   push:
@@ -6,19 +6,17 @@ on:
       - v*
 
 jobs:
-  main:
+  release:
+    name: Release OCI Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
 
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@727a6f0a561be04e09013531e73a3983a65e3479
-
-      - uses: hadolint/hadolint-action@f988afea3da57ee48710a9795b6bb677cc901183
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@f988afea3da57ee48710a9795b6bb677cc901183
         with:
-          dockerfile: Dockerfile
+          dockerfile: ./Dockerfile
 
       - name: Docker meta
         id: docker_meta
@@ -28,6 +26,7 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@8b122486cedac8393e77aa9734c3528886e4a1a8
@@ -71,7 +70,7 @@ jobs:
         uses: mindsers/changelog-reader-action@17b72bf66059b7ac310abdc0b511948903e85ea5
         with:
           path: ./CHANGELOG.md
-          version: ${{steps.tag.outputs.tag}}
+          version: ${{ steps.metadata.outputs.version }}
 
       - name: Update release
         uses: ncipollo/release-action@58ae73b360456532aafd58ee170c045abbeaee37
