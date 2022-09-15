@@ -9,14 +9,41 @@ jobs:
   build:
     name: Build OCI Image
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
 
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6
+
       - name: Run Hadolint
+        id: hadolint
         uses: hadolint/hadolint-action@f988afea3da57ee48710a9795b6bb677cc901183
+        continue-on-error: true
         with:
           dockerfile: ./Dockerfile
+          format: sarif
+          output-file: hadolint.sarif
+          no-fail: false
+
+      - name: Upload Hadolint SARIF report
+        uses: github/codeql-action/upload-sarif@6a38b7d4a1af70deb1b561eb77db2b5e5a6a1e69
+        with:
+          category: hadolint
+          sarif_file: hadolint.sarif
+
+      - name: Generate OCI image metadata
+        id: meta
+        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a
+        with:
+          flavor: |
+            latest=false
+          images: |
+            docker.io/${{ github.repository }}
+            ghcr.io/${{ github.repository }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@8b122486cedac8393e77aa9734c3528886e4a1a8
@@ -24,10 +51,65 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6
 
-      - name: Build
+      - name: Build OCI image
+        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
+        with:
+          file: ./Dockerfile
+          context: .
+          platforms: linux/amd64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          load: true
+          push: false
+
+      - name: Generate OCI image SBOM
+        uses: anchore/sbom-action@b5042e9d19d8b32849779bfe17673ff84aec702d
+        with:
+          image: "ghcr.io/${{ github.repository }}:main"
+          dependency-snapshot: true
+          format: spdx-json
+          artifact-name: ${{ github.event.repository.name }}-sbom.spdx.json
+          output-file: ${{ github.event.repository.name }}-sbom.spdx.json
+
+      - name: Scan OCI image SBOM with Grype
+        id: scan
+        uses: anchore/scan-action@ecfd0e98932e57ea8f68f29c4f418fc41a8194db
+        continue-on-error: true
+        with:
+          sbom: ${{ github.event.repository.name }}-sbom.spdx.json
+          severity-cutoff: medium
+          acs-report-enable: true
+          fail-build: true
+
+      - name: Upload Grype SARIF report
+        uses: github/codeql-action/upload-sarif@6a38b7d4a1af70deb1b561eb77db2b5e5a6a1e69
+        with:
+          category: grype
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+
+      - name: Fail workflow
+        if: ${{ steps.hadolint.outcome == 'failure' && steps.scan.outcome == 'failure' }}
+        run: |
+          set -euo pipefail
+          echo "::error::Code scanning failed."
+          exit 1
+
+      - name: Build & push OCI image
         uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
         with:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64,linux/arm64
-          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          load: false
+          push: true
+
+      - name: Sign OCI image
+        env:
+          TAGS: ${{ steps.docker_meta.outputs.tags }}
+          COSIGN_EXPERIMENTAL: true
+        run: |
+          set -euo pipefail
+          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json ${TAGS}
+          cosign sign --recursive --attachment sbom ${TAGS}
