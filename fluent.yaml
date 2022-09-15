@@ -1,0 +1,23 @@
+system:
+  root_dir: /fluentd/state
+
+config:
+  - source:
+      $type: forward
+      $label: '@default'
+      port: 24224
+      bind: 0.0.0.0
+
+  - label:
+      $name: '@FLUENT_LOG'
+      config:
+        - match:
+            $tag: 'fluent.*'
+            $type: stdout
+
+  - label:
+      $name: '@default'
+      config:
+        - match:
+            $tag: '**'
+            $type: stdout

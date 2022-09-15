@@ -1,6 +1,6 @@
 # Fluentd Aggregator
 
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
+[![OCI Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
 ![linux](https://img.shields.io/badge/os-linux-brightgreen)
 ![amd64](https://img.shields.io/badge/arch-amd64-brightgreen)
 ![arm64](https://img.shields.io/badge/arch-arm64-brightgreen)
@@ -10,17 +10,16 @@ A [Fluentd](https://www.fluentd.org/) [OCI](https://opencontainers.org/) image t
 
 ## Aggregation Changes
 
-To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has been overwritten to allow logs to be forwarded and printed to stdout. Plugins have also been added to support the aggregation role.
+To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has been overwritten to allow logs to be forwarded and printed to `stdout`, an additional directory `/fluentd/state` has been created, and plugins have also been added to support the aggregation role.
 
 ### Versioning
 
-The image version isn't strictly SemVer compatible as it tracks the major and minor versions of the _Fluentd_ releases it's based on and uses the patch version for both patches and features.
+As of `v2.0.0` this image will follow [semantic versioning](https://semver.org/) so the base Fluentd version will not be directly tracked.
 
 ### Plugins
 
-The following plugins have been added to the base image.
+The following plugins have been added to the base image, to see the specific version please look in the _Dockerfile_.
 
-- [fluent-plugin-aws-elasticsearch-service](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service)
 - [fluent-plugin-azure-loganalytics](https://github.com/yokawasa/fluent-plugin-azure-loganalytics)
 - [fluent-plugin-azurestorage-gen2](https://github.com/oleewere/fluent-plugin-azurestorage-gen2)
 - [fluent-plugin-cloudwatch-logs](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs)
