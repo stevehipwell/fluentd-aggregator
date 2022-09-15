@@ -7,11 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<!-- ## [Unreleased] - yyyy-MM-dd
-### Added
-### Changed
-### Deprecated
-### Removed -->
+<!-- ## [vX.Y.Z] - UNRELEASED
+### Highlights
+### All Changes
+- Added
+- Updated
+- Changed
+- Fixed
+- Deprecated
+- Removed -->
+
+## [v2.0.0] - 2022-09-15
+
+> **Warning**
+> The _ElasticSearch_ plugin and libraries have been updated to the latest version so AWS users will need to be using _OpenSearch_.
+
+### Highlights
+
+- The _Fluentd_ version has been updated from `v1.14` to `v1.15` (releases [v1.15.0](https://www.fluentd.org/blog/fluentd-v1.15.0-has-been-released), [v1.15.1](https://www.fluentd.org/blog/fluentd-v1.15.1-has-been-released) & [v1.15.2](https://www.fluentd.org/blog/fluentd-v1.15.2-has-been-released)).
+- This image now follows semantic versioning and is decoupled from the _Fluentd_ release cycle and versioning constraints.
+- Plugin versions will now be strictly versioned.
+
+### All Changes
+
+- Updated _Fluentd_ to [v1.15.2](https://github.com/fluent/fluentd/releases/tag/v1.15.2).
+- Changed versioning strategy to decouple from _Fluentd_ releases.
+- Changed plugin installation to explicitly set the version.
+- Changed default configuration to make it simpler.
+- Added explicit UID & GID to `fluent` user of `2000`.
+- Added `/fluentd/state` directory.
+- Removed _ElasticSearch_ locking to continue supporting AWS version.
+- Removed setting `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR`.
 
 ## [v1.14.10] - 2022-05-03
 
