@@ -128,10 +128,10 @@ jobs:
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
-          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
-          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
-          cosign sign --recursive --attachment sbom docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
+          cosign sign --yes --recursive --attachment sbom docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
+          cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
           cosign sign --recursive --attachment sbom ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
+          cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@da890086d39c735e41d8823c8a95bde4302c3d64
