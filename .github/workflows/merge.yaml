@@ -124,5 +124,7 @@ jobs:
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
-          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json ${TAGS}
-          cosign sign --recursive --attachment sbom ${TAGS}
+          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json docker.io/${{ github.repository }}:main
+          cosign attach sbom --type spdx --input-format json --sbom ${{ github.event.repository.name }}-sbom.spdx.json ghcr.io/${{ github.repository }}:main
+          cosign sign --recursive --attachment sbom docker.io/${{ github.repository }}:main
+          cosign sign --recursive --attachment sbom ghcr.io/${{ github.repository }}:main
