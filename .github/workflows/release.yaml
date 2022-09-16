@@ -35,7 +35,7 @@ jobs:
           sarif_file: hadolint.sarif
 
       - name: Generate OCI image metadata
-        id: meta
+        id: metadata
         uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a
         with:
           flavor: |
@@ -61,15 +61,15 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
           load: true
           push: false
 
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@b5042e9d19d8b32849779bfe17673ff84aec702d
         with:
-          image: "ghcr.io/${{ github.repository }}:main"
+          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}"
           dependency-snapshot: true
           format: spdx-json
           artifact-name: ${{ github.event.repository.name }}-sbom.spdx.json
@@ -117,14 +117,14 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
           load: false
           push: true
 
       - name: Sign OCI image
         env:
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
+          TAGS: ${{ steps.metadata.outputs.tags }}
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail

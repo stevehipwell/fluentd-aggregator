@@ -36,7 +36,7 @@ jobs:
           sarif_file: hadolint.sarif
 
       - name: Generate OCI image metadata
-        id: meta
+        id: metadata
         uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a
         with:
           flavor: |
@@ -57,8 +57,8 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
           load: true
           push: false
 
@@ -113,14 +113,14 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
           load: false
           push: true
 
       - name: Sign OCI image
         env:
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
+          TAGS: ${{ steps.metadata.outputs.tags }}
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
