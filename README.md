@@ -1,6 +1,7 @@
 # Fluentd Aggregator
 
-[![OCI Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/stevehipwell/fluentd-aggregator?sort=semver)
+[![Docker Hub Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
 ![linux](https://img.shields.io/badge/os-linux-brightgreen)
 ![amd64](https://img.shields.io/badge/arch-amd64-brightgreen)
 ![arm64](https://img.shields.io/badge/arch-arm64-brightgreen)

@@ -7,7 +7,11 @@ on:
 
 jobs:
   release:
-    name: Release OCI Image
+    name: Build & Release OCI Image
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
     runs-on: ubuntu-latest
     defaults:
       run:
