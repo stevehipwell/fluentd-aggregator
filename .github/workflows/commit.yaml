@@ -8,10 +8,7 @@ on:
 jobs:
   build:
     name: Build OCI Image
-    permissions:
-      contents: read
-      id-token: write
-      packages: write
+    permissions: write-all
     runs-on: ubuntu-latest
     defaults:
       run:

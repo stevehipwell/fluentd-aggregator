@@ -11,6 +11,7 @@ env:
 jobs:
   build:
     name: Build OCI Image
+    permissions: write-all
     runs-on: ubuntu-latest
     defaults:
       run:
