@@ -129,6 +129,6 @@ jobs:
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
-          sleep 30s
-          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive --attachment sbom {}@${{ steps.build.outputs.digest }}
+          # echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive --attachment sbom {}@${{ steps.build.outputs.digest }}
+          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive {}@${{ steps.build.outputs.digest }}
           echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json {}@${{ steps.build.outputs.digest }}
