@@ -44,6 +44,8 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: "${{ github.repository }}:${{ env.LOCAL_TAG }}"
           load: true
           push: false

@@ -62,6 +62,8 @@ jobs:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           load: true
@@ -113,11 +115,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & push OCI image
+        id: build
         uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
         with:
           file: ./Dockerfile
           context: .
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           load: false
@@ -125,14 +130,11 @@ jobs:
 
       - name: Sign OCI image
         env:
-          TAGS: ${{ steps.metadata.outputs.tags }}
           COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
-          cosign sign --yes --recursive --attachment sbom docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
-          cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
-          cosign sign --recursive --attachment sbom ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
-          cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}
+          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive --attachment sbom {}@${{ steps.build.outputs.digest }}
+          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign attest --yes --recursive --type spdxjson --predicate ${{ github.event.repository.name }}-sbom.spdx.json {}@${{ steps.build.outputs.digest }}
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@da890086d39c735e41d8823c8a95bde4302c3d64
