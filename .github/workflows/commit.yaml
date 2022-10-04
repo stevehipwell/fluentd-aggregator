@@ -45,6 +45,9 @@ jobs:
           images: |
             ghcr.io/${{ github.repository }}
             docker.io/${{ github.repository }}
+          labels: |
+            org.opencontainers.image.description=Fluentd aggregator OCI image based on the default Fluentd OCI image.
+            org.opencontainers.image.authors=Steve Hipwell <steve.hipwell@gmail.com>
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@8b122486cedac8393e77aa9734c3528886e4a1a8

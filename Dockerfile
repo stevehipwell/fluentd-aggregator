@@ -1,6 +1,4 @@
 FROM alpine:3.16
-LABEL maintainer "Steve Hipwell <steve.hipwell@gmail.com>"
-LABEL description="Fluentd aggregator OCI image based on Fluentd v1.15.2" version="2.0.0"
 
 # Do not split this into multiple RUN!
 # Docker creates a layer for every RUN-Statement
