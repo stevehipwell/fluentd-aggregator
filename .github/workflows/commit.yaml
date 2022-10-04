@@ -69,7 +69,7 @@ jobs:
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@b5042e9d19d8b32849779bfe17673ff84aec702d
         with:
-          image: "ghcr.io/${{ github.repository }}:main@${{ steps.build.outputs.digest }}"
+          image: "ghcr.io/${{ github.repository }}:main"
           dependency-snapshot: true
           format: spdx-json
           artifact-name: ${{ github.event.repository.name }}-sbom.spdx.json
