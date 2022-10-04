@@ -57,6 +57,7 @@ jobs:
         uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6
 
       - name: Build OCI image
+        id: build
         uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
         with:
           file: ./Dockerfile
@@ -72,7 +73,7 @@ jobs:
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@b5042e9d19d8b32849779bfe17673ff84aec702d
         with:
-          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}"
+          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}@${{ steps.build.outputs.digest }}"
           dependency-snapshot: true
           format: spdx-json
           artifact-name: ${{ github.event.repository.name }}-sbom.spdx.json
@@ -115,7 +116,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & push OCI image
-        id: build
+        id: build_push
         uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
         with:
           file: ./Dockerfile
@@ -134,8 +135,8 @@ jobs:
         run: |
           set -euo pipefail
           # --attachment sbom
-          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive {}@${{ steps.build.outputs.digest }}
-          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign attest --yes --recursive --type spdx --predicate ${{ github.event.repository.name }}-sbom.spdx.json {}@${{ steps.build.outputs.digest }}
+          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive {}@${{ steps.build_push.outputs.digest }}
+          echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign attest --yes --recursive --type spdx --predicate ${{ github.event.repository.name }}-sbom.spdx.json {}@${{ steps.build_push.outputs.digest }}
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@da890086d39c735e41d8823c8a95bde4302c3d64
