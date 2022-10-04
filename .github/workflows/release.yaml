@@ -86,7 +86,7 @@ jobs:
         with:
           sbom: ${{ github.event.repository.name }}-sbom.spdx.json
           severity-cutoff: medium
-          acs-report-enable: true
+          output-format: sarif
           fail-build: true
 
       - name: Upload Grype SARIF report
