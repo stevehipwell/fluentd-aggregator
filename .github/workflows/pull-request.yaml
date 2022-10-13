@@ -33,7 +33,7 @@ jobs:
 
       - name: Generate OCI image metadata
         id: metadata
-        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a
+        uses: docker/metadata-action@12cce9efe0d49980455aaaca9b071c0befcdd702
         with:
           flavor: |
             latest=false
