@@ -46,7 +46,7 @@ jobs:
             org.opencontainers.image.authors=Steve Hipwell <steve.hipwell@gmail.com>
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@c74574e6c82eeedc46366be1b0d287eff9085eb6
+        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325
 
       - name: Build OCI image
         id: build
