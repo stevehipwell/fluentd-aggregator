@@ -141,7 +141,7 @@ jobs:
           cosign sign --yes --recursive docker.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}@${{ steps.build_push.outputs.digest }}
 
       - name: Update Docker repository description
-        uses: peter-evans/dockerhub-description@da890086d39c735e41d8823c8a95bde4302c3d64
+        uses: peter-evans/dockerhub-description@14881160433a81f9ebc838a253d4edd9e8fc35f1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
