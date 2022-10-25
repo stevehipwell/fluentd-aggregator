@@ -19,7 +19,7 @@ As of `v2.0.0` this image will follow [semantic versioning](https://semver.org/)
 
 ### Plugins
 
-The following plugins have been added to the base image, to see the specific version please look in the _Dockerfile_.
+The following plugins have been added to the base image, to see the specific version please look in the [Gemfile](./Gemfile).
 
 - [fluent-plugin-azure-loganalytics](https://github.com/yokawasa/fluent-plugin-azure-loganalytics)
 - [fluent-plugin-azurestorage-gen2](https://github.com/oleewere/fluent-plugin-azurestorage-gen2)
