@@ -18,7 +18,7 @@ RUN apk update \
   && echo 'gem: --no-document' >> /etc/gemrc \
   && gem install bundler --version 2.3.7 \
   && bundle config silence_root_warning true \
-  && bundle install --gemfile=/fluentd/Gemfile \
+  && bundle install --frozen --no-cache --gemfile=/fluentd/Gemfile \
   && gem sources --clear-all \
   && apk del .build-deps \
   && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem /usr/lib/ruby/gems/3.*/gems/fluentd-*/test
