@@ -4,20 +4,20 @@ system:
 config:
   - source:
       $type: forward
-      $label: '@default'
+      $label: "@DEFAULT"
       port: 24224
       bind: 0.0.0.0
 
   - label:
-      $name: '@FLUENT_LOG'
+      $name: "@FLUENT_LOG"
       config:
         - match:
-            $tag: 'fluent.*'
+            $tag: "fluent.*"
             $type: stdout
 
   - label:
-      $name: '@default'
+      $name: "@DEFAULT"
       config:
         - match:
-            $tag: '**'
+            $tag: "**"
             $type: stdout

@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [v2.1.0] - 2022-10-25
+
+### All Changes
+
+- Changed to use explicit base image version and Dependabot to manage the updates.
+- Changed to use Bundler to install the Gems and Dependabot to manage the updates.
+- Changed default label in configuration to `@DEFAULT` as idiomatically it should be uppercase.
+
 ## [v2.0.0] - 2022-09-15
 
 > **Warning**
