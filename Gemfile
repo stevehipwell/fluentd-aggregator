@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "oj", "3.13.19"
 gem "json", "2.6.2"
-gem "async", "1.30.3"
+gem "async", "2.2.1"
 gem "async-http", "0.56.6"
 gem "fluentd", "1.15.2"
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
