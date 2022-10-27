@@ -26,7 +26,7 @@ jobs:
           no-fail: true
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@cc7986c02bac29104a72998e67239bb5ee2ee110
+        uses: github/codeql-action/upload-sarif@ec3cf9c605b848da5f1e41e8452719eb1ccfb9a6
         with:
           category: hadolint
           sarif_file: hadolint.sarif
@@ -81,7 +81,7 @@ jobs:
           fail-build: false
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@cc7986c02bac29104a72998e67239bb5ee2ee110
+        uses: github/codeql-action/upload-sarif@ec3cf9c605b848da5f1e41e8452719eb1ccfb9a6
         with:
           category: grype
           sarif_file: ${{ steps.scan.outputs.sarif }}
