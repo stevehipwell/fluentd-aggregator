@@ -4,20 +4,30 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      prefix: "chore[deps]"
+      include: scope
     assignees:
       - stevehipwell
   - package-ecosystem: docker
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      prefix: "feat[deps]"
+      include: scope
     assignees:
       - stevehipwell
   - package-ecosystem: bundler
     directory: /
+    schedule:
+      interval: daily
     ignore:
       - dependency-name: async
         versions: [">=2"]
-    schedule:
-      interval: daily
+    commit-message:
+      prefix: "feat[deps]"
+      prefix-development: "chore[deps]"
+      include: scope
     assignees:
       - stevehipwell
