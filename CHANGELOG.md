@@ -17,6 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [v2.2.0] - 2022-11-02
+
+### All Changes
+
+- Updated _Fluentd_ to [v1.15.3](https://github.com/fluent/fluentd/releases/tag/v1.15.3).
+- Updated `fluent-plugin-elasticsearch` to `v5.2.4`.
+- Updated `fluent-plugin-s3` to `v1.7.2`.
+- Updated `async-http` to `v0.59.2`.
+- Updated `oj` to `v3.13.22`.
+
 ## [v2.1.0] - 2022-10-25
 
 ### All Changes
