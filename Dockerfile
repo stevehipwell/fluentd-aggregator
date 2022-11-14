@@ -1,4 +1,4 @@
-FROM alpine:3.16.2
+FROM alpine:3.16.3
 
 ENV FLUENTD_DISABLE_BUNDLER_INJECTION="1"
 COPY Gemfile Gemfile.lock /fluentd/
