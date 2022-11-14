@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "oj", "3.13.22"
+gem "oj", "3.13.23"
 gem "json", "2.6.2"
 gem "async", "1.30.3"
 gem "async-http", "0.59.3"
