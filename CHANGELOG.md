@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [v2.3.0] - 2022-11-14
+
+### All Changes
+
+- Updated _Alpine_ to `v3.16.3`.
+- Updated `async-http` to `v0.59.3`.
+- Updated `oj` to `v3.13.23`.
+
 ## [v2.2.0] - 2022-11-02
 
 ### All Changes
