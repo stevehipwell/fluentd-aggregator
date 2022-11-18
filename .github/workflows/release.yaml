@@ -84,7 +84,7 @@ jobs:
 
       - name: Scan OCI image SBOM with Grype
         id: scan
-        uses: anchore/scan-action@3578976016e97642035dd9a0be842060e62422c6
+        uses: anchore/scan-action@9a22e4caae42db0d4c687ab5431e1c3699d0def1
         continue-on-error: true
         with:
           sbom: ${{ github.event.repository.name }}-sbom.spdx.json
