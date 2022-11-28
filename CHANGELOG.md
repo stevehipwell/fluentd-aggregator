@@ -17,6 +17,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [v2.4.0] - 2022-11-28
+
+### All Changes
+
+- Updated _Alpine_ to `v3.17.0`.
+- Updated `fluent-plugin-opensearch` to `v1.0.9`.
+
 ## [v2.3.0] - 2022-11-14
 
 ### All Changes
