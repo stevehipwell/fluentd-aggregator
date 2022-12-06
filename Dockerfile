@@ -12,9 +12,11 @@ RUN apk update \
   ruby ruby-irb ruby-etc ruby-webrick \
   tini \
   libcurl \
+  libxml2 libxslt \
   && apk add --no-cache --virtual .build-deps \
   build-base linux-headers \
   ruby-dev gnupg \
+  libxml2-dev libxslt-dev \
   && echo 'gem: --no-document' >> /etc/gemrc \
   && gem install bundler --version 2.3.7 \
   && bundle config silence_root_warning true \

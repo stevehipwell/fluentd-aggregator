@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### All Changes
 
 - Updated `json` from `v2.6.2` to `v2.6.3`.
+- Added `libxml-ruby` to support AWS gems.
 
 ## [v2.4.0] - 2022-11-28
 
