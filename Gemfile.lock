@@ -165,6 +165,7 @@ GEM
     http_parser.rb (0.8.0)
     jmespath (1.6.1)
     json (2.6.3)
+    libxml-ruby (3.2.4)
     ltsv (0.1.2)
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
@@ -246,6 +247,7 @@ DEPENDENCIES
   fluent-plugin-sqs (= 3.0.0)
   fluentd (= 1.15.3)
   json (= 2.6.3)
+  libxml-ruby (= 3.2.4)
   oj (= 3.13.23)
 
 BUNDLED WITH

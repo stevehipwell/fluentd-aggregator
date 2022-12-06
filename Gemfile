@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "libxml-ruby", "3.2.4"
 gem "oj", "3.13.23"
 gem "json", "2.6.3"
 gem "async", "1.30.3"
