@@ -16,14 +16,14 @@ jobs:
         shell: bash
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
 
       - name: Install Cosign
-        uses: sigstore/cosign-installer@9becc617647dfa20ae7b1151972e9b3a2c338a2b
+        uses: sigstore/cosign-installer@9becc617647dfa20ae7b1151972e9b3a2c338a2b # v2.8.1
 
       - name: Run Hadolint
         id: hadolint
-        uses: hadolint/hadolint-action@4b5806eb9c6bee4954fc0e0cc3ad6175fc9782c1
+        uses: hadolint/hadolint-action@4b5806eb9c6bee4954fc0e0cc3ad6175fc9782c1 # v3.0.0
         continue-on-error: true
         with:
           dockerfile: ./Dockerfile
@@ -32,14 +32,14 @@ jobs:
           no-fail: false
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@b2a92eb56d8cb930006a1c6ed86b0782dd8a4297
+        uses: github/codeql-action/upload-sarif@b2a92eb56d8cb930006a1c6ed86b0782dd8a4297 # v2.1.35
         with:
           category: hadolint
           sarif_file: hadolint.sarif
 
       - name: Generate OCI image metadata
         id: metadata
-        uses: docker/metadata-action@57396166ad8aefe6098280995947635806a0e6ea
+        uses: docker/metadata-action@57396166ad8aefe6098280995947635806a0e6ea # v4.1.1
         with:
           flavor: |
             latest=false
@@ -51,14 +51,14 @@ jobs:
             org.opencontainers.image.authors=Steve Hipwell <steve.hipwell@gmail.com>
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18
+        uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # v2.1.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325
+        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # v2.2.1
 
       - name: Build OCI image
         id: build
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
         with:
           file: ./Dockerfile
           context: .
@@ -71,7 +71,7 @@ jobs:
           push: false
 
       - name: Generate OCI image SBOM
-        uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d
+        uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
         with:
           image: "ghcr.io/${{ github.repository }}:main"
           dependency-snapshot: true
@@ -81,7 +81,7 @@ jobs:
 
       - name: Scan OCI image SBOM with Grype
         id: scan
-        uses: anchore/scan-action@9a22e4caae42db0d4c687ab5431e1c3699d0def1
+        uses: anchore/scan-action@9a22e4caae42db0d4c687ab5431e1c3699d0def1 # v3.3.2
         continue-on-error: true
         with:
           sbom: ${{ github.event.repository.name }}-sbom.spdx.json
@@ -90,7 +90,7 @@ jobs:
           fail-build: true
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@b2a92eb56d8cb930006a1c6ed86b0782dd8a4297
+        uses: github/codeql-action/upload-sarif@b2a92eb56d8cb930006a1c6ed86b0782dd8a4297 # v2.1.35
         with:
           category: grype
           sarif_file: ${{ steps.scan.outputs.sarif }}
@@ -103,21 +103,21 @@ jobs:
           exit 1
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Login to DockerHub
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & push OCI image
         id: build_push
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
         with:
           file: ./Dockerfile
           context: .
@@ -132,7 +132,4 @@ jobs:
       - name: Sign OCI image
         env:
           COSIGN_EXPERIMENTAL: true
-        run: |
-          set -euo pipefail
-          cosign sign --yes --recursive ghcr.io/${{ github.repository }}:main@${{ steps.build_push.outputs.digest }}
-          cosign sign --yes --recursive docker.io/${{ github.repository }}:main@${{ steps.build_push.outputs.digest }}
+        run: echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive {}@${{ steps.build_push.outputs.digest }}
