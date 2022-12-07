@@ -76,18 +76,18 @@ jobs:
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
         with:
-          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}"
+          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}@${{ steps.build.outputs.digest }}"
           dependency-snapshot: true
           format: spdx-json
-          artifact-name: ${{ github.event.repository.name }}-sbom.spdx.json
-          output-file: ${{ github.event.repository.name }}-sbom.spdx.json
+          artifact-name: ${{ github.event.repository.name }}-syft-sbom
+          output-file: ${{ github.event.repository.name }}-syft-sbom.spdx.json
 
-      - name: Scan OCI image SBOM with Grype
+      - name: Scan OCI image Syft SBOM with Grype
         id: scan
         uses: anchore/scan-action@9a22e4caae42db0d4c687ab5431e1c3699d0def1 # v3.3.2
         continue-on-error: true
         with:
-          sbom: ${{ github.event.repository.name }}-sbom.spdx.json
+          sbom: ${{ github.event.repository.name }}-syft-sbom.spdx.json
           severity-cutoff: medium
           output-format: sarif
           fail-build: true
