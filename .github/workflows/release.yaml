@@ -76,7 +76,7 @@ jobs:
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
         with:
-          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}@${{ steps.build.outputs.digest }}"
+          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}"
           dependency-snapshot: true
           format: spdx-json
           artifact-name: ${{ github.event.repository.name }}-syft-sbom
@@ -149,7 +149,7 @@ jobs:
         uses: mindsers/changelog-reader-action@b97ce03a10d9bdbb07beb491c76a5a01d78cd3ef # v2.2.2
         with:
           path: ./CHANGELOG.md
-          version: v${{ steps.metadata.outputs.version }}
+          version: ${{ github.ref_name }}
 
       - name: Create release
         uses: ncipollo/release-action@18eadf9c9b0f226f47f164f5373c6a44f0aae169 # v1.11.2

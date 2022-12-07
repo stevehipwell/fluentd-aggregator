@@ -65,7 +65,7 @@ jobs:
       - name: Generate OCI image SBOM
         uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
         with:
-          image: "${{ github.repository }}:${{ steps.metadata.outputs.version }}@${{ steps.build.outputs.digest }}"
+          image: "${{ github.repository }}:${{ steps.metadata.outputs.version }}"
           dependency-snapshot: true
           format: spdx-json
           artifact-name: ${{ github.event.repository.name }}-syft-sbom
