@@ -5,7 +5,7 @@ GEM
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
-    async-http (0.59.3)
+    async-http (0.59.4)
       async (>= 1.25)
       async-io (>= 1.28)
       async-pool (>= 0.2)
@@ -229,7 +229,7 @@ PLATFORMS
 
 DEPENDENCIES
   async (= 1.30.3)
-  async-http (= 0.59.3)
+  async-http (= 0.59.4)
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.3)
   fluent-plugin-cloudwatch-logs (= 0.14.3)
