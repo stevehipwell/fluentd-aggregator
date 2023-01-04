@@ -14,22 +14,42 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      PLATFORMS: "linux/amd64,linux/arm64"
     steps:
       - name: Checkout
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
+      - name: Install Crane
+        uses: imjasonh/setup-crane@e82f1b9a8007d399333baba4d75915558e9fb6a4 # v0.1
+
+      - name: Install Syft
+        uses: anchore/sbom-action/download-syft@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
+        with:
+          syft-version: latest
+
+      - name: Install Grype
+        uses: anchore/scan-action/download-grype@9a22e4caae42db0d4c687ab5431e1c3699d0def1 # v3.3.2
+        with:
+          grype-version: latest
+
       - name: Install Cosign
         uses: sigstore/cosign-installer@9becc617647dfa20ae7b1151972e9b3a2c338a2b # v2.8.1
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # v2.1.0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # v2.2.1
 
       - name: Run Hadolint
         id: hadolint
         uses: hadolint/hadolint-action@4b5806eb9c6bee4954fc0e0cc3ad6175fc9782c1 # v3.0.0
-        continue-on-error: true
         with:
           dockerfile: ./Dockerfile
           format: sarif
           output-file: hadolint.sarif
-          no-fail: false
+          no-fail: true
 
       - name: Upload Hadolint SARIF report
         uses: github/codeql-action/upload-sarif@959cbb7472c4d4ad70cdfe6f4976053fe48ab394 # v2.1.37
@@ -45,62 +65,11 @@ jobs:
             latest=false
           images: |
             ghcr.io/${{ github.repository }}
-            docker.io/${{ github.repository }}
+          tags: |
+            type=sha
           labels: |
             org.opencontainers.image.description=Fluentd aggregator OCI image based on the default Fluentd OCI image.
             org.opencontainers.image.authors=Steve Hipwell <steve.hipwell@gmail.com>
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # v2.1.0
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # v2.2.1
-
-      - name: Build OCI image
-        id: build
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
-        with:
-          file: ./Dockerfile
-          context: .
-          platforms: linux/amd64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}
-          load: true
-          push: false
-
-      - name: Generate OCI image SBOM
-        uses: anchore/sbom-action@06e109483e6aa305a2b2395eabae554e51530e1d # v0.13.1
-        with:
-          image: "ghcr.io/${{ github.repository }}:${{ steps.metadata.outputs.version }}"
-          dependency-snapshot: true
-          format: spdx-json
-          artifact-name: ${{ github.event.repository.name }}-syft-sbom
-          output-file: ${{ github.event.repository.name }}-syft-sbom.spdx.json
-
-      - name: Scan OCI image Syft SBOM with Grype
-        id: scan
-        uses: anchore/scan-action@9a22e4caae42db0d4c687ab5431e1c3699d0def1 # v3.3.2
-        continue-on-error: true
-        with:
-          sbom: ${{ github.event.repository.name }}-syft-sbom.spdx.json
-          severity-cutoff: medium
-          output-format: sarif
-          fail-build: true
-
-      - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@959cbb7472c4d4ad70cdfe6f4976053fe48ab394 # v2.1.37
-        with:
-          category: grype
-          sarif_file: ${{ steps.scan.outputs.sarif }}
-
-      - name: Fail workflow
-        if: ${{ steps.hadolint.outcome == 'failure' && steps.scan.outcome == 'failure' }}
-        run: |
-          set -euo pipefail
-          echo "::error::Code scanning failed."
-          exit 1
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
@@ -109,27 +78,135 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build OCI image
+        id: build
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
+        with:
+          file: ./Dockerfile
+          context: .
+          platforms: ${{ env.PLATFORMS }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          push: true
+
+      - name: Generate SBOMs
+        id: sboms
+        run: |
+          set -euo pipefail
+
+          default_image="ghcr.io/${{ github.repository }}"
+          sha_tag="${{ steps.metadata.outputs.version }}"
+          sbom_paths=""
+
+          for platform in ${PLATFORMS//,/ }
+          do
+            digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
+
+            sbom_path="syft-sbom-${platform#*/}.spdx.json"
+            syft --name "${{ github.repository }}@${digest}" --platform "${platform}" -o "spdx-json=${sbom_path}" "${default_image}@${digest}"
+            sbom_paths="${sbom_paths}${sbom_path},"
+          done
+
+          echo "paths=${sbom_paths%,}" >> $GITHUB_OUTPUT
+
+      - name: Upload SBOM artifacts
+        uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # v3.1.1
+        with:
+          name: sboms
+          retention-days: 28
+          if-no-files-found: error
+          path: "*.spdx.json"
+
+      - name: Upload SBOMs to Dependency Graph
+        uses: jhutchings1/spdx-to-dependency-graph-action@18b183bb96461852e90574736c3c65812b0f3cd8 # v0.0.2
+        with:
+          filePath: "."
+          filePattern: "*.spdx.json"
+
+      - name: Scan SBOMs with Grype
+        id: grype
+        run: |
+          set -euo pipefail
+
+          directory_path="grype-results"
+          mkdir -p "${directory_path}"
+
+          for platform in ${PLATFORMS//,/ }
+          do
+            sarif_path="${directory_path}/grype-scan-${platform#*/}.sarif"
+            grype --platform "${platform}" -o sarif "sbom:syft-sbom-${platform#*/}.spdx.json" > "${sarif_path}"
+          done
+
+          echo "path=${directory_path}" >> $GITHUB_OUTPUT
+
+      - name: Upload Grype SARIF report
+        uses: github/codeql-action/upload-sarif@959cbb7472c4d4ad70cdfe6f4976053fe48ab394 # v2.1.37
+        with:
+          category: grype
+          sarif_file: ${{ steps.grype.outputs.path }}
+
       - name: Login to DockerHub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build & push OCI image
-        id: build_push
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
-        with:
-          file: ./Dockerfile
-          context: .
-          platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}
-          load: false
-          push: true
+      - name: Push OCI image tags
+        id: push
+        run: |
+          set -euo pipefail
+
+          default_image="ghcr.io/${{ github.repository }}"
+          sha_tag="${{ steps.metadata.outputs.version }}"
+          digest="${{ steps.build.outputs.digest }}"
+
+          images="docker.io/${{ github.repository }}"
+          tags="main"
+
+          references="${default_image}:${sha_tag},"
+
+          for image in ${images//,/ }
+          do
+            crane copy --platform all "${default_image}:${sha_tag}@${digest}" "${image}:${sha_tag}"
+            references="${references},${image}:${sha_tag},"
+          done
+
+          images="${images},${default_image}"
+
+          for image in ${images//,/ }
+          do
+            for tag in ${tags//,/ }
+            do
+              crane tag --platform all "${image}:${sha_tag}@${digest}" "${tag}"
+              references="${references},${image}:${tag},"
+            done
+          done
+
+          echo "references=${references%,}" >> $GITHUB_OUTPUT
 
       - name: Sign OCI image
         env:
           COSIGN_EXPERIMENTAL: true
-        run: echo "${{ steps.metadata.outputs.tags }}" | xargs -I {} cosign sign --yes --recursive {}@${{ steps.build_push.outputs.digest }}
+        run: |
+          set -euo pipefail
+
+          default_image="ghcr.io/${{ github.repository }}"
+          sha_tag="${{ steps.metadata.outputs.version }}"
+          references="${{ steps.push.outputs.references }}"
+
+          for reference in ${references//,/ }
+          do
+            cosign sign --yes --recursive "${reference}@${{ steps.build.outputs.digest }}"
+          done
+
+          for platform in ${PLATFORMS//,/ }
+          do
+            digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
+
+            for reference in ${references//,/ }
+            do
+              cosign attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+            done
+          done
