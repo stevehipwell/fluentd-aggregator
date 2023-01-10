@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [v2.6.0] - 2023-01-10
+
+### All Changes
+
+- Updated Alpine to `v3.17.1`.
+
 ## [v2.5.0] - 2022-12-06
 
 ### All Changes
