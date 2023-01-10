@@ -21,7 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### All Changes
 
-- Updated Alpine to `v3.17.1`.
+- Updated [Alpine](https://www.alpinelinux.org/) base image from `v3.17.0` to `v3.17.1`.
+- Updated [async-http](https://github.com/socketry/async-http) Gem from `v0.59.3` to `v0.59.4`.
+- Updated [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem from `v3.2.4` to `v4.0.0`.
 
 ## [v2.5.0] - 2022-12-06
 
