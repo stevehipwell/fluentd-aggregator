@@ -52,7 +52,7 @@ jobs:
           no-fail: true
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@959cbb7472c4d4ad70cdfe6f4976053fe48ab394 # v2.1.37
+        uses: github/codeql-action/upload-sarif@515828d97454b8354517688ddc5b48402b723750 # v2.1.38
         with:
           category: hadolint
           sarif_file: hadolint.sarif
@@ -120,7 +120,7 @@ jobs:
           path: "*.spdx.json"
 
       - name: Upload SBOMs to Dependency Graph
-        uses: jhutchings1/spdx-to-dependency-graph-action@18b183bb96461852e90574736c3c65812b0f3cd8 # v0.0.2
+        uses: jonathborg/spdx-to-dependency-graph-action@12ad37c0a0cc7b9cbf09f71ec446ceb3f6dbb4af # v1.0.1
         with:
           filePath: "."
           filePattern: "*.spdx.json"
@@ -142,7 +142,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@959cbb7472c4d4ad70cdfe6f4976053fe48ab394 # v2.1.37
+        uses: github/codeql-action/upload-sarif@515828d97454b8354517688ddc5b48402b723750 # v2.1.38
         with:
           category: grype
           sarif_file: ${{ steps.grype.outputs.path }}
