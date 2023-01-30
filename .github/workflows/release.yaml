@@ -50,7 +50,7 @@ jobs:
           no-fail: true
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@436dbd9100756e97f42f45da571adeebf8270723 # v2.2.0
+        uses: github/codeql-action/upload-sarif@3ebbd71c74ef574dbc558c82f70e52732c8b44fe # v2.2.1
         with:
           category: hadolint
           sarif_file: hadolint.sarif
@@ -143,7 +143,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@436dbd9100756e97f42f45da571adeebf8270723 # v2.2.0
+        uses: github/codeql-action/upload-sarif@3ebbd71c74ef574dbc558c82f70e52732c8b44fe # v2.2.1
         with:
           category: grype
           sarif_file: ${{ steps.grype.outputs.path }}
