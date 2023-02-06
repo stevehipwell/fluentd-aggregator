@@ -223,7 +223,7 @@ jobs:
             do
               cosign attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
               cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign sign "${reference%:*}:${digest/:/-}"
+              cosign sign "${reference%:*}:${digest/:/-}.sbom"
             done
           done
 
