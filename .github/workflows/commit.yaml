@@ -84,6 +84,8 @@ jobs:
         with:
           file: ./Dockerfile
           context: .
+          provenance: false
+          sbom: false
           platforms: ${{ env.PLATFORMS }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -203,10 +205,12 @@ jobs:
 
           for platform in ${PLATFORMS//,/ }
           do
-            digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
+            digest="$(crane digest "${default_image}:${sha_tag}@${{ steps.build.outputs.digest }}" --platform="${platform}")"
 
             for reference in ${references//,/ }
             do
               cosign attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign sign "${reference%:*}:${digest/:/-}"
             done
           done

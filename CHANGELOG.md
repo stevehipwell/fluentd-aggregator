@@ -17,12 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
-## [UNRELEASED]
+## [v2.6.1] - 2013-02-06
 
 ### All Changes
 
-- Updated [async-http](https://github.com/socketry/async-http) Gem from `v0.59.4` to `v0.59.5`.
-- Updated [oj](https://github.com/ohler55/oj) from `v3.13.23` to `v3.14.0`.
+- Updated [async-http](https://github.com/socketry/async-http) Gem from `v0.59.4` to `v0.60.1`.
+- Updated [oj](https://github.com/ohler55/oj) from `v3.13.23` to `v3.14.1`.
 
 ## [v2.6.0] - 2023-01-10
 
