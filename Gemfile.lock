@@ -177,7 +177,7 @@ GEM
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-    oj (3.14.1)
+    oj (3.14.2)
     opensearch-api (2.1.0)
       multi_json
     opensearch-ruby (2.1.0)
@@ -248,7 +248,7 @@ DEPENDENCIES
   fluentd (= 1.15.3)
   json (= 2.6.3)
   libxml-ruby (= 4.0.0)
-  oj (= 3.14.1)
+  oj (= 3.14.2)
 
 BUNDLED WITH
    2.3.7
