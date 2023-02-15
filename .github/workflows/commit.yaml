@@ -26,7 +26,7 @@ jobs:
       - name: Install Syft
         uses: anchore/sbom-action/download-syft@07978da4bdb4faa726e52dfc6b1bed63d4b56479 # v0.13.3
         with:
-          syft-version: v0.65.0
+          syft-version: latest
 
       - name: Install Grype
         uses: anchore/scan-action/download-grype@84aa2c1d0eba986ed2274869c27f1e35a625449f # v3.3.3
