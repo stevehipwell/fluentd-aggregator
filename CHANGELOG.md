@@ -17,6 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [UNRELEASED]
+
+### All Changes
+
+- Updated [Alpine](https://www.alpinelinux.org/) base image from `v3.17.1` to `v3.17.2`.
+- Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.0.9` to `v1.0.10`.
+- Updated [fluent-plugin-grafana-loki](https://rubygems.org/gems/fluent-plugin-grafana-loki) from `v1.2.18` to `v1.2.20`.
+- Updated [oj](https://rubygems.org/gems/oj) from `v3.14.1` to `v3.14.2`.
+
 ## [v2.6.1] - 2013-02-06
 
 ### All Changes
