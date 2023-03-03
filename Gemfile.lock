@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (1.30.3)
+    async (1.31.0)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -228,7 +228,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 1.30.3)
+  async (= 1.31.0)
   async-http (= 0.60.1)
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.3)
