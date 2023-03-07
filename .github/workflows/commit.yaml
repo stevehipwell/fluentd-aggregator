@@ -207,8 +207,8 @@ jobs:
 
             for reference in ${references//,/ }
             do
-              cosign --yes attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign --yes attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign --yes sign "${reference%:*}:${digest/:/-}.sbom"
+              cosign attest --yes --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign attach --yes sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign sign --yes "${reference%:*}:${digest/:/-}.sbom"
             done
           done
