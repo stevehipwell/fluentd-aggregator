@@ -167,12 +167,12 @@ jobs:
           images="docker.io/${{ github.repository }}"
           tags="main"
 
-          references="${default_image}:${sha_tag},"
+          references="${default_image}:${sha_tag}"
 
           for image in ${images//,/ }
           do
             crane copy --platform all "${default_image}:${sha_tag}@${digest}" "${image}:${sha_tag}"
-            references="${references},${image}:${sha_tag},"
+            references="${references},${image}:${sha_tag}"
           done
 
           images="${images},${default_image}"
@@ -182,11 +182,11 @@ jobs:
             for tag in ${tags//,/ }
             do
               crane tag --platform all "${image}:${sha_tag}@${digest}" "${tag}"
-              references="${references},${image}:${tag},"
+              references="${references},${image}:${tag}"
             done
           done
 
-          echo "references=${references%,}" >> $GITHUB_OUTPUT
+          echo "references=${references}" >> $GITHUB_OUTPUT
 
       - name: Sign OCI image
         run: |
@@ -208,7 +208,7 @@ jobs:
             for reference in ${references//,/ }
             do
               cosign attest --yes --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign attach --yes sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
               cosign sign --yes "${reference%:*}:${digest/:/-}.sbom"
             done
           done

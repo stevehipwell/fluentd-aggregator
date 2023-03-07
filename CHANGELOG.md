@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated
 - Removed -->
 
+## [UNRELEASED]
+
+### All Changes
+
+- Updated [async](https://rubygems.org/gems/async) Gem from `v1.30.3` to `v1.31.0`.
+
 ## [v2.6.2] - 2023-02-15
 
 ### All Changes
