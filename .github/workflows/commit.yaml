@@ -189,8 +189,6 @@ jobs:
           echo "references=${references%,}" >> $GITHUB_OUTPUT
 
       - name: Sign OCI image
-        env:
-          COSIGN_EXPERIMENTAL: true
         run: |
           set -euo pipefail
 
@@ -209,8 +207,8 @@ jobs:
 
             for reference in ${references//,/ }
             do
-              cosign attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign sign "${reference%:*}:${digest/:/-}.sbom"
+              cosign --yes attest --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign --yes attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign --yes sign "${reference%:*}:${digest/:/-}.sbom"
             done
           done
