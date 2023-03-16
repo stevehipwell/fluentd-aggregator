@@ -223,6 +223,7 @@ GEM
     yajl-ruby (1.4.3)
 
 PLATFORMS
+  aarch64-linux
   aarch64-linux-musl
   x86_64-linux
   x86_64-linux-musl
