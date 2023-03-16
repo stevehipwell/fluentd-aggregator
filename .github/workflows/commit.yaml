@@ -10,6 +10,10 @@ jobs:
   build:
     name: Build OCI Image
     permissions: write-all
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [musl, glibc]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -46,7 +50,7 @@ jobs:
         id: hadolint
         uses: hadolint/hadolint-action@54c9adbab1582c2ef04b2016b760714a4bfde3cf # v3.1.0
         with:
-          dockerfile: ./Dockerfile
+          dockerfile: ./${{ matrix.variant }}.dockerfile
           format: sarif
           output-file: hadolint.sarif
           no-fail: true
@@ -54,7 +58,7 @@ jobs:
       - name: Upload Hadolint SARIF report
         uses: github/codeql-action/upload-sarif@168b99b3c22180941ae7dbdd5f5c9678ede476ba # v2.2.7
         with:
-          category: hadolint
+          category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint.sarif
 
       - name: Generate OCI image metadata
@@ -82,7 +86,7 @@ jobs:
         id: build
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671 # v4.0.0
         with:
-          file: ./Dockerfile
+          file: ./${{ matrix.variant }}.dockerfile
           context: .
           provenance: false
           sbom: false
@@ -106,7 +110,7 @@ jobs:
           do
             digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
 
-            sbom_path="syft-sbom-${platform#*/}.spdx.json"
+            sbom_path="syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json"
             syft --name "${{ github.repository }}@${digest}" --platform "${platform}" -o "spdx-json=${sbom_path}" "${default_image}@${digest}"
             sbom_paths="${sbom_paths}${sbom_path},"
           done
@@ -137,8 +141,8 @@ jobs:
 
           for platform in ${PLATFORMS//,/ }
           do
-            sarif_path="${directory_path}/grype-scan-${platform#*/}.sarif"
-            grype --platform "${platform}" -o sarif "sbom:syft-sbom-${platform#*/}.spdx.json" > "${sarif_path}"
+            sarif_path="${directory_path}/grype-scan-${{ matrix.variant }}-${platform#*/}.sarif"
+            grype --platform "${platform}" -o sarif "sbom:syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json" > "${sarif_path}"
           done
 
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
@@ -146,7 +150,7 @@ jobs:
       - name: Upload Grype SARIF report
         uses: github/codeql-action/upload-sarif@168b99b3c22180941ae7dbdd5f5c9678ede476ba # v2.2.7
         with:
-          category: grype
+          category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
 
       - name: Login to DockerHub
@@ -165,7 +169,12 @@ jobs:
           digest="${{ steps.build.outputs.digest }}"
 
           images="docker.io/${{ github.repository }}"
-          tags="main"
+          tags="${{ matrix.variant }}-main"
+
+          if [[ "${{ matrix.variant }}" == "musl" ]]
+          then
+            tags="${tags},main"
+          fi
 
           references="${default_image}:${sha_tag}"
 
@@ -207,8 +216,8 @@ jobs:
 
             for reference in ${references//,/ }
             do
-              cosign attest --yes --type spdxjson --predicate syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign attest --yes --type spdxjson --predicate syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
+              cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
               cosign sign --yes "${reference%:*}:${digest/:/-}.sbom"
             done
           done
