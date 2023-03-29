@@ -50,13 +50,13 @@ GEM
       rake (>= 12.0.0, < 14.0.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    elastic-transport (8.1.0)
+    elastic-transport (8.2.1)
       faraday (< 3)
       multi_json
-    elasticsearch (8.4.0)
+    elasticsearch (8.6.0)
       elastic-transport (~> 8)
-      elasticsearch-api (= 8.4.0)
-    elasticsearch-api (8.4.0)
+      elasticsearch-api (= 8.6.0)
+    elasticsearch-api (8.6.0)
       multi_json
     ethon (0.15.0)
       ffi (>= 1.15.0)
@@ -111,7 +111,7 @@ GEM
     fluent-plugin-datadog (0.14.2)
       fluentd (>= 1, < 2)
       net-http-persistent (~> 4.0.1)
-    fluent-plugin-elasticsearch (5.2.4)
+    fluent-plugin-elasticsearch (5.2.5)
       elasticsearch
       excon
       faraday (~> 1.10)
@@ -236,7 +236,7 @@ DEPENDENCIES
   fluent-plugin-cloudwatch-logs (= 0.14.3)
   fluent-plugin-concat (= 2.5.0)
   fluent-plugin-datadog (= 0.14.2)
-  fluent-plugin-elasticsearch (= 5.2.4)
+  fluent-plugin-elasticsearch (= 5.2.5)
   fluent-plugin-grafana-loki (= 1.2.20)
   fluent-plugin-kafka (= 0.18.1)
   fluent-plugin-opensearch (= 1.0.10)
