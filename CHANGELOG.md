@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<!-- ## [vX.Y.Z] - UNRELEASED
+<!-- ## [UNRELEASED]
 ### Highlights
 ### All Changes
 - Added
@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed
 - Deprecated
 - Removed -->
+
+## [UNRELEASED]
+
+### All Changes
+
+- Updated _Fluentd_ to [v1.16.0](https://github.com/fluent/fluentd/releases/tag/v1.16.0).
+- Updated OCI base image digests to latest.
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.2.4` to `5.2.5`.
 
 ## [v2.7.0] - 2023-03-16
 
