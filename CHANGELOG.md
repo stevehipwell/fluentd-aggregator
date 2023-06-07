@@ -7,15 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<!-- ## [UNRELEASED]
-### Highlights
-### All Changes
-- Added
-- Updated
-- Changed
-- Fixed
-- Deprecated
-- Removed -->
+<!--
+## [UNRELEASED]
+
+### Added - For new features.
+### Changed - For changes in existing functionality.
+### Deprecated - For soon-to-be removed features.
+### Removed - For now removed features.
+### Fixed - For any bug fixes.
+### Security - In case of vulnerabilities.
+-->
+
+## [v2.9.0] - 2023-06-07
+
+### Added
+
+- Added `libcurl4` to the `glibc` image version.
+
+### Changed
+
+- Updated _Fluentd_ to [v1.16.1](https://github.com/fluent/fluentd/releases/tag/v1.16.1).
+- Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.0.10` to `v1.1.0`.
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.2.5` to `5.3.0`.
+- Updated [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem from `v4.0.0` to `v4.1.1`.
+- Updated [oj](https://rubygems.org/gems/oj) from `v3.14.2` to `v3.15.0`.
+- Updated [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.18.1` to `0.19.0`.
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image to `v3.2.2`.
 
 ## [v2.8.0] - 2023-03-29
 

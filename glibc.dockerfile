@@ -1,4 +1,4 @@
-FROM ruby:3.2.1-slim-bullseye@sha256:e0be7ab1fa6b43159fff18191e365061b2dd180c81db2a4b080527e43d6e2528
+FROM ruby:3.2.2-slim-bullseye@sha256:506427360ecafed78530865257378ce4a287bd004315e5cafdd64690bcb56efe
 
 RUN set -eux; \
   apt-get update; \
@@ -7,7 +7,8 @@ RUN set -eux; \
   tini \
   libjemalloc2 \
   libxml2 \
-  libxslt1.1; \
+  libxslt1.1 \
+  libcurl4; \
   ln -s "/usr/lib/$(uname -m)-linux-gnu" /usr/lib/linux-gnu;
 
 COPY Gemfile Gemfile.lock /fluentd/
