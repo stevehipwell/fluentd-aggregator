@@ -1,4 +1,4 @@
-FROM ruby:3.2.1-alpine@sha256:daf7bd93d799642f07ee73fe106098c338f1c15de796a6bcbfd74ef3d73df1a4
+FROM ruby:3.2.2-alpine@sha256:1df6125b0f90e087123698e1b2df1c6a544a40033a5a14bfa3ef7067863d3474
 
 RUN set -eux; \
   apk update; \
