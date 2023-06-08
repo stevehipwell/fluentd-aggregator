@@ -49,20 +49,29 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@6a58db7e0d21ca03e6c44877909e80e45217eed2 # v2.6.0
 
-      - name: Run Hadolint
-        id: hadolint
-        uses: hadolint/hadolint-action@54c9adbab1582c2ef04b2016b760714a4bfde3cf # v3.1.0
+      - name: Install Hadolint
+        uses: action-stars/install-tool-from-github-release@94bce72df745fe8ed2811e6cdc3ec333022019e9 # v0.1.0
         with:
-          dockerfile: ./${{ matrix.variant }}.dockerfile
-          format: sarif
-          output-file: hadolint.sarif
-          no-fail: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: hadolint
+          repository: hadolint
+          arch_amd64: x86_64
+          os_linux: Linux
+          extract: false
+          filename_format: "{name}-{os}-{arch}"
+          check_command: hadolint --version
+          version: latest
+
+      - name: Run Hadolint
+        run: |
+          set -euo pipefail
+          hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
         uses: github/codeql-action/upload-sarif@83f0fe6c4988d98a455712a27f0255212bba9bd4 # v2.3.6
         with:
           category: hadolint-${{ matrix.variant }}
-          sarif_file: hadolint.sarif
+          sarif_file: hadolint-${{ matrix.variant }}.sarif
 
       - name: Generate OCI image metadata
         id: metadata
