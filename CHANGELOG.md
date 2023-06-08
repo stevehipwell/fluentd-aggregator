@@ -18,6 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security - In case of vulnerabilities.
 -->
 
+## [v2.9.1] - 2023-06-08
+
+### Changed
+
+- Updated [fluent-plugin-azurestorage-gen2](https://github.com/oleewere/fluent-plugin-azurestorage-gen2) from `v0.3.3` to `v0.3.5`.
+
 ## [v2.9.0] - 2023-06-07
 
 ### Added
