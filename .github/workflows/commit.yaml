@@ -91,8 +91,8 @@ jobs:
           provenance: false
           sbom: false
           platforms: ${{ env.PLATFORMS }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=${{ github.ref_name }}-${{ matrix.variant }}
+          cache-to: type=gha,scope=${{ github.ref_name }}-${{ matrix.variant }},mode=max
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           push: true
