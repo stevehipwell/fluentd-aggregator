@@ -58,7 +58,7 @@ GEM
       elasticsearch-api (= 8.7.0)
     elasticsearch-api (8.7.0)
       multi_json
-    ethon (0.15.0)
+    ethon (0.16.0)
       ffi (>= 1.15.0)
     excon (0.99.0)
     faraday (2.7.4)
@@ -80,7 +80,7 @@ GEM
       fluentd (>= 0.14.15, < 2)
       rest-client
       yajl-ruby
-    fluent-plugin-azurestorage-gen2 (0.3.3)
+    fluent-plugin-azurestorage-gen2 (0.3.5)
       concurrent-ruby (~> 1.1, >= 1.1.5)
       fluentd (>= 1.0, < 2)
       json (~> 2.1, >= 2.1.0)
@@ -217,7 +217,7 @@ DEPENDENCIES
   async (= 1.31.0)
   async-http (= 0.60.1)
   fluent-plugin-azure-loganalytics (= 0.7.0)
-  fluent-plugin-azurestorage-gen2 (= 0.3.3)
+  fluent-plugin-azurestorage-gen2 (= 0.3.5)
   fluent-plugin-cloudwatch-logs (= 0.14.3)
   fluent-plugin-concat (= 2.5.0)
   fluent-plugin-datadog (= 0.14.2)
