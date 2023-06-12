@@ -27,6 +27,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
+      - name: Setup
+        id: setup
+        run: |
+          set -euo pipefail
+
+          source_date_epoch="$(git log -1 --pretty=%ct)"
+
+          echo "source_date_epoch=${source_date_epoch}" >> "${GITHUB_OUTPUT}"
+          echo "SOURCE_DATE_EPOCH=${source_date_epoch}" >> "${GITHUB_ENV}"
+
       - name: Install Crane
         uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
 
@@ -108,6 +118,8 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           push: true
+          build-args: |
+            SOURCE_DATE_EPOCH=${{ steps.setup.outputs.source_date_epoch }}
 
       - name: Generate SBOMs
         id: sboms
