@@ -115,7 +115,7 @@ GEM
       faraday_middleware-aws-sigv4 (~> 1.0.1)
       fluentd (>= 0.14.22)
       opensearch-ruby
-    fluent-plugin-prometheus (2.0.3)
+    fluent-plugin-prometheus (2.1.0)
       fluentd (>= 1.9.1, < 2)
       prometheus-client (>= 2.1.0)
     fluent-plugin-record-modifier (2.1.1)
@@ -171,7 +171,7 @@ GEM
     opensearch-transport (2.1.0)
       faraday (>= 1.0, < 3)
       multi_json
-    prometheus-client (4.0.0)
+    prometheus-client (4.1.0)
     protocol-hpack (1.4.2)
     protocol-http (0.24.0)
     protocol-http1 (0.15.0)
@@ -225,7 +225,7 @@ DEPENDENCIES
   fluent-plugin-grafana-loki (= 1.2.20)
   fluent-plugin-kafka (= 0.19.0)
   fluent-plugin-opensearch (= 1.1.0)
-  fluent-plugin-prometheus (= 2.0.3)
+  fluent-plugin-prometheus (= 2.1.0)
   fluent-plugin-record-modifier (= 2.1.1)
   fluent-plugin-rewrite-tag-filter (= 2.4.0)
   fluent-plugin-route (= 1.0.0)
