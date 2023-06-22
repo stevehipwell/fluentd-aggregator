@@ -1,17 +1,9 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: Version to release (in the format v*).
-        type: string
-        required: true
-      latest:
-        description: If this should be the latest release.
-        required: false
-        type: boolean
-        default: true
+  push:
+    tags:
+      - v*
 
 jobs:
   release:
@@ -100,7 +92,7 @@ jobs:
           labels: |
             org.opencontainers.image.description=Fluentd aggregator OCI image based on the default Fluentd OCI image.
             org.opencontainers.image.authors=Steve Hipwell <steve.hipwell@gmail.com>
-            org.opencontainers.image.version=${{ inputs.version }}
+            org.opencontainers.image.version=${{ github.ref_name }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
@@ -206,7 +198,7 @@ jobs:
           sha_tag="${{ steps.metadata.outputs.version }}"
           digest="${{ steps.build.outputs.digest }}"
 
-          version="$(echo "${{ inputs.version }}" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')"
+          version="$(echo "${{ github.ref_name }}" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')"
           major_minor="$(echo "${version}" | grep -Eo '^[0-9]+\.[0-9]+')"
           major="$(echo "${major_minor}" | grep -Eo '^[0-9]+')"
 
@@ -276,14 +268,12 @@ jobs:
         uses: mindsers/changelog-reader-action@b97ce03a10d9bdbb07beb491c76a5a01d78cd3ef # v2.2.2
         with:
           path: ./CHANGELOG.md
-          version: ${{ inputs.version }}
+          version: ${{ github.ref_name }}
 
       - name: Create release
         uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit: ${{ github.sha }}
-          tag: ${{ inputs.version }}
-          makeLatest: ${{ inputs.latest }}
+          makeLatest: true
           body: ${{ steps.changelog_reader.outputs.changes }}
           allowUpdates: true
