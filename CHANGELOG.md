@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security - In case of vulnerabilities.
 -->
 
+## [v2.9.2] - 2023-06-22
+
+### Changed
+
+- Updated [fluent-plugin-prometheus](https://rubygems.org/gems/fluent-plugin-prometheus/) from `v2.0.3` to `v2.1.0`.
+- Updated [async-http](https://rubygems.org/gems/async-http) from `v0.60.1` to `v0.60.2`.
+- Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.1.0` to `v1.1.1`.
+
 ## [v2.9.1] - 2023-06-08
 
 ### Changed
