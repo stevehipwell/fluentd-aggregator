@@ -9,6 +9,10 @@ if [ -r $DEFAULT ]; then
     set +o allexport
 fi
 
+if [ -n "${TMPDIR}" ] && [ ! -d "${TMPDIR}" ]; then
+    mkdir -p -m 3770 "${TMPDIR}"
+fi
+
 # If the user has supplied only arguments append them to `fluentd` command
 if [ "${1#-}" != "$1" ]; then
     set -- fluentd "$@"
