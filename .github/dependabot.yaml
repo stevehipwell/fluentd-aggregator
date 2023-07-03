@@ -2,22 +2,36 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     schedule:
       interval: daily
     assignees:
       - stevehipwell
+
   - package-ecosystem: docker
     directory: /
+    groups:
+      docker:
+        patterns:
+          - "*"
     schedule:
       interval: daily
     assignees:
       - stevehipwell
+
   - package-ecosystem: bundler
     directory: /
-    schedule:
-      interval: daily
+    groups:
+      bundler:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: async
         versions: [">=2"]
+    schedule:
+      interval: daily
     assignees:
       - stevehipwell
