@@ -53,7 +53,7 @@ jobs:
         uses: docker/setup-qemu-action@2b82ce82d56a2a04d2637cd93a637ae1b359c0a7 # v2.2.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@16c0bc4a6e6ada2cfd8afd41d22d95379cf7c32a # v2.8.0
+        uses: docker/setup-buildx-action@2a1a44ac4aa01993040736bd95bb470da1a38365 # v2.9.0
 
       - name: Install Hadolint
         uses: action-stars/install-tool-from-github-release@58e2dd20166c0eb19ab9ac4d0966c930a647ee69 # v0.2.0
