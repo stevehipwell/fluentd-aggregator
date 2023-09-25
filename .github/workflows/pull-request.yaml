@@ -47,7 +47,7 @@ jobs:
       - name: Install Grype
         uses: anchore/scan-action/download-grype@24fd7c9060f3c96848dd1929fac8d796fb5ae4b4 # v3.3.6
         with:
-          grype-version: latest
+          grype-version: v0.67.0
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3 # v3.0.0
@@ -129,7 +129,7 @@ jobs:
           do
             digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
 
-            syft --name "${{ github.repository }}@${digest}" --platform "${platform}" -o "spdx-json=syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json" "${default_image}@${digest}"
+            syft --source-name "${{ github.repository }}" --source-version "${digest}" --platform "${platform}" -o "spdx-json=syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json" "${default_image}@${digest}"
           done
 
       - name: Upload SBOM artifacts
@@ -157,7 +157,7 @@ jobs:
           for platform in ${PLATFORMS//,/ }
           do
             sarif_path="${directory_path}/grype-scan-${{ matrix.variant }}-${platform#*/}.sarif"
-            grype --platform "${platform}" -o sarif "sbom:syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json" > "${sarif_path}"
+            grype --platform "${platform}" -o "sarif=${sarif_path}" "sbom:syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json"
           done
 
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
