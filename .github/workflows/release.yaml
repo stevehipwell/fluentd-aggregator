@@ -44,7 +44,7 @@ jobs:
       - name: Install Grype
         uses: anchore/scan-action/download-grype@24fd7c9060f3c96848dd1929fac8d796fb5ae4b4 # v3.3.6
         with:
-          grype-version: latest
+          grype-version: v0.67.0
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
@@ -132,7 +132,7 @@ jobs:
             digest="$(crane digest "${default_image}:${sha_tag}" --platform="${platform}")"
 
             sbom_path="syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json"
-            syft --name "${{ github.repository }}@${digest}" --platform "${platform}" -o "spdx-json=${sbom_path}" "${default_image}@${digest}"
+            syft --source-name "${{ github.repository }}" --source-version "${digest}" --platform "${platform}" -o "spdx-json=${sbom_path}" "${default_image}@${digest}"
             sbom_paths="${sbom_paths}${sbom_path},"
           done
 
@@ -165,7 +165,7 @@ jobs:
           for platform in ${PLATFORMS//,/ }
           do
             sarif_path="${directory_path}/grype-scan-${{ matrix.variant }}-${platform#*/}.sarif"
-            grype --platform "${platform}" -o sarif "sbom:syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json" > "${sarif_path}"
+            grype --platform "${platform}" -o "sarif=${sarif_path}" "sbom:syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json"
           done
 
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
