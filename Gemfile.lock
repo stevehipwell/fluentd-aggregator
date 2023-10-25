@@ -5,15 +5,15 @@ GEM
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
-    async-http (0.60.2)
+    async-http (0.61.0)
       async (>= 1.25)
       async-io (>= 1.28)
       async-pool (>= 0.2)
-      protocol-http (~> 0.24.0)
-      protocol-http1 (~> 0.15.0)
+      protocol-http (~> 0.25.0)
+      protocol-http1 (~> 0.16.0)
       protocol-http2 (~> 0.15.0)
       traces (>= 0.10.0)
-    async-io (1.35.0)
+    async-io (1.36.0)
       async
     async-pool (0.4.0)
       async (>= 1.25)
@@ -43,7 +43,7 @@ GEM
       rest-client
     concurrent-ruby (1.2.2)
     connection_pool (2.3.0)
-    console (1.17.2)
+    console (1.23.2)
       fiber-annotation
       fiber-local
     cool.io (1.8.0)
@@ -175,8 +175,8 @@ GEM
       multi_json
     prometheus-client (4.1.0)
     protocol-hpack (1.4.2)
-    protocol-http (0.24.7)
-    protocol-http1 (0.15.1)
+    protocol-http (0.25.0)
+    protocol-http1 (0.16.0)
       protocol-http (~> 0.22)
     protocol-http2 (0.15.1)
       protocol-hpack (~> 1.4)
@@ -195,7 +195,7 @@ GEM
     sigdump (0.2.5)
     strptime (0.2.5)
     timers (4.3.5)
-    traces (0.10.0)
+    traces (0.11.1)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
@@ -217,7 +217,7 @@ PLATFORMS
 
 DEPENDENCIES
   async (= 1.31.0)
-  async-http (= 0.60.2)
+  async-http (= 0.61.0)
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.5)
   fluent-plugin-cloudwatch-logs (= 0.14.3)
