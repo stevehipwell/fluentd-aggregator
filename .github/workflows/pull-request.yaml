@@ -5,8 +5,9 @@ on:
     branches:
       - main
     paths-ignore:
-      - .github/commit.yaml
-      - .github/release.yaml
+      - .github/dependabot.yaml
+      - .github/workflows/commit.yaml
+      - .github/workflows/release.yaml
 
 jobs:
   build:

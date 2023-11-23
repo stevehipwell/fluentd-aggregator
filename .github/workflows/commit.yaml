@@ -6,8 +6,9 @@ on:
     branches:
       - main
     paths-ignore:
-      - .github/pull-request.yaml
-      - .github/release.yaml
+      - .github/dependabot.yaml
+      - .github/workflows/pull-request.yaml
+      - .github/workflows/release.yaml
 
 jobs:
   build:
