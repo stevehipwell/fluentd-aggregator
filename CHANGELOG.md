@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [v2.10.0] - 2023-11-23
+
 ### Changed
 
 - Updated [Fluentd](https://rubygems.org/gems/fluentd) to [v1.16.3](https://github.com/fluent/fluentd/releases/tag/v1.16.3).
