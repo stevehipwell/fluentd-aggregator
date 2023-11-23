@@ -18,6 +18,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security - In case of vulnerabilities.
 -->
 
+## [UNRELEASED]
+
+### Changed
+
+- Updated [Fluentd](https://rubygems.org/gems/fluentd) to [v1.16.3](https://github.com/fluent/fluentd/releases/tag/v1.16.3).
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.3.0` to `5.4.0`.
+- Updated [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.0` to `0.19.2`.
+- Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.1.1` to `v1.1.4`.
+- Updated [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem from `v4.1.1` to `v4.1.2`.
+- Updated [oj](https://rubygems.org/gems/oj) from `v3.15.0` to `v3.16.1`.
+- Updated [async-http](https://rubygems.org/gems/async-http) from `v0.60.2` to `v0.61.0`.
+- Updated _Alpine_ OCI base image digest to latest.
+- Updated _Debian_ OCI base image digest to latest.
+
 ## [v2.9.3] - 2023-06-23
 
 ### Added
