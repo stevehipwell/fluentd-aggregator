@@ -20,6 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+## [v2.10.1] - 2023-12-07
+
+### Changed
+
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.4.0` to `5.4.1`.
+- Updated [json](https://rubygems.org/gems/json) from `2.6.3` to `2.7.0`.
+
 ## [v2.10.0] - 2023-11-23
 
 ### Changed

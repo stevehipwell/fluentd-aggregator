@@ -1,0 +1,18 @@
+name: Dependabot PR
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+      - labeled
+      - unlabeled
+
+jobs:
+  workflow:
+    name: Workflow
+    uses: action-stars/generic-workflows/.github/workflows/dependabot-pr.yaml@1595146d2d281c8d75d43340e491afc53620c748 # v0.1.0
+    permissions:
+      contents: write
