@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added - For new features.
 ### Changed - For changes in existing functionality.
+- Updated `anchore/sbom-action` from 0.15.0 to 0.15.1 ([#258](https://github.com/stevehipwell/fluentd-aggregator/pull/258))
+- Updated `action-stars/install-tool-from-github-release` from 0.2.0 to 0.2.1 ([#258](https://github.com/stevehipwell/fluentd-aggregator/pull/258))
+- Updated `docker/metadata-action` from 5.2.0 to 5.3.0 ([#258](https://github.com/stevehipwell/fluentd-aggregator/pull/258))
+- Updated `<code>@​docker/actions-toolkit</code>` from 0.14.0 to 0.15.0 ([#258](https://github.com/stevehipwell/fluentd-aggregator/pull/258))
 ### Deprecated - For soon-to-be removed features.
 ### Removed - For now removed features.
 ### Fixed - For any bug fixes.
