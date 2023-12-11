@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added - For new features.
 ### Changed - For changes in existing functionality.
+- Updated `oj` from 3.16.1 to 3.16.2 ([#257](https://github.com/stevehipwell/fluentd-aggregator/pull/257))
+- Updated `actions/checkout` from 3 to 4 ([#257](https://github.com/stevehipwell/fluentd-aggregator/pull/257))
+- Updated `json` from 2.7.0 to 2.7.1 ([#257](https://github.com/stevehipwell/fluentd-aggregator/pull/257))
+- Updated `fluent-plugin-elasticsearch` from 5.4.1 to 5.4.2 ([#257](https://github.com/stevehipwell/fluentd-aggregator/pull/257))
+- Updated `fluent-plugin-record-modifier` from 2.1.1 to 2.2.0 ([#257](https://github.com/stevehipwell/fluentd-aggregator/pull/257))
 ### Deprecated - For soon-to-be removed features.
 ### Removed - For now removed features.
 ### Fixed - For any bug fixes.
