@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Changed
+- Updated `anchore/sbom-action` from 0.15.0 to 0.15.1 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+
+- Updated `sigstore/cosign-installer` from 3.2.0 to 3.3.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+- Updated `actions/setup-go` from 4.1.0 to 5.0.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+- Updated `action-stars/install-tool-from-github-release` from 0.2.0 to 0.2.1 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+- Updated `docker/metadata-action` from 5.2.0 to 5.3.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+- Updated `<code>@​docker/actions-toolkit</code>` from 0.14.0 to 0.15.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
 ## [v2.10.1] - 2023-12-07
 
 ### Changed
