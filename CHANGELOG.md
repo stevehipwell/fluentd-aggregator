@@ -26,6 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `action-stars/install-tool-from-github-release` from 0.2.0 to 0.2.1 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
 - Updated `docker/metadata-action` from 5.2.0 to 5.3.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
 - Updated `<code>@​docker/actions-toolkit</code>` from 0.14.0 to 0.15.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+- Updated `oj` from 3.16.1 to 3.16.3 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
+- Updated `actions/checkout` from 3 to 4 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
+- Updated `json` from 2.7.0 to 2.7.1 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
+- Updated `fluent-plugin-elasticsearch` from 5.4.1 to 5.4.2 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
+- Updated `fluent-plugin-record-modifier` from 2.1.1 to 2.2.0 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
 ## [v2.10.1] - 2023-12-07
 
 ### Changed
