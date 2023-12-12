@@ -42,6 +42,7 @@ GEM
     azure-loganalytics-datacollector-api (0.5.0)
       rest-client
     base64 (0.2.0)
+    bigdecimal (3.1.4)
     concurrent-ruby (1.2.2)
     connection_pool (2.3.0)
     console (1.23.2)
@@ -99,7 +100,7 @@ GEM
     fluent-plugin-datadog (0.14.2)
       fluentd (>= 1, < 2)
       net-http-persistent (~> 4.0.1)
-    fluent-plugin-elasticsearch (5.4.1)
+    fluent-plugin-elasticsearch (5.4.2)
       elasticsearch
       excon
       faraday (>= 2.0.0)
@@ -122,8 +123,8 @@ GEM
     fluent-plugin-prometheus (2.1.0)
       fluentd (>= 1.9.1, < 2)
       prometheus-client (>= 2.1.0)
-    fluent-plugin-record-modifier (2.1.1)
-      fluentd (>= 1.0, < 2)
+    fluent-plugin-record-modifier (2.2.0)
+      fluentd (>= 1.1, < 2)
     fluent-plugin-rewrite-tag-filter (2.4.0)
       fluent-config-regexp-type
       fluentd (>= 0.14.2, < 2)
@@ -154,7 +155,7 @@ GEM
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
     jmespath (1.6.2)
-    json (2.7.0)
+    json (2.7.1)
     libxml-ruby (4.1.2)
     ltsv (0.1.2)
     mime-types (3.4.1)
@@ -166,7 +167,8 @@ GEM
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.5.9)
-    oj (3.16.1)
+    oj (3.16.3)
+      bigdecimal (>= 3.0)
     opensearch-api (2.2.0)
       multi_json
     opensearch-ruby (2.1.0)
@@ -225,20 +227,20 @@ DEPENDENCIES
   fluent-plugin-cloudwatch-logs (= 0.14.3)
   fluent-plugin-concat (= 2.5.0)
   fluent-plugin-datadog (= 0.14.2)
-  fluent-plugin-elasticsearch (= 5.4.1)
+  fluent-plugin-elasticsearch (= 5.4.2)
   fluent-plugin-grafana-loki (= 1.2.20)
   fluent-plugin-kafka (= 0.19.2)
   fluent-plugin-opensearch (= 1.1.4)
   fluent-plugin-prometheus (= 2.1.0)
-  fluent-plugin-record-modifier (= 2.1.1)
+  fluent-plugin-record-modifier (= 2.2.0)
   fluent-plugin-rewrite-tag-filter (= 2.4.0)
   fluent-plugin-route (= 1.0.0)
   fluent-plugin-s3 (= 1.7.2)
   fluent-plugin-sqs (= 3.0.0)
   fluentd (= 1.16.3)
-  json (= 2.7.0)
+  json (= 2.7.1)
   libxml-ruby (= 4.1.2)
-  oj (= 3.16.1)
+  oj (= 3.16.3)
 
 BUNDLED WITH
    2.3.7
