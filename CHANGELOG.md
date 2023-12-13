@@ -18,19 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
-### Changed
-- Updated `anchore/sbom-action` from 0.15.0 to 0.15.1 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
+## [v2.10.2] - 2023-12-13
 
-- Updated `sigstore/cosign-installer` from 3.2.0 to 3.3.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
-- Updated `actions/setup-go` from 4.1.0 to 5.0.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
-- Updated `action-stars/install-tool-from-github-release` from 0.2.0 to 0.2.1 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
-- Updated `docker/metadata-action` from 5.2.0 to 5.3.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
-- Updated `<code>@​docker/actions-toolkit</code>` from 0.14.0 to 0.15.0 ([#259](https://github.com/stevehipwell/fluentd-aggregator/pull/259))
-- Updated `oj` from 3.16.1 to 3.16.3 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
-- Updated `actions/checkout` from 3 to 4 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
-- Updated `json` from 2.7.0 to 2.7.1 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
-- Updated `fluent-plugin-elasticsearch` from 5.4.1 to 5.4.2 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
-- Updated `fluent-plugin-record-modifier` from 2.1.1 to 2.2.0 ([#260](https://github.com/stevehipwell/fluentd-aggregator/pull/260))
+### Changed
+
+- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.1` to `3.16.3`.
+- Updated [json](https://rubygems.org/gems/json) Gem from `2.7.0` to `2.7.1`.
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.4.1` to `5.4.2`.
+- Updated [fluent-plugin-record-modifier](https://rubygems.org/gems/fluent-plugin-record-modifier) Gem from `2.1.1` to `2.2.0`.
+
 ## [v2.10.1] - 2023-12-07
 
 ### Changed
