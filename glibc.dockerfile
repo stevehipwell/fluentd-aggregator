@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-slim-bullseye@sha256:de79023a04db045458ef866b78a9b26cf3a29e7b59fbd4dac57c18d22b450fc8
+FROM ruby:3.3.0-slim-bullseye@sha256:2e0e373da335039dba7eeba586cdee3bd66b6fd944f1a1846369c7d72c9e2416
 
 RUN set -eux; \
   apt-get update; \
