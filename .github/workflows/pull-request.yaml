@@ -41,12 +41,12 @@ jobs:
         uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
 
       - name: Install Syft
-        uses: anchore/sbom-action/download-syft@5ecf649a417b8ae17dc8383dc32d46c03f2312df # v0.15.1
+        uses: anchore/sbom-action/download-syft@719133684c7d294116626d1344fe64f0d2ff3e9e # v0.15.2
         with:
           syft-version: latest
 
       - name: Install Grype
-        uses: anchore/scan-action/download-grype@896d5f410043987c8fe18f60d91bf199e436840c # v3.3.8
+        uses: anchore/scan-action/download-grype@65161264d84bfeed55775e43bdbe5eb7c8a433fb # v3.4.0
         with:
           grype-version: v0.67.0
 
@@ -82,7 +82,7 @@ jobs:
 
       - name: Generate OCI image metadata
         id: metadata
-        uses: docker/metadata-action@9dc751fe249ad99385a2583ee0d084c400eee04e # v5.4.0
+        uses: docker/metadata-action@dbef88086f6cef02e264edb7dbf63250c17cef6c # v5.5.0
         with:
           flavor: |
             latest=false
