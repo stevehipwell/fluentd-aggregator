@@ -41,9 +41,8 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     azure-loganalytics-datacollector-api (0.5.0)
       rest-client
-    base64 (0.2.0)
     bigdecimal (3.1.4)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     connection_pool (2.3.0)
     console (1.23.2)
       fiber-annotation
@@ -56,22 +55,21 @@ GEM
     elastic-transport (8.3.0)
       faraday (< 3)
       multi_json
-    elasticsearch (8.11.0)
+    elasticsearch (8.12.0)
       elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.11.0)
-    elasticsearch-api (8.11.0)
+      elasticsearch-api (= 8.12.0)
+    elasticsearch-api (8.12.0)
       multi_json
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (0.105.0)
-    faraday (2.7.12)
-      base64
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
+    excon (0.109.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
     faraday-excon (2.1.0)
       excon (>= 0.27.4)
       faraday (~> 2.0)
-    faraday-net_http (3.0.2)
+    faraday-net_http (3.1.0)
+      net-http
     faraday_middleware-aws-sigv4 (1.0.1)
       aws-sigv4 (~> 1.0)
       faraday (>= 2.0, < 3)
@@ -100,7 +98,7 @@ GEM
     fluent-plugin-datadog (0.14.2)
       fluentd (>= 1, < 2)
       net-http-persistent (~> 4.0.1)
-    fluent-plugin-elasticsearch (5.4.2)
+    fluent-plugin-elasticsearch (5.4.3)
       elasticsearch
       excon
       faraday (>= 2.0.0)
@@ -163,6 +161,8 @@ GEM
     mime-types-data (3.2022.0105)
     msgpack (1.7.2)
     multi_json (1.15.0)
+    net-http (0.4.1)
+      uri
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     netrc (0.11.0)
@@ -193,7 +193,6 @@ GEM
       netrc (~> 0.8)
     ruby-kafka (1.5.0)
       digest-crc
-    ruby2_keywords (0.0.5)
     serverengine (2.3.2)
       sigdump (~> 0.2.2)
     sigdump (0.2.5)
@@ -204,11 +203,12 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2023.3)
+    tzinfo-data (1.2023.4)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    uri (0.13.0)
     uuidtools (2.2.0)
     webrick (1.8.1)
     yajl-ruby (1.4.3)
@@ -227,7 +227,7 @@ DEPENDENCIES
   fluent-plugin-cloudwatch-logs (= 0.14.3)
   fluent-plugin-concat (= 2.5.0)
   fluent-plugin-datadog (= 0.14.2)
-  fluent-plugin-elasticsearch (= 5.4.2)
+  fluent-plugin-elasticsearch (= 5.4.3)
   fluent-plugin-grafana-loki (= 1.2.20)
   fluent-plugin-kafka (= 0.19.2)
   fluent-plugin-opensearch (= 1.1.4)
