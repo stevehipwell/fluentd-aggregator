@@ -1,11 +1,7 @@
 # Fluentd Aggregator Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
----
+> [!NOTE]
+> All notable changes to this project will be documented in this file; the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!--
 ### Added - For new features.
@@ -17,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -->
 
 ## [UNRELEASED]
+
+## [v2.11.0] - 2024-01-19
+
+### Changed
+
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI images to `v3.3.0`.
+- Updated [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem from `v4.1.2` to `v5.0.2`.
+- Updated [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch) Gem from `5.4.2` to `5.4.3`.
 
 ## [v2.10.2] - 2023-12-13
 
@@ -86,7 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.8.0] - 2023-03-29
 
-### All Changes
+### Changed
 
 - Updated _Fluentd_ to [v1.16.0](https://github.com/fluent/fluentd/releases/tag/v1.16.0).
 - Updated OCI base image digests to latest.
@@ -94,16 +98,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.7.0] - 2023-03-16
 
-### All Changes
+### Added
 
 - Added additional `glibc` variant and refer to current Alpine version as `musl` variant.
+
+### Changed
+
 - Changed Alpine base image to official Ruby image.
 - Changed Dockerfile pattern.
 - Updated [async](https://rubygems.org/gems/async) Gem from `v1.30.3` to `v1.31.0`.
 
 ## [v2.6.2] - 2023-02-15
 
-### All Changes
+### Changed
 
 - Updated [Alpine](https://www.alpinelinux.org/) base image from `v3.17.1` to `v3.17.2`.
 - Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.0.9` to `v1.0.10`.
@@ -112,14 +119,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.6.1] - 2013-02-06
 
-### All Changes
+### Changed
 
 - Updated [async-http](https://github.com/socketry/async-http) Gem from `v0.59.4` to `v0.60.1`.
 - Updated [oj](https://github.com/ohler55/oj) from `v3.13.23` to `v3.14.1`.
 
 ## [v2.6.0] - 2023-01-10
 
-### All Changes
+### Changed
 
 - Updated [Alpine](https://www.alpinelinux.org/) base image from `v3.17.0` to `v3.17.1`.
 - Updated [async-http](https://github.com/socketry/async-http) Gem from `v0.59.3` to `v0.59.4`.
@@ -127,21 +134,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.5.0] - 2022-12-06
 
-### All Changes
+### Added
+
+- Added `libxml-ruby` to support AWS gems.
+
+### Changed
 
 - Updated `json` from `v2.6.2` to `v2.6.3`.
-- Added `libxml-ruby` to support AWS gems.
 
 ## [v2.4.0] - 2022-11-28
 
-### All Changes
+### Changed
 
 - Updated _Alpine_ to `v3.17.0`.
 - Updated `fluent-plugin-opensearch` to `v1.0.9`.
 
 ## [v2.3.0] - 2022-11-14
 
-### All Changes
+### Changed
 
 - Updated _Alpine_ to `v3.16.3`.
 - Updated `async-http` to `v0.59.3`.
@@ -149,7 +159,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.2.0] - 2022-11-02
 
-### All Changes
+### Changed
 
 - Updated _Fluentd_ to [v1.15.3](https://github.com/fluent/fluentd/releases/tag/v1.15.3).
 - Updated `fluent-plugin-elasticsearch` to `v5.2.4`.
@@ -159,7 +169,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.1.0] - 2022-10-25
 
-### All Changes
+### Changed
 
 - Changed to use explicit base image version and Dependabot to manage the updates.
 - Changed to use Bundler to install the Gems and Dependabot to manage the updates.
@@ -167,7 +177,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.0.0] - 2022-09-15
 
-> **Warning**
+> [!WARNING]
 > The _ElasticSearch_ plugin and libraries have been updated to the latest version so AWS users will need to be using _OpenSearch_.
 
 ### Highlights
@@ -176,14 +186,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This image now follows semantic versioning and is decoupled from the _Fluentd_ release cycle and versioning constraints.
 - Plugin versions will now be strictly versioned.
 
-### All Changes
+### Added
+
+- Added explicit UID & GID to `fluent` user of `2000`.
+- Added `/fluentd/state` directory.
+
+### Changed
 
 - Updated _Fluentd_ to [v1.15.2](https://github.com/fluent/fluentd/releases/tag/v1.15.2).
 - Changed versioning strategy to decouple from _Fluentd_ releases.
 - Changed plugin installation to explicitly set the version.
 - Changed default configuration to make it simpler.
-- Added explicit UID & GID to `fluent` user of `2000`.
-- Added `/fluentd/state` directory.
+
+### Removed
+
 - Removed _ElasticSearch_ locking to continue supporting AWS version.
 - Removed setting `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR`.
 
@@ -274,3 +290,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated _Fluentd_ image to [v1.13.1](https://github.com/fluent/fluentd/blob/master/CHANGELOG.md#release-v1131---20210625).
+
+<!--
+RELEASE LINKS
+-->
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.11.0...HEAD
+[v2.11.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.0
+[v2.10.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.10.2
+[v2.10.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.10.1
+[v2.10.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.10.0
+[v2.9.3]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.9.3
+[v2.9.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.9.2
+[v2.9.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.9.1
+[v2.9.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.9.0
+[v2.8.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.8.0
+[v2.7.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.7.0
+[v2.6.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.6.2
+[v2.6.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.6.1
+[v2.6.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.6.0
+[v2.5.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.5.0
+[v2.4.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.4.0
+[v2.3.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.3.0
+[v2.2.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.2.0
+[v2.1.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.1.0
+[v2.0.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.0.0
