@@ -37,12 +37,12 @@ jobs:
         uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
 
       - name: Install Syft
-        uses: anchore/sbom-action/download-syft@41f7a6c033dbcdf78917f23b652c8b8146298c85 # v0.15.4
+        uses: anchore/sbom-action/download-syft@24b0d5238516480139aa8bc6f92eeb7b54a9eb0a # v0.15.5
         with:
           syft-version: latest
 
       - name: Install Grype
-        uses: anchore/scan-action/download-grype@0550541809b9c6abbf7cbc43d12400db47056507 # v3.6.0
+        uses: anchore/scan-action/download-grype@c35e932c2a7c572bfdb1c3dbcdadb2d4fc62418d # v3.6.1
         with:
           grype-version: v0.67.0
 
@@ -141,7 +141,7 @@ jobs:
           echo "paths=${sbom_paths}" >> $GITHUB_OUTPUT
 
       - name: Upload SBOM artifacts
-        uses: actions/upload-artifact@694cdabd8bdb0f10b2cea11669e1bf5453eed0a6 # v4.2.0
+        uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8 # v4.3.0
         with:
           name: ${{ matrix.variant }}-sboms
           retention-days: 28
