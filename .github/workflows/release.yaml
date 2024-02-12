@@ -141,7 +141,7 @@ jobs:
           echo "paths=${sbom_paths}" >> $GITHUB_OUTPUT
 
       - name: Upload SBOM artifacts
-        uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8 # v4.3.0
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
         with:
           name: ${{ matrix.variant }}-sboms
           retention-days: 28
@@ -272,7 +272,7 @@ jobs:
           version: ${{ github.ref_name }}
 
       - name: Create release
-        uses: ncipollo/release-action@6c75be85e571768fa31b40abf38de58ba0397db5 # v1.13.0
+        uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5 # v1.14.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           makeLatest: true
