@@ -14,6 +14,13 @@
 
 ## [UNRELEASED]
 
+## [v2.11.1] - 2024-02-13
+
+### Changed
+
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests for `v3.3.0` to latest.
+- Updated [async-http](https://rubygems.org/gems/async-http) from `v0.61.0` to `v0.63.0`.
+
 ## [v2.11.0] - 2024-01-19
 
 ### Changed
@@ -295,6 +302,7 @@
 RELEASE LINKS
 -->
 [UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.11.0...HEAD
+[v2.11.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.1
 [v2.11.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.0
 [v2.10.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.10.2
 [v2.10.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.10.1
