@@ -14,6 +14,12 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [Fluentd](https://rubygems.org/gems/fluentd) from `1.16.3` to [1.16.4](https://github.com/fluent/fluentd/releases/tag/v1.16.4). ([#286](https://github.com/stevehipwell/fluentd-aggregator/pull/286)) _@dependabot_
+- Updated [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem from `v5.0.2` to `v5.0.3`. ([#286](https://github.com/stevehipwell/fluentd-aggregator/pull/286)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests for `v3.3.0` to latest. ([#280](https://github.com/stevehipwell/fluentd-aggregator/pull/280), [#281](https://github.com/stevehipwell/fluentd-aggregator/pull/281), [#283](https://github.com/stevehipwell/fluentd-aggregator/pull/283), [#285](https://github.com/stevehipwell/fluentd-aggregator/pull/285)) _@dependabot_
+
 ## [v2.11.1] - 2024-02-13
 
 ### Changed
