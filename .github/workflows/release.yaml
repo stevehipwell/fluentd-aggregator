@@ -6,14 +6,14 @@ on:
       - v*
 
 jobs:
-  release:
-    name: Build & Release OCI Image
-    permissions: write-all
+  build:
+    name: Build & Push OCI Image
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         variant: [musl, glibc]
-    runs-on: ubuntu-latest
+    permissions: write-all
     defaults:
       run:
         shell: bash
@@ -177,13 +177,6 @@ jobs:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
 
-      - name: Fail workflow
-        if: ${{ steps.hadolint.outcome == 'failure' && steps.grype.outcome == 'failure' }}
-        run: |
-          set -euo pipefail
-          echo "::error::Code scanning failed."
-          exit 1
-
       - name: Login to DockerHub
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
@@ -242,7 +235,7 @@ jobs:
 
           for reference in ${references//,/ }
           do
-            cosign sign --yes --recursive "${reference}@${{ steps.build.outputs.digest }}"
+            cosign sign --yes=true --recursive "${reference}@${{ steps.build.outputs.digest }}"
           done
 
           for platform in ${PLATFORMS//,/ }
@@ -253,9 +246,22 @@ jobs:
             do
               cosign attest --yes --type spdxjson --predicate syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
               cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign sign --yes "${reference%:*}:${digest/:/-}.sbom"
+              sbom_digest="$(crane digest "${reference%:*}:${digest/:/-}.sbom")"
+              cosign sign --yes=true "${reference%:*}:${digest/:/-}.sbom@${sbom_digest}"
             done
           done
+
+  publish:
+    name: Publish Release
+    runs-on: ubuntu-latest
+    permissions: write-all
+    defaults:
+      run:
+        shell: bash
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0

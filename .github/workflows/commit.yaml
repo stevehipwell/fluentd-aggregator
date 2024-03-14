@@ -233,7 +233,7 @@ jobs:
 
           for reference in ${references//,/ }
           do
-            cosign sign --yes --recursive "${reference}@${{ steps.build.outputs.digest }}"
+            cosign sign --yes=true --recursive "${reference}@${{ steps.build.outputs.digest }}"
           done
 
           for platform in ${PLATFORMS//,/ }
@@ -244,6 +244,7 @@ jobs:
             do
               cosign attest --yes --type spdxjson --predicate syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
               cosign attach sbom --type spdx --input-format json --sbom syft-sbom-${{ matrix.variant }}-${platform#*/}.spdx.json "${reference}@${digest}"
-              cosign sign --yes "${reference%:*}:${digest/:/-}.sbom"
+              sbom_digest="$(crane digest "${reference%:*}:${digest/:/-}.sbom")"
+              cosign sign --yes=true "${reference%:*}:${digest/:/-}.sbom@${sbom_digest}"
             done
           done
