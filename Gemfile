@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
-gem "libxml-ruby", "5.0.2"
+gem "libxml-ruby", "5.0.3"
 gem "oj", "3.16.3"
 gem "json", "2.7.1"
 gem "async", "1.31.0"
 gem "async-http", "0.63.0"
-gem "fluentd", "1.16.3"
+gem "fluentd", "1.16.4"
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
 gem "fluent-plugin-azurestorage-gen2", "0.3.5"
 gem "fluent-plugin-cloudwatch-logs", "0.14.3"
