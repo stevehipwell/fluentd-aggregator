@@ -14,6 +14,13 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [Fluentd](https://rubygems.org/gems/fluentd) from `1.16.4` to [1.16.5](https://github.com/fluent/fluentd/releases/tag/v1.16.5). ([#289](https://github.com/stevehipwell/fluentd-aggregator/pull/289)) _@dependabot_
+- Updated [async](https://rubygems.org/gems/async) from `1.31.0` to [1.32.1](https://github.com/socketry/async/releases/tag/v1.32.1). ([#289](https://github.com/stevehipwell/fluentd-aggregator/pull/289)) _@dependabot_
+- Updated [async-http](https://rubygems.org/gems/async-http) from `0.63.0` to `0.64.0`. ([#289](https://github.com/stevehipwell/fluentd-aggregator/pull/289)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) _glibc_ OCI image to stable (_Bookworm_). ([#291](https://github.com/stevehipwell/fluentd-aggregator/pull/291)) _@stevehipwell_
+
 ## [v2.12.0] - 2024-03-14
 
 ### Changed
