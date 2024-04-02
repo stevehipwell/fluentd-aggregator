@@ -14,6 +14,8 @@
 
 ## [UNRELEASED]
 
+## [v2.13.0] - 2024-04-02
+
 ### Changed
 
 - Updated [Fluentd](https://rubygems.org/gems/fluentd) from `1.16.4` to [1.16.5](https://github.com/fluent/fluentd/releases/tag/v1.16.5). ([#289](https://github.com/stevehipwell/fluentd-aggregator/pull/289)) _@dependabot_
@@ -316,7 +318,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.12.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.13.0...HEAD
+[v2.13.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.13.0
 [v2.12.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.12.0
 [v2.11.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.1
 [v2.11.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.0
