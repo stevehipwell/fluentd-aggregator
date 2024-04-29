@@ -40,6 +40,8 @@ updates:
     ignore:
       - dependency-name: async
         versions: [">=2"]
+      - dependency-name: async-http
+        versions: [">=0.65.0"]
     schedule:
       interval: weekly
     assignees:
