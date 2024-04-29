@@ -14,6 +14,8 @@
 
 ## [UNRELEASED]
 
+## [v2.14.0] - 2024-04-29
+
 ### Changed
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image to from `v3.3.0` to [v3.3.1](https://github.com/ruby/ruby/releases/tag/v3_3_1). ([#298](https://github.com/stevehipwell/fluentd-aggregator/pull/298)) _@dependabot_
@@ -324,7 +326,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.13.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.14.0...HEAD
+[v2.14.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.14.0
 [v2.13.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.13.0
 [v2.12.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.12.0
 [v2.11.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.11.1
