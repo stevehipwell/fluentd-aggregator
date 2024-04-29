@@ -1,20 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (1.32.1)
+    async (2.10.2)
       console (~> 1.10)
-      nio4r (~> 2.3)
+      fiber-annotation
+      io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
-    async-http (0.64.2)
-      async (>= 1.25)
-      async-io (>= 1.28)
-      async-pool (>= 0.2)
+    async-http (0.65.1)
+      async (>= 2.10.2)
+      async-pool (>= 0.6.1)
+      io-endpoint (~> 0.10)
+      io-stream (~> 0.4)
       protocol-http (~> 0.26.0)
       protocol-http1 (~> 0.19.0)
-      protocol-http2 (~> 0.16.0)
+      protocol-http2 (~> 0.17.0)
       traces (>= 0.10.0)
-    async-io (1.42.1)
-      async
     async-pool (0.6.1)
       async (>= 1.25)
     aws-eventstream (1.2.0)
@@ -153,6 +153,9 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
+    io-endpoint (0.10.2)
+    io-event (1.5.1)
+    io-stream (0.4.0)
     jmespath (1.6.2)
     json (2.7.2)
     libxml-ruby (5.0.3)
@@ -167,7 +170,6 @@ GEM
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     netrc (0.11.0)
-    nio4r (2.7.1)
     oj (3.16.3)
       bigdecimal (>= 3.0)
     opensearch-api (2.2.0)
@@ -183,7 +185,7 @@ GEM
     protocol-http (0.26.4)
     protocol-http1 (0.19.1)
       protocol-http (~> 0.22)
-    protocol-http2 (0.16.0)
+    protocol-http2 (0.17.0)
       protocol-hpack (~> 1.4)
       protocol-http (~> 0.18)
     rake (13.0.6)
@@ -221,8 +223,8 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 1.32.1)
-  async-http (= 0.64.2)
+  async (= 2.10.2)
+  async-http (= 0.65.1)
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.5)
   fluent-plugin-cloudwatch-logs (= 0.14.3)
