@@ -21,7 +21,7 @@ jobs:
       PLATFORMS: "linux/amd64,linux/arm64"
     steps:
       - name: Checkout
-        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: Setup
         id: setup
@@ -74,7 +74,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@ccf74c947955fd1cf117aef6a0e4e66191ef6f61 # v3.25.4
+        uses: github/codeql-action/upload-sarif@b7cec7526559c32f1616476ff32d17ba4c59b2d6 # v3.25.5
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -172,7 +172,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@ccf74c947955fd1cf117aef6a0e4e66191ef6f61 # v3.25.4
+        uses: github/codeql-action/upload-sarif@b7cec7526559c32f1616476ff32d17ba4c59b2d6 # v3.25.5
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
@@ -261,7 +261,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
