@@ -74,7 +74,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@f079b8493333aace61c81488f8bd40919487bd9f # v3.25.7
+        uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # v3.25.8
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -149,7 +149,7 @@ jobs:
           path: "*.spdx.json"
 
       - name: Upload SBOMs to Dependency Graph
-        uses: advanced-security/spdx-dependency-submission-action@dc069b56ba31ce546dc419b549aceb808c632d9a # v0.0.1
+        uses: advanced-security/spdx-dependency-submission-action@af889147caa602135830f4848557237a5d9139f7 # v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filePath: "."
@@ -172,7 +172,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@f079b8493333aace61c81488f8bd40919487bd9f # v3.25.7
+        uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # v3.25.8
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
