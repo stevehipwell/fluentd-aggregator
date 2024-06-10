@@ -151,7 +151,7 @@ jobs:
           path: "*.spdx.json"
 
       - name: Upload SBOMs to Dependency Graph
-        uses: advanced-security/spdx-dependency-submission-action@dc069b56ba31ce546dc419b549aceb808c632d9a # v0.0.1
+        uses: advanced-security/spdx-dependency-submission-action@af889147caa602135830f4848557237a5d9139f7 # v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filePath: "."
