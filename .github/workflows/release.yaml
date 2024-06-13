@@ -21,7 +21,7 @@ jobs:
       PLATFORMS: "linux/amd64,linux/arm64"
     steps:
       - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Setup
         id: setup
@@ -34,7 +34,7 @@ jobs:
           echo "SOURCE_DATE_EPOCH=${source_date_epoch}" >> "${GITHUB_ENV}"
 
       - name: Install Crane
-        uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
+        uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
 
       - name: Install Syft
         uses: anchore/sbom-action/download-syft@e8d2a6937ecead383dfe75190d104edd1f9c5751 # v0.16.0
@@ -74,7 +74,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # v3.25.8
+        uses: github/codeql-action/upload-sarif@530d4feaa9c62aaab2d250371e2061eb7a172363 # v3.25.9
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -149,7 +149,7 @@ jobs:
           path: "*.spdx.json"
 
       - name: Upload SBOMs to Dependency Graph
-        uses: advanced-security/spdx-dependency-submission-action@dc069b56ba31ce546dc419b549aceb808c632d9a # v0.0.1
+        uses: advanced-security/spdx-dependency-submission-action@5530bab9ee4bbe66420ce8280624036c77f89746 # v0.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filePath: "."
@@ -172,7 +172,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # v3.25.8
+        uses: github/codeql-action/upload-sarif@530d4feaa9c62aaab2d250371e2061eb7a172363 # v3.25.9
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
@@ -261,7 +261,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Update Docker repository description
         uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
