@@ -14,6 +14,11 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated OCI image digest for `glibc` image. ([#315](https://github.com/stevehipwell/fluentd-aggregator/pull/315) & [#321](https://github.com/stevehipwell/fluentd-aggregator/pull/321)) _@dependabot_
+- Updated OCI image digest for `musl` image. ([#315](https://github.com/stevehipwell/fluentd-aggregator/pull/315) & [#316](https://github.com/stevehipwell/fluentd-aggregator/pull/316)) _@dependabot_
+
 ## [v2.17.0] - 2024-06-14
 
 ### Changed
