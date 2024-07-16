@@ -1,0 +1,7 @@
+issuer: https://token.actions.githubusercontent.com
+subject: repo:stevehipwell/fluentd-aggregator:pull_request
+base_ref: refs/heads/main
+actor: dependabot[bot]
+
+permissions:
+  contents: write
