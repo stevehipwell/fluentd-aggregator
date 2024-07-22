@@ -1,8 +1,8 @@
 issuer: https://token.actions.githubusercontent.com
 subject: repo:stevehipwell/fluentd-aggregator:pull_request
 claim_pattern:
-  base_ref: main
-  actor: dependabot[bot]
+  base_ref: ^main$
+  actor: ^dependabot\[bot\]$
 
 permissions:
   contents: write
