@@ -17,6 +17,23 @@
 ### Changed
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.3` to [`v3.3.4`](https://github.com/ruby/ruby/releases/tag/v3_3_4). ([#324](https://github.com/stevehipwell/fluentd-aggregator/pull/324)) _@dependabot_
+- Updated `anchore/sbom-action` from 0.16.1 to 0.17.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `actions/checkout` from 4.1.6 to 4.1.7 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `peter-evans/create-pull-request` from 6.0.5 to 6.1.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `anchore/scan-action` from 4.0.0 to 4.1.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `tslib` from 2.6.2 to 2.6.3 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `prettier` from 3.3.0 to 3.3.2 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `lint-staged` from 15.2.2 to 15.2.7 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `eslint` from 8.57.0 to 9.6.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `docker/setup-qemu-action` from 3.1.0 to 3.2.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `<code>@​docker/actions-toolkit</code>` from 0.31.0 to 0.35.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `docker/setup-buildx-action` from 3.4.0 to 3.5.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `github/codeql-action` from 3.25.12 to 3.25.13 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `docker/login-action` from 3.2.0 to 3.3.0 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `https-proxy-agent` from 7.0.4 to 7.0.5 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `braces` from 3.0.2 to 3.0.3 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `docker/bake-action` from 4 to 5</li> ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
+- Updated `docker/build-push-action` from 6.3.0 to 6.4.1 ([#330](https://github.com/stevehipwell/fluentd-aggregator/pull/330))
 
 ## [v2.17.0] - 2024-06-14
 
