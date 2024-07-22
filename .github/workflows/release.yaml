@@ -37,12 +37,12 @@ jobs:
         uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
 
       - name: Install Syft
-        uses: anchore/sbom-action/download-syft@95b086ac308035dc0850b3853be5b7ab108236a8 # v0.16.1
+        uses: anchore/sbom-action/download-syft@d94f46e13c6c62f59525ac9a1e147a99dc0b9bf5 # v0.17.0
         with:
           syft-version: latest
 
       - name: Install Grype
-        uses: anchore/scan-action/download-grype@04b73ec0bba3de85519c4ec634bffedead788f96 # v4.0.0
+        uses: anchore/scan-action/download-grype@d43cc1dfea6a99ed123bf8f3133f1797c9b44492 # v4.1.0
         with:
           grype-version: v0.67.0
 
@@ -50,10 +50,10 @@ jobs:
         uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 # v3.5.0
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@5927c834f5b4fdf503fca6f4c7eccda82949e1ee # v3.1.0
+        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3.2.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@4fd812986e6c8c2a69e18311145f9371337f27d4 # v3.4.0
+        uses: docker/setup-buildx-action@aa33708b10e362ff993539393ff100fa93ed6a27 # v3.5.0
 
       - name: Install Hadolint
         uses: action-stars/install-tool-from-github-release@ece2623611b240002e0dd73a0d685505733122f6 # v0.2.4
@@ -74,7 +74,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@4fa2a7953630fd2f3fb380f21be14ede0169dd4f # v3.25.12
+        uses: github/codeql-action/upload-sarif@2d790406f505036ef40ecba973cc774a50395aac # v3.25.13
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -95,7 +95,7 @@ jobs:
             org.opencontainers.image.version=${{ github.ref_name }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3.2.0
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -103,7 +103,7 @@ jobs:
 
       - name: Build OCI image
         id: build
-        uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c # v6.3.0
+        uses: docker/build-push-action@5176d81f87c23d6fc96624dfdbcd9f3830bbe445 # v6.5.0
         with:
           file: ./${{ matrix.variant }}.dockerfile
           context: .
@@ -172,13 +172,13 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@4fa2a7953630fd2f3fb380f21be14ede0169dd4f # v3.25.12
+        uses: github/codeql-action/upload-sarif@2d790406f505036ef40ecba973cc774a50395aac # v3.25.13
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
 
       - name: Login to DockerHub
-        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3.2.0
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
