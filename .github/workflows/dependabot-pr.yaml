@@ -1,50 +1,50 @@
-name: Dependabot PR
+# name: Dependabot PR
 
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
-      - labeled
-      - unlabeled
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - synchronize
+#       - reopened
+#       - ready_for_review
+#       - labeled
+#       - unlabeled
 
-jobs:
-  changelog:
-    name: Changelog
-    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      id-token: write
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Get token
-        uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
-        id: sts
-        with:
-          scope: ${{ github.repository }}
-          identity: dependabot
+# jobs:
+#   changelog:
+#     name: Changelog
+#     if: contains(github.event.pull_request.labels.*.name, 'dependencies')
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#       id-token: write
+#     defaults:
+#       run:
+#         shell: bash
+#     steps:
+#       - name: Get token
+#         uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+#         id: sts
+#         with:
+#           scope: ${{ github.repository }}
+#           identity: dependabot
 
-      - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-        with:
-          token: ${{ steps.sts.outputs.token }}
-          fetch-depth: 1
+#       - name: Checkout
+#         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+#         with:
+#           token: ${{ steps.sts.outputs.token }}
+#           fetch-depth: 1
 
-      - name: Update changelog
-        uses: dangoslen/dependabot-changelog-helper@392b22478d34ddd54f2c51919bf40ad5590db395 # v3.9.0
-        with:
-          activationLabels: dependencies
-          changelogPath: ./CHANGELOG.md
-          version: UNRELEASED
-          sectionHeader: Changed
-          entryPrefix: Updated
+#       - name: Update changelog
+#         uses: dangoslen/dependabot-changelog-helper@392b22478d34ddd54f2c51919bf40ad5590db395 # v3.9.0
+#         with:
+#           activationLabels: dependencies
+#           changelogPath: ./CHANGELOG.md
+#           version: UNRELEASED
+#           sectionHeader: Changed
+#           entryPrefix: Updated
 
-      - name: Update PR
-        uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5.0.1
-        with:
-          commit_message: "chore: Updated Changelog"
+#       - name: Update PR
+#         uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5.0.1
+#         with:
+#           commit_message: "chore: Updated Changelog"
