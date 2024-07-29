@@ -16,7 +16,8 @@
 
 ### Changed
 
-- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.3` to [`v3.3.4`](https://github.com/ruby/ruby/releases/tag/v3_3_4). ([#324](https://github.com/stevehipwell/fluentd-aggregator/pull/324)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.3` to [`v3.3.4`](https://github.com/ruby/ruby/releases/tag/v3_3_4). ([#324](https://github.com/stevehipwell/fluentd-aggregator/pull/324) & [#333](https://github.com/stevehipwell/fluentd-aggregator/pull/333)) _@dependabot_
+- Updated [fluent-plugin-datadog](https://rubygems.org/gems/fluent-plugin-datadog/) from `v0.14.3` to [`v0.14.4`](https://github.com/DataDog/fluent-plugin-datadog/releases/tag/v0.14.4). ([#327](https://github.com/stevehipwell/fluentd-aggregator/pull/327)) _@dependabot_
 
 ## [v2.17.0] - 2024-06-14
 
