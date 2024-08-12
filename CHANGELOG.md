@@ -18,6 +18,9 @@
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.3` to [`v3.3.4`](https://github.com/ruby/ruby/releases/tag/v3_3_4). ([#324](https://github.com/stevehipwell/fluentd-aggregator/pull/324) & [#333](https://github.com/stevehipwell/fluentd-aggregator/pull/333)) _@dependabot_
 - Updated [fluent-plugin-datadog](https://rubygems.org/gems/fluent-plugin-datadog/) from `v0.14.3` to [`v0.14.4`](https://github.com/DataDog/fluent-plugin-datadog/releases/tag/v0.14.4). ([#327](https://github.com/stevehipwell/fluentd-aggregator/pull/327)) _@dependabot_
+- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.4` to [`3.16.5`](https://github.com/ohler55/oj/releases/tag/v3.16.5). ([#338](https://github.com/stevehipwell/fluentd-aggregator/pull/338)) _@dependabot_
+- Updated [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.2` to [`0.19.3`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.3). ([#338](https://github.com/stevehipwell/fluentd-aggregator/pull/338)) _@dependabot_
+- Updated [fluent-plugin-prometheus](https://rubygems.org/gems/fluent-plugin-prometheus/) from `v2.1.0` to [`v2.2.0`](https://github.com/fluent/fluent-plugin-prometheus/releases/tag/v2.2.0). ([#338](https://github.com/stevehipwell/fluentd-aggregator/pull/338)) _@dependabot_
 
 ## [v2.17.0] - 2024-06-14
 
@@ -30,7 +33,7 @@
 ### Changed
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.1` to [`v3.3.2`](https://github.com/ruby/ruby/releases/tag/v3_3_2). ([#306](https://github.com/stevehipwell/fluentd-aggregator/pull/306)) _@dependabot_
-- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.3` to [`3.16.4`](https://github.com/ohler55/oj/releases/tag/v3.16.4).
+- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.3` to [`3.16.4`](https://github.com/ohler55/oj/releases/tag/v3.16.4). ([#308](https://github.com/stevehipwell/fluentd-aggregator/pull/308)) _@dependabot_
 
 ## [v2.15.0] - 2024-04-30
 
