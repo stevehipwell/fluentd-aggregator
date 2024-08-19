@@ -1,4 +1,4 @@
-FROM ruby:3.3.4-slim@sha256:92039798d0c27c37ae83955d8a26de5b46b374720675a38b1593e29dba040578
+FROM ruby:3.3.4-slim@sha256:7bb0e1e46378217ce0775845f6d64b039c56d2890bc715536e6687ab13fe2930
 
 RUN set -eux; \
   apt-get update; \
