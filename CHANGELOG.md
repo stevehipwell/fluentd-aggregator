@@ -14,6 +14,10 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [fluent-plugin-azurestorage-gen2](https://rubygems.org/gems/fluent-plugin-azurestorage-gen2) from `v0.3.7` to [`v0.3.8`](https://github.com/oleewere/fluent-plugin-azurestorage-gen2/releases/tag/v0.3.8). ([#346](https://github.com/stevehipwell/fluentd-aggregator/pull/346)) _@dependabot_
+
 ## [v2.17.2] - 2024-08-29
 
 ### Changed
