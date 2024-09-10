@@ -14,9 +14,13 @@
 
 ## [UNRELEASED]
 
+## [v2.17.3] - 2024-09-10
+
 ### Changed
 
-- Updated [fluent-plugin-azurestorage-gen2](https://rubygems.org/gems/fluent-plugin-azurestorage-gen2) from `v0.3.7` to [`v0.3.8`](https://github.com/oleewere/fluent-plugin-azurestorage-gen2/releases/tag/v0.3.8). ([#346](https://github.com/stevehipwell/fluentd-aggregator/pull/346)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.4` to [`v3.3.5`](https://github.com/ruby/ruby/releases/tag/v3_3_5). ([#348](https://github.com/stevehipwell/fluentd-aggregator/pull/348)) _@dependabot_
+- Updated [fluent-plugin-azurestorage-gen2](https://rubygems.org/gems/fluent-plugin-azurestorage-gen2) from `v0.3.7` to [`v0.3.8`](https://github.com/oleewere/fluent-plugin-azurestorage-gen2/releases/tag/v0.3.8). ([#346](https://github.com/stevehipwell/fluentd-aggregator/pull/346) & [#349](https://github.com/stevehipwell/fluentd-aggregator/pull/349)) _@dependabot_
+- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.5` to [`3.16.6`](https://github.com/ohler55/oj/releases/tag/v3.16.6). ([#349](https://github.com/stevehipwell/fluentd-aggregator/pull/349)) _@dependabot_
 
 ## [v2.17.2] - 2024-08-29
 
@@ -367,7 +371,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.17.2...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.17.3...HEAD
+[v2.17.3]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.3
 [v2.17.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.2
 [v2.17.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.1
 [v2.17.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.0
