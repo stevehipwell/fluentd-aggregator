@@ -14,6 +14,11 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests to latest. ([#354](https://github.com/stevehipwell/fluentd-aggregator/pull/354)) _@dependabot_
+- Updated [WEBrick](https://rubygems.org/gems/webrick/) Gem from `1.8.1` to [`1.8.2`](https://github.com/ruby/webrick/releases/tag/v1.8.2). ([#353](https://github.com/stevehipwell/fluentd-aggregator/pull/353)) _@dependabot_
+
 ## [v2.17.3] - 2024-09-10
 
 ### Changed
