@@ -225,7 +225,7 @@ GEM
     unf_ext (0.0.8.2)
     uri (0.13.0)
     uuidtools (2.2.0)
-    webrick (1.8.1)
+    webrick (1.8.2)
     yajl-ruby (1.4.3)
 
 PLATFORMS
