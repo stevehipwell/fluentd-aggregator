@@ -42,14 +42,22 @@ jobs:
         uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
 
       - name: Install Syft
-        uses: anchore/sbom-action/download-syft@f5e124a5e5e1d497a692818ae907d3c45829d033 # v0.17.3
+        uses: action-stars/install-tool-from-github-release@ece2623611b240002e0dd73a0d685505733122f6 # v0.2.4
         with:
-          syft-version: latest
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: anchore
+          repository: syft
+          check_command: syft --version
+          version: latest
 
       - name: Install Grype
-        uses: anchore/scan-action/download-grype@64a33b277ea7a1215a3c142735a1091341939ff5 # v4.1.2
+        uses: action-stars/install-tool-from-github-release@ece2623611b240002e0dd73a0d685505733122f6 # v0.2.4
         with:
-          grype-version: latest
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: anchore
+          repository: grype
+          check_command: grype --version
+          version: latest
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@dc72c7d5c4d10cd6bcb8cf6e3fd625a9e5e537da # v3.7.0
