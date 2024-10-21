@@ -16,7 +16,7 @@
 
 ### Changed
 
-- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests to latest. ([#354](https://github.com/stevehipwell/fluentd-aggregator/pull/354)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests to latest. ([#354](https://github.com/stevehipwell/fluentd-aggregator/pull/354) & ([#360](https://github.com/stevehipwell/fluentd-aggregator/pull/360)) _@dependabot_
 - Updated [WEBrick](https://rubygems.org/gems/webrick/) Gem from `1.8.1` to [`1.8.2`](https://github.com/ruby/webrick/releases/tag/v1.8.2). ([#353](https://github.com/stevehipwell/fluentd-aggregator/pull/353)) _@dependabot_
 - Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.1.4` to [`v1.1.5`](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.1.5). ([#356](https://github.com/stevehipwell/fluentd-aggregator/pull/356)) _@dependabot_
 - Replaced _anchore/sbom-action/download-syft_ & _anchore/scan-action/download-grype_ with _action-stars/install-tool-from-github-release_. ([#xxx](https://github.com/stevehipwell/fluentd-aggregator/pull/xxx)) _@stevehipwell_
