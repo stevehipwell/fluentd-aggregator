@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "libxml-ruby", "5.0.3"
 gem "oj", "3.16.6"
-gem "json", "2.7.2"
+gem "json", "2.7.4"
 gem "async", "1.32.1"
 gem "async-http", "0.64.2"
 gem "fluentd", "1.17.1"
