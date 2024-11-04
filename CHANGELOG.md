@@ -14,12 +14,15 @@
 
 ## [UNRELEASED]
 
+## [v2.17.4] - 2024-11-04
+
 ### Changed
 
-- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests to latest. ([#354](https://github.com/stevehipwell/fluentd-aggregator/pull/354) & ([#360](https://github.com/stevehipwell/fluentd-aggregator/pull/360)) _@dependabot_
+- Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digests to latest. ([#354](https://github.com/stevehipwell/fluentd-aggregator/pull/354), [#360](https://github.com/stevehipwell/fluentd-aggregator/pull/360) & [#364](https://github.com/stevehipwell/fluentd-aggregator/pull/364)) _@dependabot_
 - Updated [WEBrick](https://rubygems.org/gems/webrick/) Gem from `1.8.1` to [`1.8.2`](https://github.com/ruby/webrick/releases/tag/v1.8.2). ([#353](https://github.com/stevehipwell/fluentd-aggregator/pull/353)) _@dependabot_
 - Updated [fluent-plugin-opensearch](https://rubygems.org/gems/fluent-plugin-opensearch) from `v1.1.4` to [`v1.1.5`](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.1.5). ([#356](https://github.com/stevehipwell/fluentd-aggregator/pull/356)) _@dependabot_
-- Updated [json](https://rubygems.org/gems/json) Gem from `2.7.2` to [`2.7.4`](https://github.com/flori/json/releases/tag/v2.7.4). ([#363](https://github.com/stevehipwell/fluentd-aggregator/pull/363)) _@dependabot_
+- Updated [json](https://rubygems.org/gems/json) Gem from `2.7.2` to [`2.7.5`](https://github.com/flori/json/releases/tag/v2.7.5). ([#363](https://github.com/stevehipwell/fluentd-aggregator/pull/363) & [#365](https://github.com/stevehipwell/fluentd-aggregator/pull/365)) _@dependabot_
+- Updated [oj](https://rubygems.org/gems/oj) Gem from `3.16.6` to [`3.16.7`](https://github.com/ohler55/oj/releases/tag/v3.16.7). ([#365](https://github.com/stevehipwell/fluentd-aggregator/pull/365)) _@dependabot_
 
 ## [v2.17.3] - 2024-09-10
 
@@ -378,7 +381,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.17.3...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.17.4...HEAD
+[v2.17.4]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.4
 [v2.17.3]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.3
 [v2.17.2]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.2
 [v2.17.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.17.1
