@@ -145,7 +145,7 @@ GEM
       aws-sdk-sqs (~> 1)
       fluentd (>= 0.12.0, < 2)
       yajl-ruby (~> 1.0)
-    fluentd (1.17.1)
+    fluentd (1.18.0)
       base64 (~> 0.2)
       bundler
       cool.io (>= 1.4.5, < 2.0.0)
@@ -251,7 +251,7 @@ DEPENDENCIES
   fluent-plugin-route (= 1.0.0)
   fluent-plugin-s3 (= 1.8.1)
   fluent-plugin-sqs (= 3.0.0)
-  fluentd (= 1.17.1)
+  fluentd (= 1.18.0)
   json (= 2.8.2)
   libxml-ruby (= 5.0.3)
   oj (= 3.16.7)
