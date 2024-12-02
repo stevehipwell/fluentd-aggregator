@@ -17,6 +17,7 @@
 ### Changed
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.5` to [`v3.3.6`](https://github.com/ruby/ruby/releases/tag/v3_3_6). ([#366](https://github.com/stevehipwell/fluentd-aggregator/pull/366)) _@dependabot_
+- Updated [Fluentd](https://rubygems.org/gems/fluentd) from `v1.18.0` to [`v1.18.0`](https://github.com/fluent/fluentd/releases/tag/v1.18.0). ([#372](https://github.com/stevehipwell/fluentd-aggregator/pull/372)) _@dependabot_
 - Updated [json](https://rubygems.org/gems/json) Gem from `2.7.5` to [`2.8.2`](https://github.com/flori/json/releases/tag/v2.8.2). ([#369](https://github.com/stevehipwell/fluentd-aggregator/pull/369)) _@dependabot_
 - Updated [fluent-plugin-s3](https://rubygems.org/gems/fluent-plugin-s3) from `v1.1.5` to [`v1.8.1`](https://github.com/fluent/fluent-plugin-opensearch/releases/tag/v1.1.5). ([#369](https://github.com/stevehipwell/fluentd-aggregator/pull/369)) _@dependabot_
 
