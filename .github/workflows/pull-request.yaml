@@ -83,7 +83,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@aa578102511db1f4524ed59b8cc2bae4f6e88195 # v3.27.6
+        uses: github/codeql-action/upload-sarif@df409f7d9260372bd5f19e5b04e83cb3c43714ae # v3.27.9
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -173,7 +173,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@aa578102511db1f4524ed59b8cc2bae4f6e88195 # v3.27.6
+        uses: github/codeql-action/upload-sarif@df409f7d9260372bd5f19e5b04e83cb3c43714ae # v3.27.9
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
