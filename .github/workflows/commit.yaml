@@ -66,7 +66,7 @@ jobs:
         uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3.2.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
+        uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5 # v3.8.0
 
       - name: Install Hadolint
         uses: action-stars/install-tool-from-github-release@ece2623611b240002e0dd73a0d685505733122f6 # v0.2.4
@@ -87,7 +87,7 @@ jobs:
           hadolint --no-fail --format sarif ./${{ matrix.variant }}.dockerfile > ./hadolint-${{ matrix.variant }}.sarif
 
       - name: Upload Hadolint SARIF report
-        uses: github/codeql-action/upload-sarif@aa578102511db1f4524ed59b8cc2bae4f6e88195 # v3.27.6
+        uses: github/codeql-action/upload-sarif@48ab28a6f5dbc2a99bf1e0131198dd8f1df78169 # v3.28.0
         with:
           category: hadolint-${{ matrix.variant }}
           sarif_file: hadolint-${{ matrix.variant }}.sarif
@@ -151,7 +151,7 @@ jobs:
           echo "paths=${sbom_paths%,}" >> $GITHUB_OUTPUT
 
       - name: Upload SBOM artifacts
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
         with:
           name: ${{ matrix.variant }}-sboms
           retention-days: 28
@@ -182,7 +182,7 @@ jobs:
           echo "path=${directory_path}" >> $GITHUB_OUTPUT
 
       - name: Upload Grype SARIF report
-        uses: github/codeql-action/upload-sarif@aa578102511db1f4524ed59b8cc2bae4f6e88195 # v3.27.6
+        uses: github/codeql-action/upload-sarif@48ab28a6f5dbc2a99bf1e0131198dd8f1df78169 # v3.28.0
         with:
           category: grype-${{ matrix.variant }}
           sarif_file: ${{ steps.grype.outputs.path }}
