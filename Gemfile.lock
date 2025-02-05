@@ -68,7 +68,7 @@ GEM
       multi_json
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (0.112.0)
+    excon (1.2.3)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
