@@ -14,6 +14,11 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [async](https://rubygems.org/gems/async) from `2.21.1` to [`2.21.3`](https://github.com/socketry/async/releases/tag/v2.21.3). ([#390](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_
+- Updated [async-http](https://rubygems.org/gems/async-http) from `0.86.2` to [`0.87.0`](https://github.com/socketry/async-http/releases/tag/v0.87.0). ([#390](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_
+
 ## [v2.18.0] - 2025-01-02
 
 ### Changed
