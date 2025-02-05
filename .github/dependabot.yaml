@@ -38,8 +38,7 @@ updates:
           - minor
           - patch
     allow:
-      - dependency-name: bundler
-        dependency-type: all
+      - dependency-type: all
     schedule:
       interval: weekly
     assignees:
