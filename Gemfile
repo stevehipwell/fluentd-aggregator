@@ -1,11 +1,18 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-gem "libxml-ruby", "5.0.3"
+# Core Gems
+gem "rake"
+gem "bundler"
+# gem "libxml-ruby", "5.0.3"
 gem "oj", "3.16.9"
-gem "json", "2.9.1"
+# gem "json", "2.9.1"
 gem "async", "2.21.3"
 gem "async-http", "0.87.0"
 gem "fluentd", "1.18.0"
+
+# Plugins
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
 gem "fluent-plugin-azurestorage-gen2", "0.3.9"
 gem "fluent-plugin-cloudwatch-logs", "0.14.3"

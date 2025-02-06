@@ -9,6 +9,12 @@ on:
       - .github/workflows/commit.yaml
       - .github/workflows/release.yaml
 
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
 jobs:
   build:
     name: Build OCI Image

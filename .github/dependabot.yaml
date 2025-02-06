@@ -37,8 +37,6 @@ updates:
         update-types:
           - minor
           - patch
-    allow:
-      - dependency-type: all
     schedule:
       interval: weekly
     assignees:

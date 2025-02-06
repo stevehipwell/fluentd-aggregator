@@ -19,6 +19,15 @@
 - Updated [async](https://rubygems.org/gems/async) from `2.21.1` to [`2.21.3`](https://github.com/socketry/async/releases/tag/v2.21.3). ([#390](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_
 - Updated [async-http](https://rubygems.org/gems/async-http) from `0.86.2` to [`0.87.0`](https://github.com/socketry/async-http/releases/tag/v0.87.0). ([#390](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_
 
+### Deprecated
+
+- Deprecated _Alpine (musl)_ version. ([#390](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_
+
+### Removed
+
+- Removed direct dependency on [json](https://rubygems.org/gems/json) Gem. ([#396](https://github.com/stevehipwell/fluentd-aggregator/pull/396)) _@stevehipwell_
+- Removed dependency on [libxml-ruby](https://github.com/xml4r/libxml-ruby) Gem. ([#396](https://github.com/stevehipwell/fluentd-aggregator/pull/396)) _@stevehipwell_
+
 ## [v2.18.0] - 2025-01-02
 
 ### Changed

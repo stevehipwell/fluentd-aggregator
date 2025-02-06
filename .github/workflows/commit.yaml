@@ -10,6 +10,8 @@ on:
       - .github/workflows/pull-request.yaml
       - .github/workflows/release.yaml
 
+permissions: read-all
+
 jobs:
   build:
     name: Build OCI Image
