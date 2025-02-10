@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (2.21.3)
+    async (2.22.0)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.7)
@@ -236,7 +236,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 2.21.3)
+  async (= 2.22.0)
   async-http (= 0.87.0)
   bundler
   fluent-plugin-azure-loganalytics (= 0.7.0)

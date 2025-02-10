@@ -8,7 +8,7 @@ gem "bundler"
 # gem "libxml-ruby", "5.0.3"
 gem "oj", "3.16.9"
 # gem "json", "2.9.1"
-gem "async", "2.21.3"
+gem "async", "2.22.0"
 gem "async-http", "0.87.0"
 gem "fluentd", "1.18.0"
 
