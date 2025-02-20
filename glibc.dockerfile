@@ -1,4 +1,4 @@
-FROM ruby:3.3.6-slim@sha256:e004e45a75508f2c3bd5bbfe6593ba60dff77b755626e270d631bba09e8c7ead
+FROM ruby:3.4.2-slim@sha256:2864c6bfcf8fec6aecbdbf5bd7adcb8abe9342e28441a77704428decf59930fd
 
 RUN <<EOF
 set -eux
