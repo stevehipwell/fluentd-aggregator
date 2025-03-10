@@ -2,12 +2,12 @@
 
 source "https://rubygems.org"
 
+# ruby file: ".ruby-version"
+
 # Core Gems
 gem "rake"
 gem "bundler"
-# gem "libxml-ruby", "5.0.3"
 gem "oj", "3.16.10"
-# gem "json", "2.9.1"
 gem "async", "2.23.0"
 gem "async-http", "0.87.0"
 gem "fluentd", "1.18.0"

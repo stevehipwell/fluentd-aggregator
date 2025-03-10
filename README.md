@@ -1,7 +1,7 @@
 # Fluentd Aggregator
 
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/stevehipwell/fluentd-aggregator?sort=semver)
-[![Docker Hub Image Version (latest semver)](https://img.shields.io/docker/v/stevehipwell/fluentd-aggregator?sort=semver)](https://hub.docker.com/r/stevehipwell/fluentd-aggregator)
+![Build](https://github.com/stevehipwell/fluentd-aggregator/actions/workflows/build.yaml/badge.svg?branch=main)\
 ![linux](https://img.shields.io/badge/os-linux-brightgreen)
 ![amd64](https://img.shields.io/badge/arch-amd64-brightgreen)
 ![arm64](https://img.shields.io/badge/arch-arm64-brightgreen)
@@ -11,7 +11,7 @@ A [Fluentd](https://www.fluentd.org/) [OCI](https://opencontainers.org/) image t
 
 ## Aggregation Changes
 
-To optimise _Fluentd_ for log aggregation the default `fluent.conf` file has been overwritten to allow logs to be forwarded and printed to `stdout`, an additional directory `/fluentd/state` has been created, and plugins have also been added to support the aggregation role.
+To optimize _Fluentd_ for log aggregation the default `fluent.conf` file has been overwritten to allow logs to be forwarded and printed to `stdout`, an additional directory `/fluentd/state` has been created, and plugins have also been added to support the aggregation role.
 
 ### Versioning
 
@@ -39,20 +39,37 @@ The following plugins have been added to the base image, to see the specific ver
 
 ## Usage
 
-This image is available at [Docker Hub](https://hub.docker.com/r/stevehipwellt/fluentd-aggregator) and [GitHub](https://github.com/users/stevehipwell/packages/container/package/fluentd-aggregator). The image version matches the _Fluentd_ version.
-
-This image can be pulled from the following two repositories.
+This image is available from [GHCR](https://github.com/users/stevehipwell/packages/container/package/fluentd-aggregator) and is used in the [fluentd-aggregator](https://artifacthub.io/packages/helm/stevehipwell-helm-charts-fluentd-aggregator/fluentd-aggregator) Helm chart. You can pull this image with the following command.
 
 ```shell
-docker pull stevehipwell/fluentd-aggregator:latest
-
 docker pull ghcr.io/stevehipwell/fluentd-aggregator:latest
 ```
 
-This image can be tested by running the following command and then forwarding logs.
+This image can be tested locally by running the following command and then forwarding logs to it.
 
 ```shell
-docker run -p 24224:24224 stevehipwell/fluentd-aggregator:latest
+docker run -p 24224:24224 ghcr.io/stevehipwell/fluentd-aggregator:latest
+```
+
+## Validation
+
+To validate the image signature run the following commands.
+
+```shell
+cosign verify ghcr.io/stevehipwell/fluentd-aggregator:latest --certificate-oidc-issuer "https://token.actions.githubusercontent.com" --certificate-identity-regexp "https://github.com/action-stars/build-workflows/.github/workflows/build-oci-image.yaml.+" | jq .
+```
+
+To validate the the image build provenance run the following command.
+
+```shell
+gh attestation verify --repo stevehipwell/fluentd-aggregator --signer-workflow action-stars/build-workflows/.github/workflows/build-oci-image.yaml oci://ghcr.io/stevehipwell/fluentd-aggregator:latest
+```
+
+You can validate image SBOM by running the following commands.
+
+```shell
+digest="$(crane digest --platform="linux/amd64" ghcr.io/stevehipwell/fluentd-aggregator:latest)"
+gh attestation verify --repo stevehipwell/fluentd-aggregator --signer-workflow action-stars/build-workflows/.github/workflows/build-oci-image.yaml --predicate-type https://spdx.dev/Document/v2.3 "oci://ghcr.io/stevehipwell/fluentd-aggregator@${digest}"
 ```
 
 ## License

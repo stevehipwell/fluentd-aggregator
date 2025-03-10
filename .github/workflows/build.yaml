@@ -1,0 +1,73 @@
+name: Build OCI Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: read-all
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      git_sha_short: ${{ steps.setup.outputs.git_sha_short }}
+      changed: ${{ steps.changes.outputs.any_changed }}
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        id: setup
+        run: |
+          set -euo pipefail
+
+          git_sha_short="$(git rev-parse --short HEAD)"
+          echo "git_sha_short=${git_sha_short}" >> "${GITHUB_OUTPUT}"
+
+      - name: Check changes
+        id: changes
+        uses: tj-actions/changed-files@dcc7a0cba800f454d79fff4b993e8c3555bcc0a8 # v45.0.7
+        with:
+          files_ignore: |-
+            .github/**
+            CHANGELOG.md
+            LICENCE
+            README.md
+
+  build:
+    name: Build
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@36b8f37d81122b7bf062e844befa8f65dcf69024 # v0.2.0
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    permissions:
+      attestations: write
+      contents: write
+      id-token: write
+      packages: write
+      security-events: write
+    with:
+      name: ${{ github.event.repository.name }}
+      repository: ${{ github.repository_owner }}
+      dockerfile: Dockerfile
+      platforms: linux/amd64,linux/arm64
+      tags: ${{ github.event_name != 'pull_request' && 'main' || format('sha-{0}', needs.check.outputs.git_sha_short) }}
+      scan_image: true
+      push_sbom: true
+      push_sarif: true
+      push_image: true
