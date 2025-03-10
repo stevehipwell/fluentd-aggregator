@@ -41,7 +41,7 @@ RUN <<EOF
 set -eux
 groupadd --system --gid 2000 fluent
 useradd --system --gid fluent --uid 2000 fluent
-# For log storage (maybe shared with host)
+# For log storage (maybe shared with host).
 mkdir -p /fluentd/log /fluentd/state
 # Configuration/plugins path (default: copied from .)
 mkdir -p /fluentd/etc /fluentd/plugins

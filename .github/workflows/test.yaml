@@ -1,0 +1,53 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      changed: ${{ steps.changed.outputs.any_changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 2
+
+      - name: Chart changes
+        id: changed
+        uses: tj-actions/changed-files@dcc7a0cba800f454d79fff4b993e8c3555bcc0a8 # v45.0.7
+        with:
+          files_ignore: |-
+            .github/**
+            CHANGELOG.md
+            LICENCE
+            README.md
+
+  workflow:
+    name: Reusable Workflow
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@add-oci-build
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    permissions:
+      attestations: write
+      contents: write
+      id-token: write
+      packages: write
+      security-events: write
+    with:
+      name: ${{ github.event.repository.name }}
+      repository: ${{ github.repository_owner }}
+      dockerfile: ./glibc.dockerfile
