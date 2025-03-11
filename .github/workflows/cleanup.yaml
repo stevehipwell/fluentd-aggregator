@@ -31,4 +31,5 @@ jobs:
           delete-ghost-images: false
           delete-partial-images: false
           delete-orphaned-images: false
+          log-level: warn
           dry-run: ${{ inputs.dry_run}}
