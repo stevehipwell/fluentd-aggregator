@@ -1,0 +1,34 @@
+name: Cleanup OCI Images
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: If true, no images will be deleted.
+        type: boolean
+        required: false
+        default: true
+
+permissions: read-all
+
+jobs:
+  cleanup:
+    name: Cleanup Images
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: dataaxiom/ghcr-cleanup-action@cd0cdb900b5dbf3a6f2cc869f0dbb0b8211f50c4 # v1.0.16
+        with:
+          token: ${{ github.token }}
+          owner: ${{ github.repository_owner }}
+          repository: fluentd-aggregator
+          package: fluentd-aggregator
+          delete-untagged: true
+          delete-ghost-images: false
+          delete-partial-images: false
+          delete-orphaned-images: false
+          dry-run: ${{ inputs.dry_run}}
