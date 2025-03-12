@@ -54,7 +54,7 @@ jobs:
     name: Build
     uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@36b8f37d81122b7bf062e844befa8f65dcf69024 # v0.2.0
     needs: check
-    if: needs.check.outputs.changed == 'true'
+    if: github.event_name == 'workflow_dispatch' || needs.check.outputs.changed == 'true'
     permissions:
       actions: read
       attestations: write
