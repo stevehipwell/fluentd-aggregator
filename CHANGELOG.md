@@ -14,6 +14,11 @@
 
 ## [UNRELEASED]
 
+### Removed
+
+- Removed _Alpine (musl)_ version. ([#408](https://github.com/stevehipwell/fluentd-aggregator/pull/408)) _@stevehipwell_
+- Removed Docker Hub image source. ([#408](https://github.com/stevehipwell/fluentd-aggregator/pull/408)) _@stevehipwell_
+
 ## [v2.20.0] - 2025-03-12
 
 ### Changed
