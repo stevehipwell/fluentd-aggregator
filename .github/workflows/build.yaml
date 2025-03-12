@@ -52,7 +52,7 @@ jobs:
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@fix-upload-sarif
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@3efac0193bdf2bb648f9b5c02822f33bb42c9b19 # v0.3.0
     needs: check
     if: github.event_name == 'workflow_dispatch' || needs.check.outputs.changed == 'true'
     permissions:

@@ -35,7 +35,7 @@ jobs:
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@36b8f37d81122b7bf062e844befa8f65dcf69024 # v0.2.0
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@3efac0193bdf2bb648f9b5c02822f33bb42c9b19 # v0.3.0
     needs: setup
     permissions:
       attestations: write
