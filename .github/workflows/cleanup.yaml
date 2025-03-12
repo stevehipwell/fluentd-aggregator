@@ -46,6 +46,6 @@ jobs:
           repository: fluentd-aggregator
           package: fluentd-aggregator
           delete-tags: sha-*
-          older-than: 28 days
+          older-than: 7 days
           log-level: warn
           dry-run: ${{ inputs.dry_run || false }}

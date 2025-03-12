@@ -18,6 +18,7 @@
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#405](https://github.com/stevehipwell/fluentd-aggregator/pull/405)) _@dependabot_
 - Updated [ur](https://rubygems.org/gems/uri) Gem from `1.0.2` to [`1.0.3`](https://github.com/ruby/uri/releases/tag/v1.0.3). ([#408](https://github.com/stevehipwell/fluentd-aggregator/pull/408)) _@dependabot_
+- Updated [json](https://rubygems.org/gems/json) Gem from `2.10.1` to [`2.10.2`](https://github.com/flori/json/releases/tag/v2.9.1). ([#411](https://github.com/stevehipwell/fluentd-aggregator/pull/411)) _@dependabot_
 
 ## [v2.19.0] - 2025-02-26
 
