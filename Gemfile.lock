@@ -173,7 +173,7 @@ GEM
     io-event (1.9.0)
     io-stream (0.6.1)
     jmespath (1.6.2)
-    json (2.10.1)
+    json (2.10.2)
     logger (1.6.6)
     ltsv (0.1.2)
     metrics (0.12.1)
