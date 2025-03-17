@@ -71,3 +71,22 @@ jobs:
       push_sbom: true
       push_sarif: true
       push_image: true
+
+  post:
+    name: Post
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ needs.build.result }}" == "failure" ]] || [[ "${{ needs.build.result }}" == "cancelled" ]]; then
+            echo "Workflow failed!"
+            exit 1
+          fi
+
+          echo "Workflow succeeded!"
