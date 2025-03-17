@@ -14,6 +14,11 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Updated [async](https://rubygems.org/gems/async) from `2.23.0` to [`2.23.1`](https://github.com/socketry/async/releases/tag/v2.23.1).
+- Updated [async-http](https://rubygems.org/gems/async-http) from `0.87.0` to [`0.88.0`](https://github.com/socketry/async-http/releases/tag/v0.88.0).
+
 ### Removed
 
 - Removed _Alpine (musl)_ version. ([#408](https://github.com/stevehipwell/fluentd-aggregator/pull/408)) _@stevehipwell_
