@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (2.23.0)
+    async (2.23.1)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.9)
       metrics (~> 0.12)
       traces (~> 0.15)
-    async-http (0.87.0)
+    async-http (0.88.0)
       async (>= 2.10.2)
       async-pool (~> 0.9)
       io-endpoint (~> 0.14)
@@ -48,7 +48,7 @@ GEM
     bigdecimal (3.1.9)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
-    console (1.29.2)
+    console (1.30.2)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -169,14 +169,14 @@ GEM
     http-cookie (1.0.8)
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
-    io-endpoint (0.14.0)
-    io-event (1.9.0)
+    io-endpoint (0.15.2)
+    io-event (1.10.0)
     io-stream (0.6.1)
     jmespath (1.6.2)
     json (2.10.2)
     logger (1.6.6)
     ltsv (0.1.2)
-    metrics (0.12.1)
+    metrics (0.12.2)
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
@@ -199,7 +199,7 @@ GEM
       base64
     protocol-hpack (1.5.1)
     protocol-http (0.49.0)
-    protocol-http1 (0.30.0)
+    protocol-http1 (0.31.0)
       protocol-http (~> 0.22)
     protocol-http2 (0.22.1)
       protocol-hpack (~> 1.4)
@@ -237,8 +237,8 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 2.23.0)
-  async-http (= 0.87.0)
+  async (= 2.23.1)
+  async-http (= 0.88.0)
   bundler
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.9)
