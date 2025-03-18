@@ -16,8 +16,8 @@ concurrency:
 permissions: read-all
 
 jobs:
-  check:
-    name: Check
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -53,8 +53,8 @@ jobs:
   build:
     name: Build
     uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@3efac0193bdf2bb648f9b5c02822f33bb42c9b19 # v0.3.0
-    needs: check
-    if: github.event_name == 'workflow_dispatch' || needs.check.outputs.changed == 'true'
+    needs: setup
+    if: github.event_name == 'workflow_dispatch' || needs.setup.outputs.changed == 'true'
     permissions:
       attestations: write
       contents: write
@@ -66,15 +66,16 @@ jobs:
       repository: ${{ github.repository_owner }}
       dockerfile: Dockerfile
       platforms: linux/amd64,linux/arm64
-      tags: ${{ github.event_name != 'pull_request' && 'main' || format('sha-{0}', needs.check.outputs.git_sha_short) }}
+      tags: ${{ github.event_name != 'pull_request' && 'main' || format('sha-{0}', needs.setup.outputs.git_sha_short) }}
       scan_image: true
       push_sbom: true
       push_sarif: true
       push_image: true
 
-  post:
-    name: Post
+  check:
+    name: Check
     needs: build
+    if: always()
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -85,8 +86,6 @@ jobs:
           set -euo pipefail
 
           if [[ "${{ needs.build.result }}" == "failure" ]] || [[ "${{ needs.build.result }}" == "cancelled" ]]; then
-            echo "Workflow failed!"
+            echo "::error::Workflow failed!"
             exit 1
           fi
-
-          echo "Workflow succeeded!"
