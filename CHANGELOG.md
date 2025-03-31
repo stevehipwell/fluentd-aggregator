@@ -16,8 +16,9 @@
 
 ### Changed
 
-- Updated [async](https://rubygems.org/gems/async) from `2.23.0` to [`2.23.1`](https://github.com/socketry/async/releases/tag/v2.23.1).
-- Updated [async-http](https://rubygems.org/gems/async-http) from `0.87.0` to [`0.88.0`](https://github.com/socketry/async-http/releases/tag/v0.88.0).
+- Update [async](https://rubygems.org/gems/async) from `2.23.0` to [`2.23.1`](https://github.com/socketry/async/releases/tag/v2.23.1). ([#414](https://github.com/stevehipwell/fluentd-aggregator/pull/414)) _@dependabot_
+- Update [async-http](https://rubygems.org/gems/async-http) from `0.87.0` to [`0.88.0`](https://github.com/socketry/async-http/releases/tag/v0.88.0). ([#414](https://github.com/stevehipwell/fluentd-aggregator/pull/414)) _@dependabot_
+- Updated [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.3` to [`0.19.4`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.4). ([#419](https://github.com/stevehipwell/fluentd-aggregator/pull/419)) _@dependabot_
 
 ### Removed
 
