@@ -14,11 +14,14 @@
 
 ## [UNRELEASED]
 
+## [v3.0.0] - 2025-04-17
+
 ### Changed
 
 - Update [async](https://rubygems.org/gems/async) from `2.23.0` to [`2.23.1`](https://github.com/socketry/async/releases/tag/v2.23.1). ([#414](https://github.com/stevehipwell/fluentd-aggregator/pull/414)) _@dependabot_
 - Update [async-http](https://rubygems.org/gems/async-http) from `0.87.0` to [`0.88.0`](https://github.com/socketry/async-http/releases/tag/v0.88.0). ([#414](https://github.com/stevehipwell/fluentd-aggregator/pull/414)) _@dependabot_
-- Updated [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.3` to [`0.19.4`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.4). ([#419](https://github.com/stevehipwell/fluentd-aggregator/pull/419)) _@dependabot_
+- Update [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.3` to [`0.19.4`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.4). ([#419](https://github.com/stevehipwell/fluentd-aggregator/pull/419)) _@dependabot_
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.2` to [`v3.4.3`](https://github.com/ruby/ruby/releases/tag/v3_4_3). ([#421](https://github.com/stevehipwell/fluentd-aggregator/pull/421)) _@dependabot_
 
 ### Removed
 
@@ -431,7 +434,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v2.20.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.0.0...HEAD
+[v3.0.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.0.0
 [v2.20.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.20.0
 [v2.19.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.19.0
 [v2.18.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v2.18.0
