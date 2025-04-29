@@ -56,20 +56,20 @@ docker run -p 24224:24224 ghcr.io/stevehipwell/fluentd-aggregator:latest
 To validate the image signature run the following commands.
 
 ```shell
-cosign verify ghcr.io/stevehipwell/fluentd-aggregator:latest --certificate-oidc-issuer "https://token.actions.githubusercontent.com" --certificate-identity-regexp "https://github.com/action-stars/build-workflows/.github/workflows/build-oci-image.yaml.+" | jq .
+cosign verify ghcr.io/stevehipwell/fluentd-aggregator:latest --certificate-oidc-issuer "https://token.actions.githubusercontent.com" --certificate-identity-regexp "https://github.com/action-stars/build-workflows/\.github/workflows/build-oci-image\.yaml@.+" | jq .
 ```
 
 To validate the the image build provenance run the following command.
 
 ```shell
-gh attestation verify --repo stevehipwell/fluentd-aggregator --signer-workflow action-stars/build-workflows/.github/workflows/build-oci-image.yaml oci://ghcr.io/stevehipwell/fluentd-aggregator:latest
+cosign verify-attestation --certificate-oidc-issuer "https://token.actions.githubusercontent.com" --certificate-identity-regexp "https://github.com/action-stars/build-workflows/\.github/workflows/build-oci-image\.yaml@.+" --new-bundle-format --type=slsaprovenance1 ghcr.io/stevehipwell/fluentd-aggregator:latest
 ```
 
 You can validate image SBOM by running the following commands.
 
 ```shell
 digest="$(crane digest --platform="linux/amd64" ghcr.io/stevehipwell/fluentd-aggregator:latest)"
-gh attestation verify --repo stevehipwell/fluentd-aggregator --signer-workflow action-stars/build-workflows/.github/workflows/build-oci-image.yaml --predicate-type https://spdx.dev/Document/v2.3 "oci://ghcr.io/stevehipwell/fluentd-aggregator@${digest}"
+cosign verify-attestation --certificate-oidc-issuer "https://token.actions.githubusercontent.com" --certificate-identity-regexp "https://github.com/action-stars/build-workflows/\.github/workflows/build-oci-image\.yaml@.+" --new-bundle-format --type=https://spdx.dev/Document/v2.3 "ghcr.io/stevehipwell/fluentd-aggregator@${digest}"
 ```
 
 ## License
