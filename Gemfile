@@ -9,7 +9,7 @@ gem "rake"
 gem "bundler"
 gem "oj", "3.16.10"
 gem "async", "2.23.1"
-gem "async-http", "0.88.0"
+gem "async-http", "0.89.0"
 gem "fluentd", "1.18.0"
 
 # Plugins
