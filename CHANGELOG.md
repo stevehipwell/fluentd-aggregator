@@ -17,6 +17,8 @@
 ### Changed
 
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#425](https://github.com/stevehipwell/fluentd-aggregator/pull/425)) _@dependabot_
+- Update [async](https://rubygems.org/gems/async) from `2.23.1` to [`2.24.0`](https://github.com/socketry/async/releases/tag/v2.24.0). ([#428](https://github.com/stevehipwell/fluentd-aggregator/pull/428)) _@dependabot_
+- Update [async-http](https://rubygems.org/gems/async-http) from `0.88.0` to [`0.89.0`](https://github.com/socketry/async-http/releases/tag/v0.89.0). ([#428](https://github.com/stevehipwell/fluentd-aggregator/pull/429)) _@dependabot_
 
 ## [v3.0.0] - 2025-04-17
 
