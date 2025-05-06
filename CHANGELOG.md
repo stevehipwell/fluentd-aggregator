@@ -14,6 +14,10 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#425](https://github.com/stevehipwell/fluentd-aggregator/pull/425)) _@dependabot_
+
 ## [v3.0.0] - 2025-04-17
 
 ### Changed
