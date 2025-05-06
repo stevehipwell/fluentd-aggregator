@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (2.23.1)
+    async (2.24.0)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.9)
       metrics (~> 0.12)
       traces (~> 0.15)
-    async-http (0.88.0)
+    async-http (0.89.0)
       async (>= 2.10.2)
       async-pool (~> 0.9)
       io-endpoint (~> 0.14)
@@ -88,7 +88,7 @@ GEM
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
-    fiber-storage (1.0.0)
+    fiber-storage (1.0.1)
     fluent-config-regexp-type (1.0.0)
       fluentd (> 1.0.0, < 2)
     fluent-plugin-azure-loganalytics (0.7.0)
@@ -174,7 +174,7 @@ GEM
     io-event (1.10.0)
     io-stream (0.6.1)
     jmespath (1.6.2)
-    json (2.10.2)
+    json (2.11.3)
     logger (1.7.0)
     ltsv (0.1.2)
     metrics (0.12.2)
@@ -199,8 +199,8 @@ GEM
     prometheus-client (4.2.4)
       base64
     protocol-hpack (1.5.1)
-    protocol-http (0.49.0)
-    protocol-http1 (0.31.0)
+    protocol-http (0.50.1)
+    protocol-http1 (0.34.0)
       protocol-http (~> 0.22)
     protocol-http2 (0.22.1)
       protocol-hpack (~> 1.4)
@@ -238,8 +238,8 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 2.23.1)
-  async-http (= 0.88.0)
+  async (= 2.24.0)
+  async-http (= 0.89.0)
   bundler
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.9)
