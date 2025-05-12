@@ -53,23 +53,24 @@ GEM
       fiber-local (~> 1.1)
       json
     cool.io (1.9.0)
-    csv (3.3.3)
+    csv (3.3.4)
     digest-crc (0.7.0)
       rake (>= 12.0.0, < 14.0.0)
     domain_name (0.6.20240107)
     drb (2.2.1)
-    elastic-transport (8.3.5)
+    elastic-transport (8.4.0)
       faraday (< 3)
       multi_json
-    elasticsearch (8.17.1)
+    elasticsearch (9.0.2)
       elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.17.1)
-    elasticsearch-api (8.17.1)
+      elasticsearch-api (= 9.0.2)
+    elasticsearch-api (9.0.2)
       multi_json
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (1.2.3)
-    faraday (2.12.2)
+    excon (1.2.5)
+      logger
+    faraday (2.13.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -111,7 +112,7 @@ GEM
     fluent-plugin-datadog (0.14.4)
       fluentd (>= 1, < 2)
       net-http-persistent (~> 4.0.1)
-    fluent-plugin-elasticsearch (5.4.3)
+    fluent-plugin-elasticsearch (6.0.0)
       elasticsearch
       excon
       faraday (>= 2.0.0)
@@ -246,7 +247,7 @@ DEPENDENCIES
   fluent-plugin-cloudwatch-logs (= 0.14.3)
   fluent-plugin-concat (= 2.5.0)
   fluent-plugin-datadog (= 0.14.4)
-  fluent-plugin-elasticsearch (= 5.4.3)
+  fluent-plugin-elasticsearch (= 6.0.0)
   fluent-plugin-grafana-loki (= 1.2.20)
   fluent-plugin-kafka (= 0.19.4)
   fluent-plugin-opensearch (= 1.1.5)
