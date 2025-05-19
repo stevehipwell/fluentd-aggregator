@@ -15,7 +15,7 @@ gem "fluentd", "1.18.0"
 # Plugins
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
 gem "fluent-plugin-azurestorage-gen2", "0.3.9"
-gem "fluent-plugin-cloudwatch-logs", "0.14.3"
+gem "fluent-plugin-cloudwatch-logs", "0.15.0"
 gem "fluent-plugin-concat", "2.5.0"
 gem "fluent-plugin-datadog", "0.14.4"
 gem "fluent-plugin-elasticsearch", "6.0.0"
