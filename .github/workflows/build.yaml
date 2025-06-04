@@ -52,7 +52,7 @@ jobs:
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@1b599d991378bd4907357a31b763b77fc4000e51 # v0.5.0
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@e63e3af93b961d5edfedfb3bcdc03672f8f303a9 # v0.5.1
     needs: setup
     if: github.event_name == 'workflow_dispatch' || needs.setup.outputs.changed == 'true'
     permissions:
@@ -88,7 +88,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Dependency Review
-        uses: actions/dependency-review-action@38ecb5b593bf0eb19e335c03f97670f792489a8b # v4.7.0
+        uses: actions/dependency-review-action@da24556b548a50705dd671f47852072ea4c105d9 # v4.7.1
         with:
           comment-summary-in-pr: always
 
