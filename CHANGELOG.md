@@ -19,6 +19,7 @@
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.3` to [`v3.4.4`](https://github.com/ruby/ruby/releases/tag/v3_4_4). ([#432](https://github.com/stevehipwell/fluentd-aggregator/pull/432)) _@dependabot_
 - Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.10` to [`3.16.11`](https://github.com/ohler55/oj/releases/tag/v3.16.11). ([#434](https://github.com/stevehipwell/fluentd-aggregator/pull/434)) _@dependabot_
 - Update [fluent-plugin-cloudwatch-logs](https://rubygems.org/gems/fluent-plugin-cloudwatch-logs) from `v0.14.3` to [`v0.15.0`](https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs/releases/tag/v0.15.0). ([#434](https://github.com/stevehipwell/fluentd-aggregator/pull/434)) _@dependabot_
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#435](https://github.com/stevehipwell/fluentd-aggregator/pull/435)) _@dependabot_
 
 ## [v3.0.1] - 2025-05-12
 
