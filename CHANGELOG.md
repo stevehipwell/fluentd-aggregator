@@ -14,6 +14,12 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#440](https://github.com/stevehipwell/fluentd-aggregator/pull/440)) _@dependabot_
+- Update [async](https://rubygems.org/gems/async) from `2.25.0` to [`2.26.0`](https://github.com/socketry/async/releases/tag/v2.26.0). ([#443](https://github.com/stevehipwell/fluentd-aggregator/pull/443)) _@dependabot_
+- Update [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.4` to [`0.19.5`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.5). ([#443](https://github.com/stevehipwell/fluentd-aggregator/pull/443)) _@dependabot_
+
 ## [v3.1.0] - 2025-06-16
 
 ### Changed
