@@ -14,6 +14,8 @@
 
 ## [UNRELEASED]
 
+## [v3.1.1] - 2025-07-15
+
 ### Changed
 
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#440](https://github.com/stevehipwell/fluentd-aggregator/pull/440)) _@dependabot_
@@ -461,7 +463,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.1.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.1.1...HEAD
+[v3.1.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.1.1
 [v3.1.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.1.0
 [v3.0.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.0.1
 [v3.0.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.0.0
