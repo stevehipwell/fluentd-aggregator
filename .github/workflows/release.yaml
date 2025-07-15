@@ -35,7 +35,7 @@ jobs:
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@e63e3af93b961d5edfedfb3bcdc03672f8f303a9 # v0.5.1
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@8aa25b15b5708e4ed403345a39e06aaa522bac5d # v0.6.0
     needs: setup
     permissions:
       attestations: write
@@ -75,7 +75,7 @@ jobs:
           version: ${{ github.ref_name }}
 
       - name: Create release
-        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1.16.0
+        uses: ncipollo/release-action@bcfe5470707e8832e12347755757cec0eb3c22af # v1.18.0
         with:
           token: ${{ github.token }}
           makeLatest: true
