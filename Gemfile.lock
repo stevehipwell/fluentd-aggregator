@@ -1,10 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (2.25.0)
+    async (2.26.0)
       console (~> 1.29)
       fiber-annotation
-      io-event (~> 1.11)
+      io-event (~> 1.12)
       metrics (~> 0.12)
       traces (~> 0.15)
     async-http (0.89.0)
@@ -46,10 +46,10 @@ GEM
     azure-loganalytics-datacollector-api (0.5.0)
       rest-client
     base64 (0.3.0)
-    bigdecimal (3.2.1)
+    bigdecimal (3.2.2)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
-    console (1.31.0)
+    console (1.32.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -121,7 +121,7 @@ GEM
       fluentd (>= 0.14.22)
     fluent-plugin-grafana-loki (1.2.20)
       fluentd (>= 1.9.3, < 2)
-    fluent-plugin-kafka (0.19.4)
+    fluent-plugin-kafka (0.19.5)
       bigdecimal (~> 3.1)
       fluentd (>= 0.10.58, < 2)
       ltsv
@@ -173,7 +173,7 @@ GEM
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
     io-endpoint (0.15.2)
-    io-event (1.11.0)
+    io-event (1.12.0)
     io-stream (0.6.1)
     jmespath (1.6.2)
     json (2.12.2)
@@ -240,7 +240,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 2.25.0)
+  async (= 2.26.0)
   async-http (= 0.89.0)
   bundler
   fluent-plugin-azure-loganalytics (= 0.7.0)
@@ -250,7 +250,7 @@ DEPENDENCIES
   fluent-plugin-datadog (= 0.14.4)
   fluent-plugin-elasticsearch (= 6.0.0)
   fluent-plugin-grafana-loki (= 1.2.20)
-  fluent-plugin-kafka (= 0.19.4)
+  fluent-plugin-kafka (= 0.19.5)
   fluent-plugin-opensearch (= 1.1.5)
   fluent-plugin-prometheus (= 2.2.1)
   fluent-plugin-record-modifier (= 2.2.0)
