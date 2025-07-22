@@ -14,6 +14,10 @@
 
 ## [UNRELEASED]
 
+### Changed
+
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.4` to [`v3.4.5`](https://github.com/ruby/ruby/releases/tag/v3_4_5). ([#445](https://github.com/stevehipwell/fluentd-aggregator/pull/445)) _@dependabot_
+
 ## [v3.1.1] - 2025-07-15
 
 ### Changed
