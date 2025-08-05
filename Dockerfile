@@ -1,4 +1,4 @@
-FROM ruby:3.4.5-slim@sha256:f89ae2834adb08a456be48ac9d7582230e23bfb7cb84b1ff014b206426a20570
+FROM docker.io/ruby:3.4.5-slim@sha256:f89ae2834adb08a456be48ac9d7582230e23bfb7cb84b1ff014b206426a20570
 
 RUN <<EOF
 set -eux
