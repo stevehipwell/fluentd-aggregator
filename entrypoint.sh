@@ -3,14 +3,11 @@
 #source vars if file exists
 DEFAULT=/etc/default/fluentd
 
-if [ -r $DEFAULT ]; then
-    set -o allexport
-    . $DEFAULT
-    set +o allexport
-fi
-
-if [ -n "${TMPDIR}" ] && [ ! -d "${TMPDIR}" ]; then
-    mkdir -p -m 3770 "${TMPDIR}"
+if [ -r "${DEFAULT}" ]; then
+  set -o allexport
+  # shellcheck disable=SC1090
+  . "${DEFAULT}"
+  set +o allexport
 fi
 
 # If the user has supplied only arguments append them to `fluentd` command
@@ -20,13 +17,13 @@ fi
 
 # If user does not supply config file or plugins, use the default
 if [ "$1" = "fluentd" ]; then
-    if ! echo $@ | grep -e ' \-c' -e ' \-\-config' ; then
-       set -- "$@" --config /fluentd/etc/${FLUENTD_CONF}
-    fi
+  if ! echo "$@" | grep -e ' \-c' -e ' \-\-config' ; then
+    set -- "$@" --config "/fluentd/etc/${FLUENTD_CONF:-}"
+  fi
 
-    if ! echo $@ | grep -e ' \-p' -e ' \-\-plugin' ; then
-       set -- "$@" --plugin /fluentd/plugins
-    fi
+  if ! echo "$@" | grep -e ' \-p' -e ' \-\-plugin' ; then
+    set -- "$@" --plugin /fluentd/plugins
+  fi
 fi
 
 exec "$@"
