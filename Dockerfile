@@ -1,8 +1,10 @@
-FROM docker.io/ruby:3.4.5-slim@sha256:f89ae2834adb08a456be48ac9d7582230e23bfb7cb84b1ff014b206426a20570
+FROM docker.io/library/ruby:3.4.5-slim@sha256:f89ae2834adb08a456be48ac9d7582230e23bfb7cb84b1ff014b206426a20570 AS base
+
+WORKDIR /fluentd
 
 RUN <<EOF
 set -eux
-apt-get update
+apt-get update -qq
 apt-get install -y --no-install-recommends \
   ca-certificates \
   tini \
@@ -10,14 +12,24 @@ apt-get install -y --no-install-recommends \
   libxml2 \
   libxslt1.1 \
   libcurl4
-ln -s "/usr/lib/$(uname -m)-linux-gnu" /usr/lib/linux-gnu
+ln -s "/usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2" /usr/local/lib/libjemalloc.so
+rm -rf /var/lib/apt/lists /var/cache/apt/archives
+bundle config --global set simulate_version 4
 EOF
 
-COPY Gemfile Gemfile.lock /fluentd/
+COPY Gemfile Gemfile.lock ./
+
+ENV BUNDLE_DEPLOYMENT="1" \
+  BUNDLE_PATH="/usr/local/bundle" \
+  BUNDLE_BIN="/usr/local/bundle/bin" \
+  LD_PRELOAD="/usr/local/lib/libjemalloc.so"
+
+FROM base AS build
 
 RUN <<EOF
 set -eux
-buildDeps=" \
+apt-get update -qq
+apt-get install -y --no-install-recommends \
   make \
   gcc \
   g++ \
@@ -27,35 +39,36 @@ buildDeps=" \
   gnupg \
   dirmngr \
   libxml2-dev \
-  libxslt1-dev \
-  "
-apt-get install -y --no-install-recommends ${buildDeps}
-bundle config set frozen true
-bundle install --no-cache --gemfile=/fluentd/Gemfile
-gem sources --clear-all
-apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false ${buildDeps}
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem /usr/lib/ruby/gems/3.*/gems/fluentd-*/test
+  libxslt1-dev
+rm -rf /var/lib/apt/lists /var/cache/apt/archives
 EOF
+
+RUN <<EOF
+set -eux
+bundle install --no-cache --jobs=4
+rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+EOF
+
+FROM base
 
 RUN <<EOF
 set -eux
 groupadd --system --gid 2000 fluent
 useradd --system --gid fluent --uid 2000 fluent
-# For log storage (maybe shared with host).
-mkdir -p /fluentd/log /fluentd/state
-# Configuration/plugins path (default: copied from .)
-mkdir -p /fluentd/etc /fluentd/plugins
+mkdir -p /fluentd/etc /fluentd/bin /fluentd/data /fluentd/plugins /fluentd/log /fluentd/state
 chown -R fluent:fluent /fluentd
 EOF
 
-COPY fluent.yaml /fluentd/etc/
-COPY --chmod=755 entrypoint.sh /bin/
+USER fluent:fluent
 
-ENV FLUENTD_DISABLE_BUNDLER_INJECTION="1" FLUENTD_CONF="fluent.yaml"
+COPY --chown=fluent:fluent --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
+COPY --chown=fluent:fluent fluent.yaml /fluentd/etc/
+COPY --chown=fluent:fluent --chmod=755 entrypoint.sh /fluentd/bin/
 
-ENV LD_PRELOAD="/usr/lib/linux-gnu/libjemalloc.so.2"
+ENV FLUENTD_DISABLE_BUNDLER_INJECTION="1" \
+  FLUENTD_CONF="fluent.yaml"
+
 EXPOSE 24224
 
-USER fluent
-ENTRYPOINT ["tini", "--", "/bin/entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "/fluentd/bin/entrypoint.sh"]
 CMD ["fluentd"]
