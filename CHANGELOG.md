@@ -18,7 +18,11 @@
 
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.4` to [`v3.4.5`](https://github.com/ruby/ruby/releases/tag/v3_4_5). ([#445](https://github.com/stevehipwell/fluentd-aggregator/pull/445)) _@dependabot_
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#447](https://github.com/stevehipwell/fluentd-aggregator/pull/447)) _@dependabot_
-- Update [async](https://rubygems.org/gems/async) from `2.26.0` to [`2.27.0`](https://github.com/socketry/async/releases/tag/v2.27.0). ([#446](https://github.com/stevehipwell/fluentd-aggregator/pull/446)) _@dependabot_
+- Update [Fluentd](https://rubygems.org/gems/fluentd) from `v1.18.0` to [`v1.19.0`](https://github.com/fluent/fluentd/releases/tag/v1.19.0). ([#449](https://github.com/stevehipwell/fluentd-aggregator/pull/449)) _@stevehipwell_
+
+### Removed
+
+- Remove direct dependency on [async](https://rubygems.org/gems/async) & [async-http](https://rubygems.org/gems/async-http) Gems. ([#449](https://github.com/stevehipwell/fluentd-aggregator/pull/449)) _@stevehipwell_
 
 ## [v3.1.1] - 2025-07-15
 
@@ -95,7 +99,7 @@
 ### Changed
 
 - Updated [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.3.5` to [`v3.3.6`](https://github.com/ruby/ruby/releases/tag/v3_3_6). ([#366](https://github.com/stevehipwell/fluentd-aggregator/pull/366) & [#377](https://github.com/stevehipwell/fluentd-aggregator/pull/377)) _@dependabot_
-- Updated [Fluentd](https://rubygems.org/gems/fluentd) from `v1.18.0` to [`v1.18.0`](https://github.com/fluent/fluentd/releases/tag/v1.18.0). ([#372](https://github.com/stevehipwell/fluentd-aggregator/pull/372)) _@dependabot_
+- Updated [Fluentd](https://rubygems.org/gems/fluentd) from `v1.17.0` to [`v1.18.0`](https://github.com/fluent/fluentd/releases/tag/v1.18.0). ([#372](https://github.com/stevehipwell/fluentd-aggregator/pull/372)) _@dependabot_
 - Updated [json](https://rubygems.org/gems/json) Gem from `2.7.5` to [`2.9.1`](https://github.com/flori/json/releases/tag/v2.9.1). ([#369](https://github.com/stevehipwell/fluentd-aggregator/pull/369), [#378](https://github.com/stevehipwell/fluentd-aggregator/pull/378) & [#384](https://github.com/stevehipwell/fluentd-aggregator/pull/384)) _@dependabot_
 - Updated [fluent-plugin-s3](https://rubygems.org/gems/fluent-plugin-s3) from `v1.7.2` to [`v1.8.2`](https://github.com/fluent/fluent-plugin-s3/releases/tag/v1.8.2). ([#369](https://github.com/stevehipwell/fluentd-aggregator/pull/369) & [#384](https://github.com/stevehipwell/fluentd-aggregator/pull/384)) _@dependabot_
 - Updated [async](https://rubygems.org/gems/async) from `1.32.1` to [`2.21.1`](https://github.com/socketry/async/releases/tag/v2.21.1). ([#374](https://github.com/stevehipwell/fluentd-aggregator/pull/374)) _@dependabot_

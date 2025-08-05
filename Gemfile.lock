@@ -1,10 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (2.27.0)
+    async (2.24.0)
       console (~> 1.29)
       fiber-annotation
-      io-event (~> 1.11)
+      io-event (~> 1.9)
       metrics (~> 0.12)
       traces (~> 0.15)
     async-http (0.89.0)
@@ -17,38 +17,39 @@ GEM
       protocol-http1 (~> 0.30)
       protocol-http2 (~> 0.22)
       traces (~> 0.10)
-    async-pool (0.10.3)
-      async (>= 1.25)
+    async-pool (0.11.0)
+      async (>= 2.0)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1110.0)
-    aws-sdk-cloudwatchlogs (1.117.0)
-      aws-sdk-core (~> 3, >= 3.225.0)
+    aws-partitions (1.1141.0)
+    aws-sdk-cloudwatchlogs (1.124.0)
+      aws-sdk-core (~> 3, >= 3.228.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-core (3.225.0)
+    aws-sdk-core (3.229.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
       base64
+      bigdecimal
       jmespath (~> 1, >= 1.6.1)
       logger
-    aws-sdk-kms (1.99.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
+    aws-sdk-kms (1.110.0)
+      aws-sdk-core (~> 3, >= 3.228.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-s3 (1.182.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
+    aws-sdk-s3 (1.196.0)
+      aws-sdk-core (~> 3, >= 3.228.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.5)
-    aws-sdk-sqs (1.93.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
+    aws-sdk-sqs (1.100.0)
+      aws-sdk-core (~> 3, >= 3.228.0)
       aws-sigv4 (~> 1.5)
-    aws-sigv4 (1.12.0)
+    aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
     azure-loganalytics-datacollector-api (0.5.0)
       rest-client
     base64 (0.3.0)
     bigdecimal (3.2.2)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.0)
+    connection_pool (2.5.3)
     console (1.33.0)
       fiber-annotation
       fiber-local (~> 1.1)
@@ -62,31 +63,38 @@ GEM
     elastic-transport (8.4.0)
       faraday (< 3)
       multi_json
-    elasticsearch (9.0.2)
+    elasticsearch (9.1.0)
       elastic-transport (~> 8.3)
-      elasticsearch-api (= 9.0.2)
-    elasticsearch-api (9.0.2)
+      elasticsearch-api (= 9.1.0)
+    elasticsearch-api (9.1.0)
       multi_json
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (1.2.5)
+    excon (1.2.8)
       logger
-    faraday (2.13.1)
+    faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-excon (2.3.0)
       excon (>= 1.0.0)
       faraday (>= 2.11.0, < 3)
-    faraday-net_http (3.4.0)
+    faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
     faraday_middleware-aws-sigv4 (1.0.1)
       aws-sigv4 (~> 1.0)
       faraday (>= 2.0, < 3)
-    ffi (1.17.1-aarch64-linux-gnu)
-    ffi (1.17.1-aarch64-linux-musl)
-    ffi (1.17.1-x86_64-linux-gnu)
-    ffi (1.17.1-x86_64-linux-musl)
+    ffi (1.17.2)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86-linux-gnu)
+    ffi (1.17.2-x86-linux-musl)
+    ffi (1.17.2-x86_64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
@@ -152,13 +160,16 @@ GEM
       aws-sdk-sqs (~> 1)
       fluentd (>= 0.12.0, < 2)
       yajl-ruby (~> 1.0)
-    fluentd (1.18.0)
+    fluentd (1.19.0)
+      async-http (~> 0.86)
       base64 (~> 0.2)
       bundler
       cool.io (>= 1.4.5, < 2.0.0)
       csv (~> 3.2)
       drb (~> 2.2)
       http_parser.rb (>= 0.5.1, < 0.9.0)
+      io-event (< 1.11.0)
+      io-stream (< 0.8.0)
       logger (~> 1.6)
       msgpack (>= 1.3.1, < 2.0.0)
       serverengine (>= 2.3.2, < 3.0.0)
@@ -166,30 +177,32 @@ GEM
       strptime (>= 0.2.4, < 1.0.0)
       tzinfo (>= 1.0, < 3.0)
       tzinfo-data (~> 1.0)
+      uri (~> 1.0)
       webrick (~> 1.4)
       yajl-ruby (~> 1.0)
+      zstd-ruby (~> 1.5)
     http-accept (1.7.0)
     http-cookie (1.0.8)
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
     io-endpoint (0.15.2)
-    io-event (1.12.1)
-    io-stream (0.6.1)
+    io-event (1.10.2)
+    io-stream (0.7.0)
     jmespath (1.6.2)
     json (2.13.2)
     logger (1.7.0)
     ltsv (0.1.2)
     metrics (0.13.0)
-    mime-types (3.6.0)
+    mime-types (3.7.0)
       logger
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0204)
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0729)
     msgpack (1.8.0)
-    multi_json (1.15.0)
+    multi_json (1.17.0)
     net-http (0.6.0)
       uri
-    net-http-persistent (4.0.5)
-      connection_pool (~> 2.2)
+    net-http-persistent (4.0.6)
+      connection_pool (~> 2.2, >= 2.2.4)
     netrc (0.11.0)
     oj (3.16.11)
       bigdecimal (>= 3.0)
@@ -197,12 +210,12 @@ GEM
     opensearch-ruby (3.4.0)
       faraday (>= 1.0, < 3)
       multi_json (>= 1.0)
-    ostruct (0.6.1)
-    prometheus-client (4.2.4)
+    ostruct (0.6.3)
+    prometheus-client (4.2.5)
       base64
     protocol-hpack (1.5.1)
-    protocol-http (0.50.1)
-    protocol-http1 (0.34.0)
+    protocol-http (0.51.0)
+    protocol-http1 (0.34.1)
       protocol-http (~> 0.22)
     protocol-http2 (0.22.1)
       protocol-hpack (~> 1.4)
@@ -232,16 +245,22 @@ GEM
     uuidtools (2.2.0)
     webrick (1.9.1)
     yajl-ruby (1.4.3)
+    zstd-ruby (1.5.7.0)
 
 PLATFORMS
-  aarch64-linux
+  aarch64-linux-gnu
   aarch64-linux-musl
-  x86_64-linux
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
+  x86_64-linux-gnu
   x86_64-linux-musl
 
 DEPENDENCIES
-  async (= 2.27.0)
-  async-http (= 0.89.0)
   bundler
   fluent-plugin-azure-loganalytics (= 0.7.0)
   fluent-plugin-azurestorage-gen2 (= 0.3.9)
@@ -258,9 +277,9 @@ DEPENDENCIES
   fluent-plugin-route (= 1.0.0)
   fluent-plugin-s3 (= 1.8.3)
   fluent-plugin-sqs (= 3.0.0)
-  fluentd (= 1.18.0)
+  fluentd (= 1.19.0)
   oj (= 3.16.11)
   rake
 
 BUNDLED WITH
-   2.5.22
+   2.6.9
