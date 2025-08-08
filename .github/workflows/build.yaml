@@ -45,14 +45,13 @@ jobs:
         uses: tj-actions/changed-files@ed68ef82c095e0d48ec87eccea555d944a631a4c # v46.0.5
         with:
           files_ignore: |-
-            .github/**
             CHANGELOG.md
             LICENCE
             README.md
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@8aa25b15b5708e4ed403345a39e06aaa522bac5d # v0.6.0
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@add-manifest-sbom
     needs: setup
     if: github.event_name == 'workflow_dispatch' || needs.setup.outputs.changed == 'true'
     permissions:
