@@ -72,3 +72,5 @@ EXPOSE 24224
 
 ENTRYPOINT ["tini", "--", "/fluentd/bin/entrypoint.sh"]
 CMD ["fluentd"]
+
+# TEST
