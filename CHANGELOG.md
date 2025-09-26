@@ -19,6 +19,7 @@
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#455](https://github.com/stevehipwell/fluentd-aggregator/pull/455)) _@dependabot_
 - Update [fluent-plugin-record-modifier](https://rubygems.org/gems/fluent-plugin-record-modifier) from `2.2.0` to [`2.2.1`](https://github.com/repeatedly/fluent-plugin-record-modifier/releases/tag/v2.2.1). ([#456](https://github.com/stevehipwell/fluentd-aggregator/pull/456)) _@dependabot_
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#462](https://github.com/stevehipwell/fluentd-aggregator/pull/462)) _@dependabot_
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.5` to [`v3.4.6`](https://github.com/ruby/ruby/releases/tag/v3_4_6). ([#465](https://github.com/stevehipwell/fluentd-aggregator/pull/465)) _@stevehipwell_
 
 ## [v3.2.0] - 2025-08-05
 
