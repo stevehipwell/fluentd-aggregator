@@ -7,8 +7,8 @@ source "https://rubygems.org"
 # Core Gems
 gem "rake"
 gem "bundler"
-gem "oj", "3.16.11"
-gem "fluentd", "1.19.0"
+gem "oj", "3.16.12"
+gem "fluentd", "1.19.1"
 
 # Plugins
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
