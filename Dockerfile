@@ -66,7 +66,8 @@ COPY --chown=fluent:fluent fluent.yaml /fluentd/etc/
 COPY --chown=fluent:fluent --chmod=755 entrypoint.sh /fluentd/bin/
 
 ENV FLUENTD_DISABLE_BUNDLER_INJECTION="1" \
-  FLUENTD_CONF="fluent.yaml"
+  FLUENTD_CONF="fluent.yaml" \
+  TMPDIR="/tmp/fluentd"
 
 EXPOSE 24224
 
