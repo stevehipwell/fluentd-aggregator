@@ -14,14 +14,21 @@
 
 ## [UNRELEASED]
 
+## [v3.3.1] - 2025-11-26
+
+### Added
+
+- Add explicit default `TMPDIR` environment variable. ([#480](https://github.com/stevehipwell/fluentd-aggregator/pull/480)) _@stevehipwell_
+
 ### Changed
 
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#472](https://github.com/stevehipwell/fluentd-aggregator/pull/472)) _@dependabot_
 - Update [rake](https://rubygems.org/gems/rake) Gem from `13.3.0` to [`13.3.1`](https://github.com/ruby/rake/releases/tag/v13.3.1). ([#474](https://github.com/stevehipwell/fluentd-aggregator/pull/474)) _@dependabot_
 - Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.11` to [`3.16.12`](https://github.com/ohler55/oj/releases/tag/v3.16.12). ([#474](https://github.com/stevehipwell/fluentd-aggregator/pull/474)) _@dependabot_
 - Update [Fluentd](https://rubygems.org/gems/fluentd) from `v1.19.0` to [`v1.19.1`](https://github.com/fluent/fluentd/releases/tag/v1.19.1). ([#474](https://github.com/stevehipwell/fluentd-aggregator/pull/474)) _@dependabot_
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#476](https://github.com/stevehipwell/fluentd-aggregator/pull/476)) _@dependabot_
 
-## [v3.3.0] - 2025-20-24
+## [v3.3.0] - 2025-10-24
 
 ### Changed
 
@@ -492,7 +499,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.3.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.3.1...HEAD
+[v3.3.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.1
 [v3.3.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.0
 [v3.2.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.2.0
 [v3.1.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.1.1
