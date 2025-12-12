@@ -14,6 +14,10 @@
 
 ## [UNRELEASED]
 
+### Updated
+
+- Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.12` to [`3.16.13`](https://github.com/ohler55/oj/releases/tag/v3.16.13). ([#482](https://github.com/stevehipwell/fluentd-aggregator/pull/482)) _@dependabot_
+
 ## [v3.3.1] - 2025-11-26
 
 ### Added
