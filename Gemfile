@@ -7,7 +7,7 @@ source "https://rubygems.org"
 # Core Gems
 gem "rake"
 gem "bundler"
-gem "oj", "3.16.13"
+gem "oj", "3.16.15"
 gem "fluentd", "1.19.1"
 
 # Plugins
