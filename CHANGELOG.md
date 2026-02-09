@@ -14,6 +14,8 @@
 
 ## [UNRELEASED]
 
+## [v3.4.0] - 2026-02-09
+
 ### Updated
 
 - Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.12` to [`3.16.13`](https://github.com/ohler55/oj/releases/tag/v3.16.13). ([#482](https://github.com/stevehipwell/fluentd-aggregator/pull/482)) _@dependabot_
@@ -21,7 +23,7 @@
 - Update [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby) from `1.196.0` to `1.208.0`. ([#486](https://github.com/stevehipwell/fluentd-aggregator/pull/486)) _@dependabot_
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.7` to [`v3.4.8`](https://github.com/ruby/ruby/releases/tag/v3_4_8). ([#490](https://github.com/stevehipwell/fluentd-aggregator/pull/490)) _@dependabot_
 - Update [Ruby](https://hub.docker.com/_/ruby) OCI image digest. ([#492](https://github.com/stevehipwell/fluentd-aggregator/pull/492)) _@dependabot_
-- Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.12` to [`3.16.14`](https://github.com/ohler55/oj/releases/tag/v3.16.14). ([#494](https://github.com/stevehipwell/fluentd-aggregator/pull/494)) _@dependabot_
+- Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.12` to [`3.16.15`](https://github.com/ohler55/oj/releases/tag/v3.16.15). ([#494](https://github.com/stevehipwell/fluentd-aggregator/pull/494)) _@dependabot_
 
 ## [v3.3.1] - 2025-11-26
 
@@ -508,7 +510,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.3.1...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.4.0...HEAD
+[v3.4.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.4.0
 [v3.3.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.1
 [v3.3.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.0
 [v3.2.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.2.0
