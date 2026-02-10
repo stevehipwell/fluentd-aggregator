@@ -7,6 +7,7 @@ source "https://rubygems.org"
 # Core Gems
 gem "rake"
 gem "bundler"
+gem "libxml-ruby", "5.0.5"
 gem "oj", "3.16.15"
 gem "fluentd", "1.19.1"
 

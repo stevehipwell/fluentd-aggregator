@@ -14,9 +14,23 @@
 
 ## [UNRELEASED]
 
+## [v3.5.0] - 2026-02-10
+
+### Added
+
+- Add [libxml-ruby](https://rubygems.org/gems/libxml-ruby) Gem. ([#496](https://github.com/stevehipwell/fluentd-aggregator/pull/496)) _@stevehipwell_
+
+### Changed
+
+- Update [faraday](https://rubygems.org/gems/faraday) Gem from `2.13.4` to [`2.14.1`](https://github.com/lostisland/faraday/releases/tag/v2.14.1). ([#495](https://github.com/stevehipwell/fluentd-aggregator/pull/495)) _@dependabot_
+
+### Fixed
+
+- Fix issue with _fluent-plugin-s3_ due to missing XML library. ([#496](https://github.com/stevehipwell/fluentd-aggregator/pull/496)) _@stevehipwell_
+
 ## [v3.4.0] - 2026-02-09
 
-### Updated
+### Changed
 
 - Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.12` to [`3.16.13`](https://github.com/ohler55/oj/releases/tag/v3.16.13). ([#482](https://github.com/stevehipwell/fluentd-aggregator/pull/482)) _@dependabot_
 - Update [fluent-plugin-datadog](https://rubygems.org/gems/fluent-plugin-datadog/) from `v0.14.4` to [`v0.15.0`](https://github.com/DataDog/fluent-plugin-datadog/releases/tag/v0.15.0). ([#488](https://github.com/stevehipwell/fluentd-aggregator/pull/488)) _@dependabot_
@@ -510,7 +524,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.4.0...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.5.0...HEAD
+[v3.5.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.5.0
 [v3.4.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.4.0
 [v3.3.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.1
 [v3.3.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.3.0

@@ -87,15 +87,7 @@ GEM
       faraday (>= 2.0, < 3)
     ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
-    ffi (1.17.2-aarch64-linux-musl)
-    ffi (1.17.2-arm-linux-gnu)
-    ffi (1.17.2-arm-linux-musl)
-    ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86-linux-gnu)
-    ffi (1.17.2-x86-linux-musl)
-    ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
-    ffi (1.17.2-x86_64-linux-musl)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
@@ -189,6 +181,7 @@ GEM
     io-stream (0.11.1)
     jmespath (1.6.2)
     json (2.18.1)
+    libxml-ruby (5.0.5)
     logger (1.7.0)
     ltsv (0.1.2)
     metrics (0.15.0)
@@ -249,16 +242,8 @@ GEM
 
 PLATFORMS
   aarch64-linux-gnu
-  aarch64-linux-musl
-  arm-linux-gnu
-  arm-linux-musl
-  arm64-darwin
   ruby
-  x86-linux-gnu
-  x86-linux-musl
-  x86_64-darwin
   x86_64-linux-gnu
-  x86_64-linux-musl
 
 DEPENDENCIES
   bundler
@@ -278,6 +263,7 @@ DEPENDENCIES
   fluent-plugin-s3 (= 1.8.3)
   fluent-plugin-sqs (= 3.0.0)
   fluentd (= 1.19.1)
+  libxml-ruby (= 5.0.5)
   oj (= 3.16.15)
   rake
 
