@@ -42,7 +42,7 @@ jobs:
 
       - name: Check changes
         id: changes
-        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
+        uses: tj-actions/changed-files@7dee1b0c1557f278e5c7dc244927139d78c0e22a # v47.0.4
         with:
           files_ignore: |-
             .github/**
@@ -118,7 +118,7 @@ jobs:
           exit 1
 
       - name: Dependency Review
-        uses: actions/dependency-review-action@3c4e3dcb1aa7874d2c16be7d79418e9b7efd6261 # v4.8.2
+        uses: actions/dependency-review-action@05fe4576374b728f0c523d6a13d64c25081e0803 # v4.8.3
         with:
           base-ref: ${{ steps.snapshot.outputs.base_sha }}
           head-ref: ${{ steps.snapshot.outputs.head_sha }}
