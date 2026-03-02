@@ -9,7 +9,7 @@ gem "rake"
 gem "bundler"
 gem "libxml-ruby", "5.0.5"
 gem "oj", "3.16.15"
-gem "fluentd", "1.19.1"
+gem "fluentd", "1.19.2"
 
 # Plugins
 gem "fluent-plugin-azure-loganalytics", "0.7.0"
