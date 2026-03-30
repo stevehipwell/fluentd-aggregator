@@ -182,7 +182,7 @@ GEM
     io-event (1.14.2)
     io-stream (0.11.1)
     jmespath (1.6.2)
-    json (2.18.1)
+    json (2.19.2)
     libxml-ruby (5.0.5)
     logger (1.7.0)
     ltsv (0.1.2)
