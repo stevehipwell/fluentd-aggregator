@@ -14,6 +14,17 @@
 
 ## [UNRELEASED]
 
+## [v3.6.0] - 2026-03-30
+
+### Changed
+
+- Update [Ruby](https://hub.docker.com/_/ruby) OCI image from `v3.4.8` to [`v3.4.9`](https://github.com/ruby/ruby/releases/tag/v3_4_9). ([#504](https://github.com/stevehipwell/fluentd-aggregator/pull/504)) _@dependabot_
+- Update [json](https://rubygems.org/gems/json) Gem from `2.18.1` to [`2.19.2`](https://github.com/flori/json/releases/tag/v2.19.1). ([#507](https://github.com/stevehipwell/fluentd-aggregator/pull/507)) _@dependabot_
+- Update [oj](https://rubygems.org/gems/oj) Gem from `3.16.15` to [`3.16.16`](https://github.com/ohler55/oj/releases/tag/v3.16.16). ([#508](https://github.com/stevehipwell/fluentd-aggregator/pull/508)) _@dependabot_
+- Update [fluent-plugin-kafka](https://github.com/fluent/fluent-plugin-kafka) from `0.19.5` to [`0.19.6`](https://github.com/fluent/fluent-plugin-kafka/releases/tag/v0.19.6). ([#508](https://github.com/stevehipwell/fluentd-aggregator/pull/508)) _@dependabot_
+- Update [fluent-plugin-prometheus](https://rubygems.org/gems/fluent-plugin-prometheus/) from `v2.2.1` to [`v2.2.2`](https://github.com/fluent/fluent-plugin-prometheus/releases/tag/v2.2.2). ([#508](https://github.com/stevehipwell/fluentd-aggregator/pull/508)) _@dependabot_
+- Updated [fluent-plugin-s3](https://rubygems.org/gems/fluent-plugin-s3) from `v1.8.3` to [`v1.8.4`](https://github.com/fluent/fluent-plugin-s3/releases/tag/v1.8.4). ([#508](https://github.com/stevehipwell/fluentd-aggregator/pull/508)) _@dependabot_
+
 ## [v3.5.1] - 2026-03-02
 
 ### Changed
@@ -531,7 +542,8 @@
 <!--
 RELEASE LINKS
 -->
-[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.5.1...HEAD
+[UNRELEASED]: https://github.com/stevehipwell/fluentd-aggregator/compare/v3.6.0...HEAD
+[v3.6.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.6.0
 [v3.5.1]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.5.1
 [v3.5.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.5.0
 [v3.4.0]: https://github.com/stevehipwell/fluentd-aggregator/releases/tag/v3.4.0
