@@ -38,6 +38,7 @@ jobs:
     uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@33095d4c35d2362605cdccc986044b96eea2b0ed # v0.12.0
     needs: setup
     permissions:
+      artifact-metadata: write
       attestations: write
       contents: write
       id-token: write
