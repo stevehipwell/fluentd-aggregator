@@ -52,7 +52,7 @@ jobs:
 
   build:
     name: Build
-    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@d0ffef2f9ac1367db899e81a1cf159058f7dd3a1 # v0.10.3
+    uses: action-stars/build-workflows/.github/workflows/build-oci-image.yaml@33095d4c35d2362605cdccc986044b96eea2b0ed # v0.12.0
     needs: setup
     if: github.event_name == 'workflow_dispatch' || needs.setup.outputs.changed == 'true'
     permissions:
