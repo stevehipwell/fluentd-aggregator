@@ -25,7 +25,7 @@ updates:
           - patch
     ignore:
       - dependency-name: "*"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
     schedule:
       interval: weekly
     assignees:
@@ -35,6 +35,14 @@ updates:
     directory: /
     groups:
       bundler:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      bundler-security:
+        applies-to: security-updates
         patterns:
           - "*"
         update-types:
