@@ -183,7 +183,7 @@ GEM
     io-stream (0.13.0)
     jmespath (1.6.2)
     json (2.19.5)
-    libxml-ruby (5.0.5)
+    libxml-ruby (6.0.0)
     logger (1.7.0)
     ltsv (0.1.2)
     metrics (0.15.0)
@@ -265,7 +265,7 @@ DEPENDENCIES
   fluent-plugin-s3 (= 1.8.4)
   fluent-plugin-sqs (= 3.0.0)
   fluentd (= 1.19.2)
-  libxml-ruby (= 5.0.5)
+  libxml-ruby (= 6.0.0)
   oj (= 3.17.0)
   rake
 
