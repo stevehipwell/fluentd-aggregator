@@ -73,14 +73,14 @@ GEM
       ffi (>= 1.15.0)
     excon (1.2.8)
       logger
-    faraday (2.14.1)
+    faraday (2.14.3)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-excon (2.3.0)
       excon (>= 1.0.0)
       faraday (>= 2.11.0, < 3)
-    faraday-net_http (3.4.2)
+    faraday-net_http (3.4.4)
       net-http (~> 0.5)
     faraday_middleware-aws-sigv4 (1.0.1)
       aws-sigv4 (~> 1.0)
@@ -182,7 +182,7 @@ GEM
     io-event (1.16.0)
     io-stream (0.13.0)
     jmespath (1.6.2)
-    json (2.19.5)
+    json (2.20.0)
     libxml-ruby (6.0.0)
     logger (1.7.0)
     ltsv (0.1.2)
