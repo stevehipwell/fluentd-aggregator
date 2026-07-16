@@ -198,7 +198,7 @@ GEM
     net-http-persistent (4.0.6)
       connection_pool (~> 2.2, >= 2.2.4)
     netrc (0.11.0)
-    oj (3.17.3)
+    oj (3.17.4)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     opensearch-ruby (3.4.0)
@@ -266,7 +266,7 @@ DEPENDENCIES
   fluent-plugin-sqs (= 3.0.0)
   fluentd (= 1.19.3)
   libxml-ruby (= 6.0.0)
-  oj (= 3.17.3)
+  oj (= 3.17.4)
   rake
 
 BUNDLED WITH
