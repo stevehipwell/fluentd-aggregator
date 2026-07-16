@@ -7,6 +7,9 @@
 ![arm64](https://img.shields.io/badge/arch-arm64-brightgreen)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+> [!WARNING]
+> This image has been moved to the `fluent` organization and been renamed (`docker.io/fluent/fluentd-aggregator` or `ghcr.io/fluent/fluentd-aggregator-docker-image`); both this repository and the image have been deprecated and are no longer maintained. Please see the [fluent/fluentd-aggregator-docker-image](https://github.com/fluent/fluentd-aggregator-docker-image) repository for the latest version of the image. When migrating from this image to the new image please note that the new image `2.0.0` is equivalent to the `3.8.0` version of this image.
+
 A [Fluentd](https://www.fluentd.org/) [OCI](https://opencontainers.org/) image to be used for log aggregation and based on the official [Fluentd Docker image](https://github.com/fluent/fluentd-docker-image) rebuilt as a multi-arch `linux/amd64` & `linux/arm64` image.
 
 ## Aggregation Changes
