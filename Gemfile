@@ -8,7 +8,7 @@ source "https://rubygems.org"
 gem "rake"
 gem "bundler"
 gem "libxml-ruby", "6.0.0"
-gem "oj", "3.17.3"
+gem "oj", "3.17.4"
 gem "fluentd", "1.19.3"
 
 # Plugins
